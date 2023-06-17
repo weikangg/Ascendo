@@ -1,11 +1,22 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
-export default function IndividualReward({ reward }) {
+export default function IndividualReward({ reward, navigation }) {
   return (
-    <View style={styles.container}>
-      <Image style={styles.rewardImage} source={reward.image} />
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("RewardDetail", {
+          image: reward.image,
+          featureText: reward.features[0].text,
+        })
+      }
+    >
+      <Image
+        style={styles.rewardImage}
+        source={reward.image}
+        resizeMode="contain"
+      />
       <View style={styles.pointsBadge}>
         <Text style={styles.pointsText}>{reward.points}</Text>
       </View>
@@ -20,29 +31,26 @@ export default function IndividualReward({ reward }) {
         <Icon name="file-alt" size={10} color="#000" />
         <Text style={styles.termsText}>Terms & Conditions apply</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: "45%", // To adjust size with numColumns
-    height: 148,
+    width: "45%",
     backgroundColor: "#FFFFFF",
     borderWidth: 1,
     borderColor: "#BCBEC0",
     borderRadius: 10,
-    marginBottom: 20,
-    marginRight: 20,
+    marginVertical: 5,
     padding: 10,
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   rewardImage: {
-    position: "absolute",
-    width: 145,
+    width: "100%",
     height: 108,
-    marginLeft: 37, // According to Figma
-    marginTop: 3, // Adjust as needed
+    marginBottom: 5,
+    alignSelf: "center",
   },
   pointsBadge: {
     position: "absolute",
@@ -55,36 +63,29 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     top: 108 - 19 / 2,
-    left: 7, // Adjust as needed
+    left: 7,
   },
   pointsText: {
     fontSize: 11,
   },
   separator: {
-    position: "absolute",
-    width: 151, // According to Figma
+    width: "100%",
     height: 1,
     backgroundColor: "rgba(134, 134, 134, 0.54)",
-    marginLeft: 33, // According to Figma
-    marginTop: 110, // Adjust as needed
+    marginVertical: 10,
   },
   rewardInfo: {
-    position: "absolute",
     flexDirection: "row",
+    justifyContent: "flex-start",
     alignItems: "center",
-    marginLeft: 52, // According to Figma
-    marginTop: 114, // Adjust as needed
   },
   featureText: {
     fontSize: 10,
     marginLeft: 5,
   },
   terms: {
-    position: "absolute",
     flexDirection: "row",
-    alignItems: "center",
-    marginTop: 128, // Adjust as needed
-    marginLeft: 52, // According to Figma
+    marginTop: 5,
   },
   termsText: {
     fontSize: 10,

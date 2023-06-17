@@ -7,20 +7,11 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import CommunityScreen from "./CommunityScreen";
-import GamesScreen from "./GamesScreen";
-import RewardsScreen from "./RewardsScreen";
-import TasksScreen from "./TasksScreen";
 
-const communityName = "Community";
-const gamesName = "Games";
-const rewardsName = "Rewards";
-const tasksName = "Tasks";
+
 
 export default function HomeScreen({ navigation }) {
-  const handleFeaturePress = (screenName) => {
-    navigation.navigate(screenName);
-  };
+
   return (
     <>
       <ScrollView>
@@ -28,7 +19,7 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.title}>Getting Started</Text>
           <Text style={styles.subtitle}>
             To get you started with your journey with us, we’ve provided a few
-            instructions on how to get the most from Ascendo
+            instructions on how to get the most from Ascendo.
           </Text>
           <View style={styles.horizontalLine} />
 
@@ -140,7 +131,7 @@ const styles = StyleSheet.create({
     color: "#000000",
     bottom: 10,
     top: 10,
-    marginBottom: 20,
+    marginBottom: 25,
   },
   horizontalLine: {
     borderBottomColor: "#000000",

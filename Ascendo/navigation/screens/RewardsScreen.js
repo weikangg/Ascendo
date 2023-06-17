@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  FlatList,
   ScrollView,
   View,
   Text,
@@ -36,12 +35,12 @@ export default function RewardsScreen({ navigation }) {
       features: [
         {
           icon: "clock", // Replace with actual icon
-          text: "13:00 - 17:30",
+          text: "13:00 - 17:30 Time Off",
         },
       ],
     },
     {
-      image: require("../../assets/rewards_page/paid-time-off-reward.png"), // Replace with actual image
+      image: require("../../assets/rewards_page/fitness-first-reward.png"), // Replace with actual image
       points: 400,
       features: [
         {
@@ -51,7 +50,7 @@ export default function RewardsScreen({ navigation }) {
       ],
     },
     {
-      image: require("../../assets/rewards_page/paid-time-off-reward.png"), // Replace with actual image
+      image: require("../../assets/rewards_page/udemy-reward.png"), // Replace with actual image
       points: 800,
       features: [
         {
@@ -61,7 +60,7 @@ export default function RewardsScreen({ navigation }) {
       ],
     },
     {
-      image: require("../../assets/rewards_page/paid-time-off-reward.png"), // Replace with actual image
+      image: require("../../assets/rewards_page/grab-food-credit-reward.png"), // Replace with actual image
       points: 1500,
       features: [
         {
@@ -72,56 +71,67 @@ export default function RewardsScreen({ navigation }) {
     },
   ];
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.rewardBox}>
-        <Image
-          style={styles.companyLogo}
-          source={require("../../assets/rewards_page/ascendo_logo.png")}
-        />
-        <TouchableOpacity
-          style={styles.qrCode}
-          onPress={() => navigation.navigate("YourQRScreenRoute")}
-        >
+  const renderHeader = () => (
+      <View style={styles.headerContainer}>
+        <View style={styles.rewardBox}>
           <Image
-            style={styles.qrCodeImage}
-            source={require("../../assets/rewards_page/qrcode.png")}
+            style={styles.companyLogo}
+            source={require("../../assets/rewards_page/ascendo_logo.png")}
           />
-          <Text style={styles.qrCodeText}>User QR Code</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.infoIcon}>
-          <Ionicons name="information-circle-outline" size={24} color="#000" />
-        </TouchableOpacity>
-        <View style={styles.points}>
-          <Text style={styles.pointsText}>Points</Text>
-          <Text style={styles.pointsValue}>537</Text>
+          <TouchableOpacity
+            style={styles.qrCode}
+            onPress={() => navigation.navigate("YourQRScreenRoute")}
+          >
+            <Image
+              style={styles.qrCodeImage}
+              source={require("../../assets/rewards_page/qrcode.png")}
+            />
+            <Text style={styles.qrCodeText}>User QR Code</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.infoIcon}>
+            <Ionicons
+              name="information-circle-outline"
+              size={24}
+              color="#000"
+            />
+          </TouchableOpacity>
+          <View style={styles.points}>
+            <Text style={styles.pointsText}>Points</Text>
+            <Text style={styles.pointsValue}>537</Text>
+          </View>
         </View>
+        <ScrollView horizontal style={styles.tagsContainer}>
+          {tags.map((tag, index) => (
+            <RewardsTag
+              key={index}
+              title={tag}
+              onPress={() => handleTagPress(tag)}
+            />
+          ))}
+        </ScrollView>
       </View>
-      <ScrollView horizontal style={styles.tagsContainer}>
-        {tags.map((tag, index) => (
-          <RewardsTag
-            key={index}
-            title={tag}
-            onPress={() => handleTagPress(tag)}
-          />
+  );
+
+  return (
+    <ScrollView contentContainerStyle={styles.contentContainer}>
+      {renderHeader()}
+      <View style={styles.rewardsList}>
+        {rewards.map((reward, index) => (
+          <IndividualReward key={index} reward={reward} navigation={navigation} />
         ))}
-      </ScrollView>
-      <FlatList
-        contentContainerStyle={styles.rewardsList}
-        data={rewards}
-        keyExtractor={(item, index) => index.toString()}
-        numColumns={2}
-        renderItem={({ item }) => <IndividualReward reward={item} />}
-      />
-    </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
-    paddingTop: 20, // Add some padding at the top to accommodate the title
+    paddingTop: 20,
+  },
+  headerContainer: {
+    alignItems: "center",
+    marginBottom: 20,
   },
   profileIcon: {
     position: "absolute",
@@ -161,8 +171,8 @@ const styles = StyleSheet.create({
   },
   qrCode: {
     position: "absolute",
-    width: 112,
-    height: 112,
+    width: 107,
+    height: 110,
     left: 113,
     top: 58,
     alignItems: "center", // to center the QR code text
@@ -212,13 +222,17 @@ const styles = StyleSheet.create({
     color: "#000000",
   },
   tagsContainer: {
-    maxHeight: 60, // Adjust as needed
+    maxHeight: 250, // adjust this as needed
     marginTop: 20,
+    marginLeft: 7,
+    marginBottom: 0,
   },
   rewardsList: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    marginTop: 20, // Adjust as needed
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+    width: '100%',
+    paddingHorizontal: 5,
+    marginBottom: 20,
   },
 });
