@@ -1,7 +1,7 @@
 import * as React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -38,6 +38,8 @@ export default function MainContainer() {
   );
 }
 const TabNavigatorScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <Tab.Navigator
       initialRouteName={homeName}
@@ -96,10 +98,12 @@ const TabNavigatorScreen = () => {
                 marginRight: 20,
               }}
             >
-              <Image
-                style={{ width: 30, height: 30 }} // Adjust size as necessary
-                source={require("../assets/rewards_page/profile-icon.png")} // profile icon source
-              />
+              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                <Image
+                  style={{ width: 30, height: 30 }}
+                  source={require("../assets/rewards_page/profile-icon.png")}
+                />
+              </TouchableOpacity>
             </View>
           ),
         }}
