@@ -21,6 +21,7 @@ import RewardsDetailScreen from "./screens/RewardsDetailScreen";
 import TasksScreen from "./screens/TasksScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import GameIntroScreen from "./screens/GameIntroScreen";
+import CharadesScreen from "./screens/CharadesScreen";
 
 const homeName = "Home";
 const communityName = "Community";
@@ -91,6 +92,11 @@ export default function MainContainer() {
           name="GameIntro"
           component={GameIntroScreen}
           options={{ headerTitle: "Game Of The Day", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
+          name="Charades"
+          component={CharadesScreen}
+          options={{ headerTitle: "Charades", headerBackTitle: "Back" }}
         />
         <Stack.Screen
           name="RewardDetail"
