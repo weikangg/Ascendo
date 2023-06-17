@@ -12,20 +12,28 @@ export default function CharadesScreen({navigation}) {
             </Image>
             <View style={styles.buttonContainer}>
                 <View style={styles.row}>
-                    <TouchableOpacity style={[styles.button, { backgroundColor: '#D02803' }]}>
+                    <TouchableOpacity 
+                        style={[styles.button, { backgroundColor: '#D02803' }]}
+                        onPress={() => navigation.navigate("GameStatistics")}>
                         <Text style={styles.buttonText}>Java</Text>
                     </TouchableOpacity>
                     <View style={styles.spacing}></View>
-                    <TouchableOpacity style={[styles.button, { backgroundColor: '#03D030' }]}>
+                    <TouchableOpacity 
+                        style={[styles.button, { backgroundColor: '#03D030' }]}
+                        onPress={() => navigation.navigate("GameStatistics")}>
                         <Text style={styles.buttonText}>Python</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.row}>
-                <TouchableOpacity style={[styles.button, { backgroundColor: '#CCD003' }]}>
+                <TouchableOpacity 
+                    style={[styles.button, { backgroundColor: '#CCD003' }]}
+                    onPress={() => navigation.navigate("GameStatistics")}>
                         <Text style={styles.buttonText}>C++</Text>
                     </TouchableOpacity>
                     <View style={styles.spacing}></View>
-                    <TouchableOpacity style={[styles.button, { backgroundColor: '#1A8BCB' }]}>
+                    <TouchableOpacity 
+                        style={[styles.button, { backgroundColor: '#1A8BCB' }]}
+                        onPress={() => navigation.navigate("GameStatistics")}>
                         <Text style={styles.buttonText}>Javascript</Text>
                     </TouchableOpacity>
                 </View>
