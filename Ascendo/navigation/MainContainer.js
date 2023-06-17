@@ -23,6 +23,31 @@ const tasksName = "Tasks";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+const headerOptions = {
+  headerTitleAlign: "center",
+  headerTitleStyle: {
+    fontWeight: "bold", // Adjust this as needed
+    paddingBottom: 20,
+  },
+};
+
+const ProfileIcon = ({ navigation }) => (
+  <View
+    style={{
+      flexDirection: "row",
+      alignItems: "center",
+      marginRight: 20,
+    }}
+  >
+    <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+      <Image
+        style={{ width: 30, height: 30 }}
+        source={require("../assets/rewards_page/profile-icon.png")}
+      />
+    </TouchableOpacity>
+  </View>
+);
+
 export default function MainContainer() {
   return (
     <NavigationContainer>
@@ -37,6 +62,7 @@ export default function MainContainer() {
     </NavigationContainer>
   );
 }
+
 const TabNavigatorScreen = () => {
   const navigation = useNavigation();
 
@@ -61,7 +87,6 @@ const TabNavigatorScreen = () => {
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        // screenOptions: {
         tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "black",
         tabBarLabelStyle: {
@@ -74,150 +99,50 @@ const TabNavigatorScreen = () => {
           height: 90,
         },
       })}
-      // tabBarOptions={{
-      //   activeTintColor: "black",
-      //   inactiveTintColor: "black",
-      //   labelStyle: { paddingBottom: 0, fontSize: 11 },
-      // }}
     >
       <Tab.Screen
         name={rewardsName}
         component={RewardsScreen}
         options={{
+          ...headerOptions,
           headerTitle: "Rewards",
-          headerTitleAlign: "center",
-          headerTitleStyle: {
-            fontWeight: "bold", // Adjust this as needed
-            paddingBottom: 20,
-          },
-          headerRight: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginRight: 20,
-              }}
-            >
-              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Image
-                  style={{ width: 30, height: 30 }}
-                  source={require("../assets/rewards_page/profile-icon.png")}
-                />
-              </TouchableOpacity>
-            </View>
-          ),
+          headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       />
       <Tab.Screen
         name={tasksName}
         component={TasksScreen}
         options={{
+          ...headerOptions,
           headerTitle: "Tasks",
-          headerTitleAlign: "center",
-          headerTitleStyle: {
-            fontWeight: "bold", // Adjust this as needed
-            paddingBottom: 20,
-          },
-          headerRight: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginRight: 20,
-              }}
-            >
-              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Image
-                  style={{ width: 30, height: 30 }}
-                  source={require("../assets/rewards_page/profile-icon.png")}
-                />
-              </TouchableOpacity>
-            </View>
-          ),
+          headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       />
       <Tab.Screen
         name={homeName}
         component={HomeScreen}
         options={{
+          ...headerOptions,
           headerTitle: "Home",
-          headerTitleAlign: "center",
-          headerTitleStyle: {
-            fontWeight: "bold", // Adjust this as needed
-            paddingBottom: 20,
-          },
-          headerRight: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginRight: 20,
-              }}
-            >
-              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Image
-                  style={{ width: 30, height: 30 }}
-                  source={require("../assets/rewards_page/profile-icon.png")}
-                />
-              </TouchableOpacity>
-            </View>
-          ),
+          headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       />
       <Tab.Screen
         name={gamesName}
         component={GamesScreen}
         options={{
+          ...headerOptions,
           headerTitle: "Games",
-          headerTitleAlign: "center",
-          headerTitleStyle: {
-            fontWeight: "bold", // Adjust this as needed
-            paddingBottom: 20,
-          },
-          headerRight: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginRight: 20,
-              }}
-            >
-              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Image
-                  style={{ width: 30, height: 30 }}
-                  source={require("../assets/rewards_page/profile-icon.png")}
-                />
-              </TouchableOpacity>
-            </View>
-          ),
+          headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       />
       <Tab.Screen
         name={communityName}
         component={CommunityScreen}
         options={{
-          headerTitle: "Games",
-          headerTitleAlign: "center",
-          headerTitleStyle: {
-            fontWeight: "bold", // Adjust this as needed
-            paddingBottom: 20,
-          },
-          headerRight: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                marginRight: 20,
-              }}
-            >
-              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-                <Image
-                  style={{ width: 30, height: 30 }}
-                  source={require("../assets/rewards_page/profile-icon.png")}
-                />
-              </TouchableOpacity>
-            </View>
-          ),
+          ...headerOptions,
+          headerTitle: "Community",
+          headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       />
     </Tab.Navigator>
