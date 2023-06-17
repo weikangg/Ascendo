@@ -35,7 +35,7 @@ export default function HomeScreen({ navigation }) {
           {/* Features Section */}
           <TouchableOpacity
             style={styles.features}
-            onPress={() => navigation.navigate("RewardsScreen")}
+            onPress={() => navigation.navigate("Rewards")}
           >
             <Ionicons name="card" size={35} color="black" />
             <View style={styles.containerText}>
@@ -55,7 +55,7 @@ export default function HomeScreen({ navigation }) {
 
           <TouchableOpacity
             style={styles.features}
-            onPress={() => navigation.navigate("RewardsScreen")}
+            onPress={() => navigation.navigate("Tasks")}
           >
             <Ionicons name="book" size={35} color="black" />
             <View style={styles.containerText}>
@@ -74,7 +74,7 @@ export default function HomeScreen({ navigation }) {
           <View style={styles.horizontalLine} />
           <TouchableOpacity
             style={styles.features}
-            onPress={() => navigation.navigate("RewardsScreen")}
+            onPress={() => navigation.navigate("Games")}
           >
             <Ionicons name="game-controller" size={35} color="black" />
             <View style={styles.containerText}>
@@ -93,7 +93,7 @@ export default function HomeScreen({ navigation }) {
           <View style={styles.horizontalLine} />
           <TouchableOpacity
             style={styles.features}
-            onPress={() => navigation.navigate("RewardsScreen")}
+            onPress={() => navigation.navigate("Community")}
           >
             <Ionicons name="people" size={35} color="black" />
             <View style={styles.containerText}>
