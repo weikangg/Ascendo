@@ -64,6 +64,7 @@ export default function MainContainer() {
             headerTitleAlign: "center",
             headerTitleStyle: {
               fontWeight: "bold", // Adjust this as needed
+              paddingBottom: 20,
             },
             headerRight: () => (
               <View
