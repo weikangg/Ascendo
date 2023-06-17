@@ -108,10 +108,118 @@ const TabNavigatorScreen = () => {
           ),
         }}
       />
-      <Tab.Screen name={tasksName} component={TasksScreen} />
-      <Tab.Screen name={homeName} component={HomeScreen} />
-      <Tab.Screen name={gamesName} component={GamesScreen} />
-      <Tab.Screen name={communityName} component={CommunityScreen} />
+      <Tab.Screen
+        name={tasksName}
+        component={TasksScreen}
+        options={{
+          headerTitle: "Tasks",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontWeight: "bold", // Adjust this as needed
+            paddingBottom: 20,
+          },
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginRight: 20,
+              }}
+            >
+              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                <Image
+                  style={{ width: 30, height: 30 }}
+                  source={require("../assets/rewards_page/profile-icon.png")}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={homeName}
+        component={HomeScreen}
+        options={{
+          headerTitle: "Home",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontWeight: "bold", // Adjust this as needed
+            paddingBottom: 20,
+          },
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginRight: 20,
+              }}
+            >
+              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                <Image
+                  style={{ width: 30, height: 30 }}
+                  source={require("../assets/rewards_page/profile-icon.png")}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={gamesName}
+        component={GamesScreen}
+        options={{
+          headerTitle: "Games",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontWeight: "bold", // Adjust this as needed
+            paddingBottom: 20,
+          },
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginRight: 20,
+              }}
+            >
+              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                <Image
+                  style={{ width: 30, height: 30 }}
+                  source={require("../assets/rewards_page/profile-icon.png")}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={communityName}
+        component={CommunityScreen}
+        options={{
+          headerTitle: "Games",
+          headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontWeight: "bold", // Adjust this as needed
+            paddingBottom: 20,
+          },
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginRight: 20,
+              }}
+            >
+              <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+                <Image
+                  style={{ width: 30, height: 30 }}
+                  source={require("../assets/rewards_page/profile-icon.png")}
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
