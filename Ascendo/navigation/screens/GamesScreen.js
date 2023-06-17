@@ -8,10 +8,16 @@ export default function GamesScreen({navigation}) {
             <View style={styles.headerContainer}>
             <PlayersList/>
             <View style = {styles.buttonContainer}>
-                <TouchableOpacity style = {styles.button}>
+                <TouchableOpacity 
+                    style = {styles.button}
+                    onPress={() => navigation.navigate("Rewards")}
+                >
                     <Text style = {styles.button_text}>Add Friends</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.button}>
+                <TouchableOpacity 
+                    style = {styles.button}
+                    onPress={() => navigation.navigate("GameIntro")}
+                >
                     <Text style = {styles.button_text}>Start Game</Text>
                 </TouchableOpacity>
             </View>
