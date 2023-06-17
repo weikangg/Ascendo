@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import TasksList from "../components/TasksList";
+import HistoryTasksScreen from "./HistoryTasksScreen";
 
 export default function TasksScreen({ navigation }) {
   const [selectedTab, setSelectedTab] = useState("current");
   const navigateToHistoryTasks = () => {
     // Logic to navigate to the history tasks page
     console.log("Navigating to History Tasks page");
-    navigation.navigate("HistoryTasksScreen.js");
+    navigation.navigate(<HistoryTasksScreen></HistoryTasksScreen>);
   };
 
   return (

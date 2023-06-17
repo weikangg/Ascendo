@@ -44,17 +44,24 @@ export default function MainContainer() {
             }
             return <Ionicons name={iconName} size={size} color={color} />;
           },
+          // screenOptions: {
+          tabBarActiveTintColor: "black",
+          tabBarInactiveTintColor: "black",
+          tabBarLabelStyle: {
+            paddingBottom: 10,
+            fontSize: 11,
+          },
           tabBarStyle: {
             backgroundColor: "#469FD1",
             paddingTop: 10,
             height: 90,
           },
         })}
-        tabBarOptions={{
-          activeTintColor: "black",
-          inactiveTintColor: "black",
-          labelStyle: { paddingBottom: 0, fontSize: 11 },
-        }}
+        // tabBarOptions={{
+        //   activeTintColor: "black",
+        //   inactiveTintColor: "black",
+        //   labelStyle: { paddingBottom: 0, fontSize: 11 },
+        // }}
       >
         <Tab.Screen
           name={rewardsName}
