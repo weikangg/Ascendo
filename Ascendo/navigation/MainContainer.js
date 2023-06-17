@@ -20,6 +20,7 @@ import RewardsScreen from "./screens/RewardsScreen";
 import RewardsDetailScreen from "./screens/RewardsDetailScreen";
 import TasksScreen from "./screens/TasksScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import GameIntroScreen from "./screens/GameIntroScreen";
 
 const homeName = "Home";
 const communityName = "Community";
@@ -85,6 +86,11 @@ export default function MainContainer() {
           name="Profile"
           component={ProfileScreen}
           options={{ headerTitle: "Profile", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
+          name="GameIntro"
+          component={GameIntroScreen}
+          options={{ headerTitle: "Game Of The Day", headerBackTitle: "Back" }}
         />
         <Stack.Screen
           name="RewardDetail"
