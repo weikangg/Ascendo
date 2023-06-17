@@ -22,6 +22,7 @@ import TasksScreen from "./screens/TasksScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import GameIntroScreen from "./screens/GameIntroScreen";
 import CharadesScreen from "./screens/CharadesScreen";
+import GameStatisticsScreen from "./screens/GameStatisticsScreen";
 
 const homeName = "Home";
 const communityName = "Community";
@@ -97,6 +98,11 @@ export default function MainContainer() {
           name="Charades"
           component={CharadesScreen}
           options={{ headerTitle: "Charades", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
+          name="GameStatistics"
+          component={GameStatisticsScreen}
+          options={{ headerTitle: "Game Statistics", headerBackTitle: "Back" }}
         />
         <Stack.Screen
           name="RewardDetail"
