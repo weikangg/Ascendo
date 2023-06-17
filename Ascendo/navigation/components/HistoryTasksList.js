@@ -9,8 +9,9 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-const TasksList = ({ navigation }) => {
+const TasksList = () => {
   const [completedTasks, setCompletedTasks] = useState([]);
+  const [selectedTab, setSelectedTab] = useState("history");
 
   const toggleTaskCompletion = (taskId) => {
     if (completedTasks.includes(taskId)) {
@@ -61,8 +62,54 @@ const TasksList = ({ navigation }) => {
     console.log("Add to Calendar pressed");
   };
 
+  const navigateToCurrentTasks = () => {
+    // Logic to navigate to the history tasks page
+    console.log("Navigating to History Tasks page");
+  };
+
   return (
     <View style={styles.container}>
+      {/* <View style={styles.headerContainer}>
+        <View style={styles.headerRectangle}>
+          <Text style={styles.currentTasksText}>Current Tasks</Text>
+          <Text style={styles.historyText}>History</Text>
+        </View>
+      </View> */}
+      <View style={styles.headerContainer}>
+        <TouchableOpacity
+          style={[
+            styles.tabButton,
+            selectedTab === "current" && styles.selectedTabButton,
+          ]}
+          onPress={navigateToCurrentTasks}
+        >
+          <Text
+            style={[
+              styles.tabButtonText,
+              selectedTab === "current" && styles.selectedTabButtonText,
+            ]}
+          >
+            Current Tasks
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[
+            styles.tabButton,
+            selectedTab === "history" && styles.selectedTabButton,
+          ]}
+          onPress={() => setSelectedTab("history")}
+        >
+          <Text
+            style={[
+              styles.tabButtonText,
+              selectedTab === "history" && styles.selectedTabButtonText,
+            ]}
+          >
+            History
+          </Text>
+        </TouchableOpacity>
+      </View>
+
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id.toString()}
@@ -133,6 +180,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+  },
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 16,
+    width: "100%",
+  },
+  tabButton: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 8,
+    borderBottomWidth: 2,
+    borderColor: "transparent",
+  },
+  selectedTabButton: {
+    borderColor: "#469FD1",
+  },
+  tabButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  selectedTabButtonText: {
+    fontWeight: "bold",
   },
   contentContainer: {
     flexGrow: 1,
