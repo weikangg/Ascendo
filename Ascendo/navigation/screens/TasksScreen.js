@@ -35,7 +35,7 @@ export default function TasksScreen({ navigation }) {
             styles.tabButton,
             selectedTab === "history" && styles.selectedTabButton,
           ]}
-          onPress={navigateToHistoryTasks}
+          onPress={() => setSelectedTab("history")}
         >
           <Text
             style={[
@@ -47,7 +47,7 @@ export default function TasksScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
       </View>
-      <TasksList />
+      {selectedTab === "current" ? <TasksList /> : <HistoryTasksScreen />}
     </View>
   );
 }
