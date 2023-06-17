@@ -10,7 +10,7 @@ export default function GamesScreen({navigation}) {
             <View style = {styles.buttonContainer}>
                 <TouchableOpacity 
                     style = {styles.button}
-                    onPress={() => navigation.navigate("Rewards")}
+                    onPress={() => navigation.navigate("GameIntro")}
                 >
                     <Text style = {styles.button_text}>Add Friends</Text>
                 </TouchableOpacity>
