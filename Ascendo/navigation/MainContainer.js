@@ -17,6 +17,7 @@ import HomeScreen from "./screens/HomeScreen";
 import CommunityScreen from "./screens/CommunityScreen";
 import GamesScreen from "./screens/GamesScreen";
 import RewardsScreen from "./screens/RewardsScreen";
+import RewardsDetailScreen from "./screens/RewardsDetailScreen";
 import TasksScreen from "./screens/TasksScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 
@@ -47,7 +48,7 @@ const ProfileIcon = ({ navigation }) => (
   >
     <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
       <Image
-        style={{ width: 30, height: 30 }}
+        style={{ width: 30, height: 30, marginBottom: 10 }}
         source={require("../assets/rewards_page/profile-icon.png")}
       />
     </TouchableOpacity>
@@ -80,7 +81,20 @@ export default function MainContainer() {
           component={TabNavigatorScreen}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{ headerTitle: "Profile", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
+          name="RewardDetail"
+          component={RewardsDetailScreen}
+          options={({ navigation }) => ({
+            headerTitle: 'Reward Detail',
+            headerBackTitle: "Back",
+            headerRight: () => <ProfileIcon navigation={navigation}/>,
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
