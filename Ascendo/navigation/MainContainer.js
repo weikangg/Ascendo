@@ -1,5 +1,11 @@
 import * as React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
 
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -49,6 +55,23 @@ const ProfileIcon = ({ navigation }) => (
 );
 
 export default function MainContainer() {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    // Simulating an asynchronous task
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" color="#469FD1" />
+      </View>
+    );
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
