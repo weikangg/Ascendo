@@ -43,24 +43,32 @@ const headerOptions = {
   },
 };
 
-const ProfileIcon = ({ navigation }) => (
-  <View
-    style={{
-      flexDirection: "row",
-      alignItems: "center",
-      marginRight: 20,
-    }}
-  >
-    <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-      <Image
-        style={{ width: 30, height: 30, marginBottom: 10 }}
-        source={require("../assets/rewards_page/profile-icon.png")}
-      />
-    </TouchableOpacity>
-  </View>
-);
+const ProfileIcon = ({ handleAuthentication }) => {
+  const navigation = useNavigation();
 
-export default function MainContainer() {
+  const handleProfilePress = () => {
+    navigation.navigate("Profile");
+  };
+
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        marginRight: 20,
+      }}
+    >
+      <TouchableOpacity onPress={handleProfilePress}>
+        <Image
+          style={{ width: 30, height: 30, marginBottom: 10 }}
+          source={require("../assets/rewards_page/profile-icon.png")}
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default function MainContainer({ handleAuthentication }) {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -86,11 +94,11 @@ export default function MainContainer() {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="TabNavigator"
-        component={TabNavigatorScreen}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="TabNavigator" options={{ headerShown: false }}>
+        {() => (
+          <TabNavigatorScreen handleAuthentication={handleAuthentication} />
+        )}
+      </Stack.Screen>
       <Stack.Screen
         name="Profile"
         component={ProfileScreen}
@@ -160,7 +168,7 @@ export default function MainContainer() {
   );
 }
 
-const TabNavigatorScreen = () => {
+const TabNavigatorScreen = ({ handleAuthentication }) => {
   const navigation = useNavigation();
 
   return (
@@ -235,13 +243,14 @@ const TabNavigatorScreen = () => {
       />
       <Tab.Screen
         name={profileName}
-        component={ProfileScreen}
         options={{
           ...headerOptions,
           headerTitle: "Profile",
           headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
-      />
+      >
+        {() => <ProfileScreen handleAuthentication={handleAuthentication} />}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 };

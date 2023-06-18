@@ -8,7 +8,7 @@ import {
   FlatList,
 } from "react-native";
 
-const ProfilePage = ({ navigation }) => {
+const ProfilePage = ({ navigation, handleAuthentication }) => {
   const userProfile = {
     image: require("../../assets/rewards_page/ascendo_logo.png"),
     username: "john.doe",
@@ -40,6 +40,9 @@ const ProfilePage = ({ navigation }) => {
     navigation.navigate("FollowingList");
   };
 
+  const handleLogout = () => {
+    handleAuthentication(false);
+  };
   const postsData = [
     {
       id: "1",
@@ -125,7 +128,7 @@ const ProfilePage = ({ navigation }) => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.logOutButton}
-              onPress={() => navigation.navigate("Login")}
+              onPress={handleLogout}
             >
               <Text style={styles.button_text}>Log Out</Text>
             </TouchableOpacity>

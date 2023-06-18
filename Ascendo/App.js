@@ -17,7 +17,7 @@ export default function App() {
         {!isAuthenticated ? (
           <Auth handleAuthentication={handleAuthentication} />
         ) : (
-          <MainContainer />
+          <MainContainer handleAuthentication={handleAuthentication} />
         )}
       </NavigationContainer>
     </>
