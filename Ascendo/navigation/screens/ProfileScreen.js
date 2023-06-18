@@ -111,7 +111,14 @@ const ProfilePage = () => {
             showsHorizontalScrollIndicator={false} // Hide horizontal scroll indicator
             style={styles.postsContainer} // Add style to adjust container width
           />
-          <Button title="Customize Avatar" onPress={() => {}} />
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => console.log("customised Avatar")}
+            >
+              <Text style={styles.button_text}>Customize Avatar</Text>
+            </TouchableOpacity>
+          </View>
         </>
       )}
       keyExtractor={() => "profile-key"} // Provide a unique key for the FlatList item
@@ -202,6 +209,26 @@ const styles = {
   postsContainer: {
     flexGrow: 0,
     marginBottom: 20,
+  },
+  button: {
+    backgroundColor: "#0386D0",
+    width: 300,
+    padding: 14,
+    borderRadius: 20,
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  button_text: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  buttonContainer: {
+    position: "relative",
+    // bottom: ,
+    left: 10,
+    width: "100%",
+    alignItems: "center",
   },
 };
 
