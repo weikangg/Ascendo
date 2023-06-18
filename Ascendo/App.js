@@ -4,12 +4,14 @@ import { StatusBar } from "expo-status-bar";
 import Auth from "./navigation/auth/Auth";
 
 export default function App() {
-    return (
-        <>
-            <StatusBar style="auto" />
-            <Auth />
-        </>
-    );
+  return (
+    <>
+      <StatusBar style="auto" />
+      <MainContainer>
+        <Auth />
+      </MainContainer>
+    </>
+  );
 }
 
 // export default function App() {
