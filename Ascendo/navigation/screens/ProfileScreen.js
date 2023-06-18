@@ -122,6 +122,14 @@ const ProfilePage = ({ navigation }) => {
               <Text style={styles.button_text}>Customize Avatar</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              style={styles.logOutButton}
+              onPress={() => navigation.navigate("Login")}
+            >
+              <Text style={styles.button_text}>Log Out</Text>
+            </TouchableOpacity>
+          </View>
         </>
       )}
       keyExtractor={() => "profile-key"} // Provide a unique key for the FlatList item
@@ -215,6 +223,14 @@ const styles = {
   },
   button: {
     backgroundColor: "#0386D0",
+    width: 300,
+    padding: 14,
+    borderRadius: 20,
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  logOutButton: {
+    backgroundColor: "#ff2626",
     width: 300,
     padding: 14,
     borderRadius: 20,
