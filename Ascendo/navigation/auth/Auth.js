@@ -12,29 +12,29 @@ import {
 import Checkbox from "expo-checkbox";
 import Icon from "react-native-vector-icons/FontAwesome";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import DatePicker, { getFormatedDate } from "react-native-modern-datepicker";
 import { Feather } from "react-native-vector-icons";
 
 export default function Auth() {
     const [showDatePicker, setShowDatePicker] = useState(false);
-    const [showAccountTypeModal, setShowAccountTypeModal] = useState(false);
     const [selectedDate, setSelectedDate] = useState("");
+    const [showAccountTypeModal, setShowAccountTypeModal] = useState(false);
     const [selectedAccountType, setSelectedAccountType] = useState("");
     const [isRegisterPage, setIsRegisterPage] = useState(false);
     const [rememberPassword, setRememberPassword] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
+    const handleDateCancel = () => {
+        setShowDatePicker(false);
+    };
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date.toLocaleString().split(",")[0]);
+    };
+
     const handleAccountTypeSelect = (type) => {
         setSelectedAccountType(type);
         setShowAccountTypeModal(false);
-    };
-
-    const handleDateConfirm = (date) => {
-        setSelectedDate(date.toLocaleString().split(",")[0]);
-        setShowDatePicker(false);
-    };
-
-    const handleDateCancel = () => {
-        setShowDatePicker(false);
     };
 
     const handleSwitchToRegister = () => {
@@ -264,12 +264,23 @@ export default function Auth() {
                 />
             </View>
 
-            <DateTimePickerModal
-                isVisible={showDatePicker}
-                mode="date"
-                onConfirm={handleDateConfirm}
-                onCancel={handleDateCancel}
-            />
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={showDatePicker}
+            >
+                <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        <DatePicker
+                            mode="calendar"
+                            onDateChange={handleDateChange}
+                        />
+                        <TouchableOpacity onPress={handleDateCancel}>
+                            <Text>Close</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
 
             <Modal
                 visible={showAccountTypeModal}
@@ -384,5 +395,27 @@ const styles = StyleSheet.create({
     },
     inactiveText: {
         textDecorationLine: "none",
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22,
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        width: "90%",
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
     },
 });
