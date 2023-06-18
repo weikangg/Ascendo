@@ -11,8 +11,7 @@ import {
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import Icon from "react-native-vector-icons/FontAwesome";
-import DateTimePickerModal from "react-native-modal-datetime-picker";
-import DatePicker, { getFormatedDate } from "react-native-modern-datepicker";
+import DatePicker from "react-native-modern-datepicker";
 import { Feather } from "react-native-vector-icons";
 
 export default function Auth() {
