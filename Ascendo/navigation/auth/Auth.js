@@ -16,8 +16,6 @@ import DatePicker from "react-native-modern-datepicker";
 import { Feather } from "react-native-vector-icons";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
 
-import HomeScreen from "../screens/HomeScreen"; // Import the HomeScreen component
-
 export default function Auth({ handleAuthentication }) {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
@@ -62,11 +60,7 @@ export default function Auth({ handleAuthentication }) {
       setIsLoggedIn(true);
       handleAuthentication(true); // Pass the authentication result to the parent component
     } else {
-      <Alert>
-        <View>
-          <Text>Invalid Login</Text>
-        </View>
-      </Alert>;
+      Alert.alert("Invalid Login", "Please check your email and password.");
     }
   };
   return (
