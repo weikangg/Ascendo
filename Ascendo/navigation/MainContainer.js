@@ -14,7 +14,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import HomeScreen from "./screens/HomeScreen";
-import CommunityScreen from "./screens/CommunityScreen";
 import GamesScreen from "./screens/GamesScreen";
 import RewardsScreen from "./screens/RewardsScreen";
 import RewardsDetailScreen from "./screens/RewardsDetailScreen";
@@ -23,12 +22,15 @@ import ProfileScreen from "./screens/ProfileScreen";
 import GameIntroScreen from "./screens/GameIntroScreen";
 import CharadesScreen from "./screens/CharadesScreen";
 import GameStatisticsScreen from "./screens/GameStatisticsScreen";
+import FollowerScreen from "./screens/FollowerScreen";
+import FollowingScreen from "./screens/FollowingScreen";
+import ProfileDetailsScreen from "./screens/ProfileDetails";
 
 const homeName = "Home";
-const communityName = "Community";
 const gamesName = "Games";
 const rewardsName = "Rewards";
 const tasksName = "Tasks";
+const profileName = "Profile";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -90,6 +92,21 @@ export default function MainContainer() {
           options={{ headerTitle: "Profile", headerBackTitle: "Back" }}
         />
         <Stack.Screen
+          name="ProfileDetails"
+          component={ProfileDetailsScreen}
+          options={{ headerTitle: "Edit Profile", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
+          name="FollowerList"
+          component={FollowerScreen}
+          options={{ headerTitle: "Followers", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
+          name="FollowingList"
+          component={FollowingScreen}
+          options={{ headerTitle: "Following", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
           name="GameIntro"
           component={GameIntroScreen}
           options={{ headerTitle: "Game Of The Day", headerBackTitle: "Back" }}
@@ -108,9 +125,9 @@ export default function MainContainer() {
           name="RewardDetail"
           component={RewardsDetailScreen}
           options={({ navigation }) => ({
-            headerTitle: 'Reward Detail',
+            headerTitle: "Reward Detail",
             headerBackTitle: "Back",
-            headerRight: () => <ProfileIcon navigation={navigation}/>,
+            headerRight: () => <ProfileIcon navigation={navigation} />,
           })}
         />
       </Stack.Navigator>
@@ -131,7 +148,7 @@ const TabNavigatorScreen = () => {
 
           if (rn === homeName) {
             iconName = focused ? "home" : "home-outline";
-          } else if (rn === communityName) {
+          } else if (rn === profileName) {
             iconName = focused ? "people" : "people-outline";
           } else if (rn === gamesName) {
             iconName = focused ? "game-controller" : "game-controller-outline";
@@ -192,11 +209,11 @@ const TabNavigatorScreen = () => {
         }}
       />
       <Tab.Screen
-        name={communityName}
-        component={CommunityScreen}
+        name={profileName}
+        component={ProfileScreen}
         options={{
           ...headerOptions,
-          headerTitle: "Community",
+          headerTitle: "Profile",
           headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       />

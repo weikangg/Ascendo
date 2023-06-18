@@ -8,7 +8,7 @@ import {
   FlatList,
 } from "react-native";
 
-const ProfilePage = () => {
+const ProfilePage = ({ navigation }) => {
   const userProfile = {
     image: require("../../assets/rewards_page/ascendo_logo.png"),
     username: "john.doe",
@@ -25,16 +25,19 @@ const ProfilePage = () => {
   const progress =
     (userProfile.experiencePoints / userProfile.totalExperiencePoints) * 100;
 
-  const handleFriendsPress = () => {
+  const handleFriendsPress = ({ navigation }) => {
     // Handle friends press logic
+    navigation.navigate("FollowerList");
   };
 
-  const handleFollowersPress = () => {
+  const handleFollowersPress = ({ navigation }) => {
     // Handle followers press logic
+    navigation.navigate("FollowerList");
   };
 
-  const handleFollowingPress = () => {
+  const handleFollowingPress = ({ navigation }) => {
     // Handle following press logic
+    navigation.navigate("FollowingList");
   };
 
   const postsData = [
@@ -73,21 +76,21 @@ const ProfilePage = () => {
           </View>
           <View style={styles.statsContainer}>
             <TouchableOpacity
-              onPress={handleFriendsPress}
+              onPress={() => handleFriendsPress({ navigation })}
               style={styles.statsItem}
             >
               <Text style={styles.statsText}>{userProfile.friendCount}</Text>
               <Text style={styles.statsLabel}>Friends</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={handleFollowersPress}
+              onPress={() => handleFollowersPress({ navigation })}
               style={styles.statsItem}
             >
               <Text style={styles.statsText}>{userProfile.followerCount}</Text>
               <Text style={styles.statsLabel}>Followers</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={handleFollowingPress}
+              onPress={() => handleFollowingPress({ navigation })}
               style={styles.statsItem}
             >
               <Text style={styles.statsText}>{userProfile.followingCount}</Text>
@@ -114,7 +117,7 @@ const ProfilePage = () => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => console.log("customised Avatar")}
+              onPress={() => navigation.navigate("ProfileDetails")}
             >
               <Text style={styles.button_text}>Customize Avatar</Text>
             </TouchableOpacity>
@@ -135,7 +138,7 @@ const styles = {
   },
   profileImage: {
     width: 300,
-    height: 200,
+    height: 180,
     marginBottom: 10,
     left: 10,
   },
@@ -199,7 +202,7 @@ const styles = {
   postImageContainer: {
     width: 150,
     height: 150,
-    marginBottom: 5,
+    marginBottom: 1,
   },
   postImage: {
     width: "100%",
@@ -225,7 +228,6 @@ const styles = {
   },
   buttonContainer: {
     position: "relative",
-    // bottom: ,
     left: 10,
     width: "100%",
     alignItems: "center",
