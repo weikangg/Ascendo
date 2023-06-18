@@ -1,6 +1,6 @@
-<h1 align="center"> :house_with_garden: Ascendo</h1>
+<h1 align="center"> :office: Ascendo</h1>
 
-PropertyIQ is a web application that organises and makes accessible relevant market data and is the the go-to source for up-to-date information and trends in the Singapore housing rental market.
+Ascendo is a two-pronged mobile application deployed in companies to revolutionize employee experience and enhance work efficiency through gamification, addressing the problem faced by organizations: low levels of meaningful connections among colleagues leading to inadequate fulfillment in the workplace.
 
 <h2 align = "center"> :open_book: Table Of Contents </h2>
 
