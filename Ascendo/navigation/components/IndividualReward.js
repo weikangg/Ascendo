@@ -5,10 +5,12 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 export default function IndividualReward({ reward, navigation }) {
   return (
     <TouchableOpacity
+      style={styles.container} // Add this line
       onPress={() =>
         navigation.navigate("RewardDetail", {
           image: reward.image,
           featureText: reward.features[0].text,
+          pointsRequired: reward.points
         })
       }
     >

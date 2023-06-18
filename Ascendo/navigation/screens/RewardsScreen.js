@@ -65,7 +65,7 @@ export default function RewardsScreen({ navigation }) {
       features: [
         {
           icon: "dollar-sign", // Replace with actual icon
-          text: "$150 grabfood credits",
+          text: "$150 GrabFood credits",
         },
       ],
     },
