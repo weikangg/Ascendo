@@ -8,14 +8,6 @@ import {
   Image,
   TouchableOpacity,
   Modal,
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  Pressable,
-  Image,
-  TouchableOpacity,
-  Modal,
   Alert,
 } from "react-native";
 import Checkbox from "expo-checkbox";
@@ -25,9 +17,8 @@ import { Feather } from "react-native-vector-icons";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
 
 import HomeScreen from "../screens/HomeScreen"; // Import the HomeScreen component
-import { useNavigation } from "@react-navigation/native";
 
-export default function Auth() {
+export default function Auth({ handleAuthentication }) {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
   const [showAccountTypeModal, setShowAccountTypeModal] = useState(false);
@@ -35,6 +26,10 @@ export default function Auth() {
   const [isRegisterPage, setIsRegisterPage] = useState(false);
   const [rememberPassword, setRememberPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState(""); // Track the email input
+  const [password, setPassword] = useState(""); // Track the password input
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigation = useNavigation(); // Initialize the useNavigation hook
 
   const handleDateCancel = () => {
     setShowDatePicker(false);
@@ -61,6 +56,19 @@ export default function Auth() {
     setShowPassword(!showPassword);
   };
 
+  const handleLogin = () => {
+    // Perform login authentication
+    if (email === "hello@gmail.com" && password === "hello") {
+      setIsLoggedIn(true);
+      handleAuthentication(true); // Pass the authentication result to the parent component
+    } else {
+      <Alert>
+        <View>
+          <Text>Invalid Login</Text>
+        </View>
+      </Alert>;
+    }
+  };
   return (
     <>
       <View style={styles.container}>
@@ -171,7 +179,12 @@ export default function Auth() {
         {!isRegisterPage && (
           <>
             <View style={styles.row}>
-              <TextInput style={styles.input} placeholder="Email Address" />
+              <TextInput
+                style={styles.input}
+                placeholder="Email Address"
+                value={email}
+                onChangeText={(text) => setEmail(text)}
+              />
             </View>
             <View
               style={[
@@ -182,9 +195,11 @@ export default function Auth() {
               ]}
             >
               <TextInput
-                style={[styles.input, { borderBottomWidth: 0 }]}
+                style={styles.input}
                 placeholder="Password"
                 secureTextEntry={!showPassword}
+                value={password}
+                onChangeText={(text) => setPassword(text)}
               />
               <TouchableOpacity
                 onPress={togglePasswordVisibility}
@@ -214,7 +229,7 @@ export default function Auth() {
               </Pressable>
             </View>
             <View style={[styles.row, { marginTop: 40 }]}>
-              <Pressable style={styles.button}>
+              <Pressable style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Login</Text>
               </Pressable>
             </View>
