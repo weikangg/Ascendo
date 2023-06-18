@@ -13,7 +13,6 @@ import player2 from '../../assets/player2.png';
 
 
 const PlayersList = () => {
-  // Dummy task data for testing
   const players = [
     {
       id: 1,
