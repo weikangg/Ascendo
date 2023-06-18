@@ -80,7 +80,8 @@ const PlayersList = () => {
 
 const styles = StyleSheet.create({
   container:{
-    marginBottom: 16,
+    marginBottom: 20,
+    height:600,
   },
   playerCard: {
     alignItems:'center',
