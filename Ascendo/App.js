@@ -1,12 +1,25 @@
-import * as React from 'react';
-import MainContainer from './navigation/MainContainer';
-import { StatusBar } from 'expo-status-bar';
+import React, { useState } from "react";
+import MainContainer from "./navigation/MainContainer";
+import { StatusBar } from "expo-status-bar";
+import Auth from "./navigation/auth/Auth";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleAuthentication = (authenticated) => {
+    setIsAuthenticated(authenticated);
+  };
   return (
     <>
-      <StatusBar style="auto" />
-      <MainContainer />
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        {!isAuthenticated ? (
+          <Auth handleAuthentication={handleAuthentication} />
+        ) : (
+          <MainContainer handleAuthentication={handleAuthentication} />
+        )}
+      </NavigationContainer>
     </>
   );
 }
