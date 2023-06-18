@@ -1,14 +1,15 @@
-import * as React from 'react';
-import MainContainer from './navigation/MainContainer';
-import { StatusBar } from 'expo-status-bar';
+import * as React from "react";
+import MainContainer from "./navigation/MainContainer";
+import { StatusBar } from "expo-status-bar";
+import Auth from "./navigation/auth/Auth";
 
 export default function App() {
-  return (
-    <>
-      <StatusBar style="auto" />
-      <MainContainer />
-    </>
-  );
+    return (
+        <>
+            <StatusBar style="auto" />
+            <Auth />
+        </>
+    );
 }
 
 // export default function App() {
