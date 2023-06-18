@@ -161,8 +161,9 @@ export default function MainContainer() {
         <Stack.Screen
           name="Login"
           component={Auth}
-          options={({ navigation }) => ({
+          options={({}) => ({
             headerTitle: "Login / Register",
+            headerLeft: () => null, // this line removes the back button
           })}
         />
       </Stack.Navigator>

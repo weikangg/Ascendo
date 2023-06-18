@@ -124,7 +124,7 @@ const ProfilePage = ({ navigation }) => {
           </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
-              style={styles.button}
+              style={styles.logOutButton}
               onPress={() => navigation.navigate("Login")}
             >
               <Text style={styles.button_text}>Log Out</Text>
@@ -223,6 +223,14 @@ const styles = {
   },
   button: {
     backgroundColor: "#0386D0",
+    width: 300,
+    padding: 14,
+    borderRadius: 20,
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  logOutButton: {
+    backgroundColor: "#ff2626",
     width: 300,
     padding: 14,
     borderRadius: 20,
