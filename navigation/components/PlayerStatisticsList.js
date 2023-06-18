@@ -8,13 +8,11 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
 import player1 from '../../assets/player1.png';
 import player2 from '../../assets/player2.png';
 
 
 const PlayersList = () => {
-  // Dummy task data for testing
   const players = [
     {
       id: 1,
