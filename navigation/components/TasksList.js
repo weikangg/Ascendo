@@ -81,7 +81,6 @@ const TasksList = ({ navigation }) => {
 
   const addToCalendar = () => {
     // Logic to open the user's calendar app
-    console.log("Add to Calendar pressed");
   };
 
   const TaskItem = ({ item }) => {
