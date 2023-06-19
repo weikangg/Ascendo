@@ -8,7 +8,6 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
-import { Picker } from "@react-native-picker/picker";
 import { FontAwesome } from "@expo/vector-icons";
 
 const AddTask = ({ visible, onClose }) => {
