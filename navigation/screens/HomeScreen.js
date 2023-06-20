@@ -38,8 +38,6 @@ export default function HomeScreen({ navigation }) {
           </View>
         </View>
         <HomePost />
-        <HomePost />
-        <HomePost />
       </View>
     </ScrollView>
   );
