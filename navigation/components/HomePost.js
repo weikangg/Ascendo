@@ -18,6 +18,21 @@ const Posts = ({ name, profile, photo, onPress }) => {
     setLiked(!liked);
   };
 
+  const post = () => [
+    {
+      id: 1,
+      imageSource: Player1,
+      name: "Niggatron",
+      timestamp: "2 mins ago",
+      description: "Check out this amazing new store at our kopitiam downstairs!!",
+      descImage: Kopitiam,
+    },
+  ];
+
+  const renderPostCard = ({item}) => {
+    
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
