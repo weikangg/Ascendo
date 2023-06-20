@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ascendo-dev-210055-authRole",
+      "UnauthRoleArn": "arn:aws:iam::975605154217:role/amplify-ascendo-dev-210055-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::975605154217:role/amplify-ascendo-dev-210055-authRole",
+      "Region": "sa-east-1",
+      "DeploymentBucketName": "amplify-ascendo-dev-210055-deployment",
+      "UnauthRoleName": "amplify-ascendo-dev-210055-unauthRole",
+      "StackName": "amplify-ascendo-dev-210055",
+      "StackId": "arn:aws:cloudformation:sa-east-1:975605154217:stack/amplify-ascendo-dev-210055/82235e10-0f6a-11ee-ae3e-067052909ab0",
+      "AmplifyAppId": "d1t2ei1riltyo2"
+    }
+  },
+  "auth": {
+    "ascendo8b46898c": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ascendo-dev-210055-deployment/amplify-cfn-templates/auth/ascendo8b46898c-cloudformation-template.json",
+        "logicalId": "authascendo8b46898c"
+      },
+      "lastPushTimeStamp": "2023-06-20T13:15:15.255Z",
+      "output": {
+        "UserPoolId": "sa-east-1_pwPvvWAMn",
+        "AppClientIDWeb": "5ipktq7jat48eatagujiiduasb",
+        "AppClientID": "6aj7tov441dmqc3rh5562gfjl9",
+        "IdentityPoolId": "sa-east-1:53d41002-8a04-4e5b-b167-ec7ee51903c0",
+        "UserPoolArn": "arn:aws:cognito-idp:sa-east-1:975605154217:userpool/sa-east-1_pwPvvWAMn",
+        "IdentityPoolName": "ascendo8b46898c_identitypool_8b46898c__dev",
+        "UserPoolName": "ascendo8b46898c_userpool_8b46898c"
+      },
+      "lastPushDirHash": "jp5tnN0ZZP+y832/xfRsnw1Nc48="
+    }
+  }
+}
