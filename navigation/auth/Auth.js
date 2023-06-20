@@ -15,6 +15,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import DatePicker from "react-native-modern-datepicker";
 import { Feather } from "react-native-vector-icons";
 import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
+import { withAuthenticator, useAuthenticator } from '@aws-amplify/ui-react-native';
 
 export default function Auth({ handleAuthentication }) {
     const [showDatePicker, setShowDatePicker] = useState(false);
@@ -65,6 +66,17 @@ export default function Auth({ handleAuthentication }) {
                 "Please check your email and password."
             );
         }
+    };
+
+    const userSelector = (context) => [context.user]
+
+    const SignOutButton = () => {
+    const { user, signOut } = useAuthenticator(userSelector);
+    return (
+        <Pressable onPress={signOut} style={styles.buttonContainer}>
+        <Text style={styles.buttonText}>Hello, {user.username}! Click here to sign out!</Text>
+        </Pressable>
+    )
     };
     return (
         <>
