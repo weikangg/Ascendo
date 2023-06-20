@@ -4,10 +4,13 @@ import { StatusBar } from "expo-status-bar";
 import Auth from "./navigation/auth/Auth";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { Amplify } from 'aws-amplify';
-import awsExports from './src/aws-exports';
-import SignOutButton from './navigation/components/SignOutButton';
-import { withAuthenticator, useAuthenticator } from '@aws-amplify/ui-react-native';
+import { Amplify } from "aws-amplify";
+import awsExports from "./src/aws-exports";
+import SignOutButton from "./navigation/components/SignOutButton";
+import {
+  withAuthenticator,
+  useAuthenticator,
+} from "@aws-amplify/ui-react-native";
 
 Amplify.configure(awsExports);
 
@@ -26,7 +29,6 @@ function App() {
         ) : (
           <MainContainer handleAuthentication={handleAuthentication} />
         )}
-        <SignOutButton />
       </NavigationContainer>
     </>
   );

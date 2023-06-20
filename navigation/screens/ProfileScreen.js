@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
+import SignOutButton from "../components/SignOutButton";
 
 const ProfilePage = ({ navigation, handleAuthentication }) => {
   const userProfile = {
@@ -67,76 +68,85 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
   );
 
   return (
-    <FlatList
-      contentContainerStyle={styles.container}
-      data={[0]} // Dummy data to make the FlatList render a single item
-      renderItem={() => (
-        <>
-          <Image source={userProfile.image} style={styles.profileImage} />
-          <View style={styles.nameContainer}>
-            <Text style={styles.username}>{userProfile.username}</Text>
-            <Text style={styles.name}>@{userProfile.name}</Text>
-          </View>
-          <View style={styles.statsContainer}>
-            <TouchableOpacity
-              onPress={() => handleFriendsPress({ navigation })}
-              style={styles.statsItem}
-            >
-              <Text style={styles.statsText}>{userProfile.friendCount}</Text>
-              <Text style={styles.statsLabel}>Friends</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleFollowersPress({ navigation })}
-              style={styles.statsItem}
-            >
-              <Text style={styles.statsText}>{userProfile.followerCount}</Text>
-              <Text style={styles.statsLabel}>Followers</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => handleFollowingPress({ navigation })}
-              style={styles.statsItem}
-            >
-              <Text style={styles.statsText}>{userProfile.followingCount}</Text>
-              <Text style={styles.statsLabel}>Following</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.infoContainer}>
-            <Text style={styles.infoText}>Level: {userProfile.level}</Text>
-            <Text style={styles.infoText}>
-              Experience Points: {userProfile.experiencePoints}
-            </Text>
-            <View style={styles.progressBar}>
-              <View style={[styles.progress, { width: `${progress}%` }]}></View>
+    <View>
+      <FlatList
+        contentContainerStyle={styles.container}
+        data={[0]} // Dummy data to make the FlatList render a single item
+        renderItem={() => (
+          <>
+            <SignOutButton />
+            <Image source={userProfile.image} style={styles.profileImage} />
+            <View style={styles.nameContainer}>
+              <Text style={styles.username}>{userProfile.username}</Text>
+              <Text style={styles.name}>@{userProfile.name}</Text>
             </View>
-          </View>
-          <FlatList
-            data={postsData}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-            horizontal // Add horizontal prop for horizontal scroll view
-            showsHorizontalScrollIndicator={false} // Hide horizontal scroll indicator
-            style={styles.postsContainer} // Add style to adjust container width
-          />
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.navigate("ProfileDetails")}
-            >
-              <Text style={styles.button_text}>Customize Avatar</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={styles.logOutButton}
-              onPress={handleLogout}
-            >
-              <Text style={styles.button_text}>Log Out</Text>
-            </TouchableOpacity>
-          </View>
-        </>
-      )}
-      keyExtractor={() => "profile-key"} // Provide a unique key for the FlatList item
-    />
+            <View style={styles.statsContainer}>
+              <TouchableOpacity
+                onPress={() => handleFriendsPress({ navigation })}
+                style={styles.statsItem}
+              >
+                <Text style={styles.statsText}>{userProfile.friendCount}</Text>
+                <Text style={styles.statsLabel}>Friends</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => handleFollowersPress({ navigation })}
+                style={styles.statsItem}
+              >
+                <Text style={styles.statsText}>
+                  {userProfile.followerCount}
+                </Text>
+                <Text style={styles.statsLabel}>Followers</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => handleFollowingPress({ navigation })}
+                style={styles.statsItem}
+              >
+                <Text style={styles.statsText}>
+                  {userProfile.followingCount}
+                </Text>
+                <Text style={styles.statsLabel}>Following</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.infoContainer}>
+              <Text style={styles.infoText}>Level: {userProfile.level}</Text>
+              <Text style={styles.infoText}>
+                Experience Points: {userProfile.experiencePoints}
+              </Text>
+              <View style={styles.progressBar}>
+                <View
+                  style={[styles.progress, { width: `${progress}%` }]}
+                ></View>
+              </View>
+            </View>
+            <FlatList
+              data={postsData}
+              renderItem={renderItem}
+              keyExtractor={(item) => item.id}
+              horizontal // Add horizontal prop for horizontal scroll view
+              showsHorizontalScrollIndicator={false} // Hide horizontal scroll indicator
+              style={styles.postsContainer} // Add style to adjust container width
+            />
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate("ProfileDetails")}
+              >
+                <Text style={styles.button_text}>Customize Avatar</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={styles.logOutButton}
+                onPress={handleLogout}
+              >
+                <Text style={styles.button_text}>Log Out</Text>
+              </TouchableOpacity>
+            </View>
+          </>
+        )}
+        keyExtractor={() => "profile-key"} // Provide a unique key for the FlatList item
+      />
+    </View>
   );
 };
 
