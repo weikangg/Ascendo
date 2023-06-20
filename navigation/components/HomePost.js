@@ -6,6 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   StyleSheet,
+  FlatList,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import Player1 from "../../assets/player1.png"
@@ -18,7 +19,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
     setLiked(!liked);
   };
 
-  const post = () => [
+  const posts = [
     {
       id: 1,
       imageSource: Player1,
@@ -27,54 +28,64 @@ const Posts = ({ name, profile, photo, onPress }) => {
       description: "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,
     },
+    {
+      id: 2,
+      imageSource: Player1,
+      name: "Gayass",
+      timestamp: "2 mins ago",
+      description: "Check out this amazing new store at our kopitiam downstairs!!",
+      descImage: Kopitiam,
+    },
   ];
 
-  const renderPostCard = ({item}) => {
-    
+  const renderPostCard = ({ item }) => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={styles.profileContainer}>
+            <Image source={item.imageSource} style={styles.profile} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.timestamp}>{item.timestamp}</Text>
+          </View>
+          <Entypo name="sound-mix" color="#044244" size={20} />
+        </View>
+        <View style={styles.imageContainer}>
+          <Text style={styles.description}>{item.description}</Text>
+          <ImageBackground
+            source={item.descImage}
+            style={styles.image}
+            imageStyle={styles.imageBackground}
+          />
+          <View style={styles.iconContainer}>
+            <TouchableOpacity onPress={onPress} style={styles.iconButton}>
+              <Text marginRight={10}>Share</Text>
+              <Entypo name="forward" color="#044244" size={20} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleLike} style={styles.iconButton}>
+              <Text marginRight={10}>Like</Text>
+              <Entypo
+                name={liked ? "heart" : "heart-outlined"}
+                color={liked ? "red" : "#044244"}
+                size={20}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    );
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.profileContainer}>
-          <Image
-            source={Player1}
-            style={styles.profile}
-          />
-        </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.name}>Niggatron</Text>
-          <Text style={styles.timestamp}>2 mins ago</Text>
-        </View>
-        <Entypo name="sound-mix" color="#044244" size={20} />
-      </View>
-      <View style={styles.imageContainer}>
-        <Text style = {styles.description}>Check out this amazing new store at our kopitiam downstairs!!</Text>
-        <ImageBackground
-          source={Kopitiam}
-          style={styles.image}
-          imageStyle={styles.imageBackground}
-        >
-        </ImageBackground>  
-        <View style={styles.iconContainer}>
-          <TouchableOpacity onPress={onPress} style={styles.iconButton}>
-            <Text marginRight = {10}>Share</Text>
-            <Entypo name="forward" color="#044244" size={20} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={handleLike} style={styles.iconButton}>
-          <Text marginRight = {10}>Like</Text>
-            <Entypo
-              name={liked ? "heart" : "heart-outlined"}
-              color={liked ? "red" : "#044244"}
-              size={20}
-            />
-          </TouchableOpacity>
-        </View>
-        
-      </View>
-    </View>
+    <FlatList
+      data={posts}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={renderPostCard}
+    />
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
