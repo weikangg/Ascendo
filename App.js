@@ -4,28 +4,24 @@ import { StatusBar } from "expo-status-bar";
 import Auth from "./navigation/auth/Auth";
 import { NavigationContainer } from "@react-navigation/native";
 
-import Avatar from "./navigation/components/Avatar";
-
 export default function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const handleAuthentication = (authenticated) => {
-        setIsAuthenticated(authenticated);
-    };
-    return (
-        <>
-            <NavigationContainer>
-                <StatusBar style="auto" />
-                {!isAuthenticated ? (
-                    <Auth handleAuthentication={handleAuthentication} />
-                ) : (
-                    <MainContainer
-                        handleAuthentication={handleAuthentication}
-                    />
-                )}
-            </NavigationContainer>
-        </>
-    );
+  const handleAuthentication = (authenticated) => {
+    setIsAuthenticated(authenticated);
+  };
+  return (
+    <>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        {!isAuthenticated ? (
+          <Auth handleAuthentication={handleAuthentication} />
+        ) : (
+          <MainContainer handleAuthentication={handleAuthentication} />
+        )}
+      </NavigationContainer>
+    </>
+  );
 }
 
 // export default function App() {
