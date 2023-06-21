@@ -10,25 +10,23 @@ import awsExports from "./src/aws-exports";
 Amplify.configure(awsExports);
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const handleAuthentication = (authenticated) => {
-        setIsAuthenticated(authenticated);
-    };
-    return (
-        <>
-            <NavigationContainer>
-                <StatusBar style="auto" />
-                {!isAuthenticated ? (
-                    <Authen handleAuthentication={handleAuthentication} />
-                ) : (
-                    <MainContainer
-                        handleAuthentication={handleAuthentication}
-                    />
-                )}
-            </NavigationContainer>
-        </>
-    );
+  const handleAuthentication = (authenticated) => {
+    setIsAuthenticated(authenticated);
+  };
+  return (
+    <>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        {!isAuthenticated ? (
+          <Authen handleAuthentication={handleAuthentication} />
+        ) : (
+          <MainContainer handleAuthentication={handleAuthentication} />
+        )}
+      </NavigationContainer>
+    </>
+  );
 }
 
 export default App;
