@@ -14,10 +14,19 @@ import Player1 from "../../assets/player1.png";
 import Kopitiam from "../../assets/kopitiam.jpeg";
 
 const Posts = ({ name, profile, photo, onPress }) => {
-  const [liked, setLiked] = useState(false);
+  const [likes, setLikes] = useState([]);
 
-  const handleLike = () => {
-    setLiked(!liked);
+  const handleLike = (postId) => {
+    const updatedLikes = [...likes];
+    const index = updatedLikes.indexOf(postId);
+    if (index === -1) {
+      // Add post ID to liked posts
+      updatedLikes.push(postId);
+    } else {
+      // Remove post ID from liked posts
+      updatedLikes.splice(index, 1);
+    }
+    setLikes(updatedLikes);
   };
 
   const handleShare = () => {
@@ -49,7 +58,11 @@ const Posts = ({ name, profile, photo, onPress }) => {
     },
   ];
 
+  const isPostLiked = (postId) => likes.includes(postId);
+
   const renderPostCard = ({ item }) => {
+    const isLiked = isPostLiked(item.id);
+
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -74,11 +87,14 @@ const Posts = ({ name, profile, photo, onPress }) => {
               <Text marginRight={10}>Share</Text>
               <Entypo name="forward" color="#044244" size={20} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={handleLike} style={styles.iconButton}>
+            <TouchableOpacity
+              onPress={() => handleLike(item.id)}
+              style={styles.iconButton}
+            >
               <Text marginRight={10}>Like</Text>
               <Entypo
-                name={liked ? "heart" : "heart-outlined"}
-                color={liked ? "red" : "#044244"}
+                name={isLiked ? "heart" : "heart-outlined"}
+                color={isLiked ? "red" : "#044244"}
                 size={20}
               />
             </TouchableOpacity>

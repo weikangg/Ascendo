@@ -49,12 +49,13 @@ export default function HomeScreen({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
-      <FlatList
+      {/* <FlatList
         data={[{ key: "post1" }]} // Example data, replace with your actual data
         renderItem={() => <HomePost />} // Render your HomePost component here
         keyExtractor={(item) => item.key}
         contentContainerStyle={styles.contentContainer}
-      />
+      /> */}
+      <HomePost />
     </View>
   );
 }
