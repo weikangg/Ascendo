@@ -353,6 +353,7 @@ const styles = StyleSheet.create({
   deleteIcon: {
     color: "#ffffff",
     fontSize: 24,
+    marginLeft: 20,
   },
 });
 
