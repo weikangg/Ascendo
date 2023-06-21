@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import Python from '../../assets/python.png'
+import Python from '../../assets/python.jpeg';
+import Java from '../../assets/java.jpeg';
 
 const quizData = [
     {
       id: 1,
-      question: "Guess the programming language",
+      question: "1. Guess the programming language",
       image: Python,
       options: ["Java", "Python", "C++", "JavaScript"],
       correctAnswer: "Python",
     },
     {
       id: 2,
-      question: "Guess the Gay language",
-      image: Python,
-      options: ["Java", "Python", "C++", "JavaScript"],
-      correctAnswer: "Python",
+      question: "2. Guess the programming language",
+      image: Java,
+      options: ["Java", "Ruby", "Dart", "C#"],
+      correctAnswer: "Java",
     },
   ];
 
@@ -33,15 +34,15 @@ export default function CharadesScreen({navigation}) {
 
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < quizData.length) {
-        setCurrentQuestion(nextQuestion);
+          setCurrentQuestion(nextQuestion);
         } else {
-        navigation.navigate("ResultScreen", { score });
+          navigation.navigate("GameStatistics");
         }
     };
     return (
         <View style={styles.container}>
           <Text style={styles.header}>{quizData[currentQuestion].question}</Text>
-          <Image style={styles.image} source={Python} />
+          <Image style={styles.image} source={quizData[currentQuestion].image} />
     
           <View style={styles.buttonContainer}>
             <View style={styles.row}>
@@ -53,7 +54,6 @@ export default function CharadesScreen({navigation}) {
                     selectedAnswer === option && { backgroundColor: "#0386D0" },
                   ]}
                   onPress={() => handleAnswer(option)}
-                  disabled={selectedAnswer !== null}
                 >
                   <Text style={styles.buttonText}>{option}</Text>
                 </TouchableOpacity>
@@ -68,7 +68,6 @@ export default function CharadesScreen({navigation}) {
                     selectedAnswer === option && { backgroundColor: "#0386D0" },
                   ]}
                   onPress={() => handleAnswer(option)}
-                  disabled={selectedAnswer !== null}
                 >
                   <Text style={styles.buttonText}>{option}</Text>
                 </TouchableOpacity>
@@ -87,9 +86,9 @@ const styles = StyleSheet.create({
     },
     header: {
         marginTop:40,
-        fontSize:23,
-        marginBottom:15,
+        fontSize:21,
         color:"#469FD1",
+        fontWeight:"bold",
     },
     image: {
         width: 500, 
