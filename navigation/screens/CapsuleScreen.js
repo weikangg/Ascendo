@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     View,
     Text,
@@ -11,7 +11,18 @@ import {
 const CapsuleScreen = () => {
     const [isModalVisible, setIsModalVisible] = React.useState(false);
     const [petIndex, setpetIndex] = React.useState(-1);
-    //const petIndex = Math.floor(Math.random() * 4);
+    const [showImage, setShowImage] = useState(true);
+
+    useEffect(() => {
+        let timeout;
+        if (isModalVisible) {
+            timeout = setTimeout(() => {
+                setShowImage(false);
+            }, 2000); // Display the image for 2 seconds before switching
+        }
+
+        return () => clearTimeout(timeout);
+    }, [isModalVisible]);
 
     const handleDispenseButton = () => {
         setIsModalVisible(true);
@@ -29,14 +40,13 @@ const CapsuleScreen = () => {
                 style={styles.imageBackground}
                 resizeMode="contain"
             />
+            <TouchableOpacity
+                onPress={handleDispenseButton}
+                style={styles.vendingButton}
+            >
+                <Text style={styles.buttonFont}>.</Text>
+            </TouchableOpacity>
             <View>
-                <TouchableOpacity
-                    onPress={handleDispenseButton}
-                    style={styles.vendingButton}
-                >
-                    <Text style={styles.buttonFont}>Dispense</Text>
-                </TouchableOpacity>
-
                 <Modal
                     visible={isModalVisible}
                     transparent={true}
@@ -45,6 +55,12 @@ const CapsuleScreen = () => {
                 >
                     <View style={styles.modalContainer}>
                         <View style={styles.modalContent}>
+                            {showImage && (
+                                <Image
+                                    source={require("../.././assets/gacha/capsule-opening.gif")}
+                                    style={[{ marginBottom: 100 }]}
+                                />
+                            )}
                             {petIndex === 2 && (
                                 <>
                                     <Image
@@ -104,7 +120,10 @@ const CapsuleScreen = () => {
 
                             <TouchableOpacity
                                 style={styles.modalOption}
-                                onPress={() => setIsModalVisible(false)}
+                                onPress={() => {
+                                    setIsModalVisible(false);
+                                    setShowImage(true);
+                                }}
                             >
                                 <Text style={styles.modalOptionText}>
                                     Confirm
@@ -121,22 +140,17 @@ const CapsuleScreen = () => {
 const styles = StyleSheet.create({
     background: {
         height: "100%",
-        backgroundColor: "black",
+        backgroundColor: "dimgray",
     },
     imageBackground: {
-        //resizeMode: "contain",
-        height: "100%",
         width: "100%",
+        marginTop: 31,
         alignSelf: "flex-start",
     },
     vendingButton: {
-        marginTop: 100, // Adjust the value as needed
-        alignSelf: "center",
-        backgroundColor: "grey",
-        borderRadius: 10,
-        padding: 40,
-        width: "50%",
-        alignItems: "center",
+        marginTop: 320, // Adjust the value as needed
+        marginLeft: 345,
+        position: "absolute",
     },
     buttonFont: {
         fontSize: 20,
