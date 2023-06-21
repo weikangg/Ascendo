@@ -72,44 +72,45 @@ export default function RewardsScreen({ navigation }) {
   ];
 
   const renderHeader = () => (
-      <View style={styles.headerContainer}>
-        <View style={styles.rewardBox}>
+    <View style={styles.headerContainer}>
+      <View style={styles.rewardBox}>
+        <Image
+          style={styles.companyLogo}
+          source={require("../../assets/rewards_page/ascendo_logo.png")}
+        />
+        <TouchableOpacity
+          style={styles.qrCode}
+          // onPress={() => navigation.navigate("YourQRScreenRoute")}
+          onPress={() => console.log("Pressed QR Code;")}
+        >
           <Image
-            style={styles.companyLogo}
-            source={require("../../assets/rewards_page/ascendo_logo.png")}
+            style={styles.qrCodeImage}
+            source={require("../../assets/rewards_page/qrcode.png")}
           />
-          <TouchableOpacity
-            style={styles.qrCode}
-            onPress={() => navigation.navigate("YourQRScreenRoute")}
-          >
-            <Image
-              style={styles.qrCodeImage}
-              source={require("../../assets/rewards_page/qrcode.png")}
-            />
-            <Text style={styles.qrCodeText}>User QR Code</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.infoIcon}>
-            <Ionicons
-              name="information-circle-outline"
-              size={24}
-              color="#000"
-            />
-          </TouchableOpacity>
-          <View style={styles.points}>
-            <Text style={styles.pointsText}>Points</Text>
-            <Text style={styles.pointsValue}>537</Text>
-          </View>
+          <Text style={styles.qrCodeText}>User QR Code</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.infoIcon}>
+          <Ionicons name="information-circle-outline" size={24} color="#000" />
+        </TouchableOpacity>
+        <View style={styles.points}>
+          <Text style={styles.pointsText}>Points</Text>
+          <Text style={styles.pointsValue}>537</Text>
         </View>
-        <ScrollView horizontal style={styles.tagsContainer}>
-          {tags.map((tag, index) => (
-            <RewardsTag
-              key={index}
-              title={tag}
-              onPress={() => handleTagPress(tag)}
-            />
-          ))}
-        </ScrollView>
       </View>
+      <ScrollView
+        horizontal
+        style={styles.tagsContainer}
+        showsHorizontalScrollIndicator={false}
+      >
+        {tags.map((tag, index) => (
+          <RewardsTag
+            key={index}
+            title={tag}
+            onPress={() => handleTagPress(tag)}
+          />
+        ))}
+      </ScrollView>
+    </View>
   );
 
   return (
@@ -117,7 +118,11 @@ export default function RewardsScreen({ navigation }) {
       {renderHeader()}
       <View style={styles.rewardsList}>
         {rewards.map((reward, index) => (
-          <IndividualReward key={index} reward={reward} navigation={navigation} />
+          <IndividualReward
+            key={index}
+            reward={reward}
+            navigation={navigation}
+          />
         ))}
       </View>
     </ScrollView>
@@ -231,7 +236,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-around",
-    width: '100%',
+    width: "100%",
     paddingHorizontal: 5,
     marginBottom: 20,
   },
