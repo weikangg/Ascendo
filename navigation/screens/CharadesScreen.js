@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Python from '../../assets/python.jpeg';
 import Java from '../../assets/java.jpeg';
+import AWS from "aws-sdk";
 
 const quizData = [
     {
@@ -18,7 +19,15 @@ const quizData = [
       options: ["Java", "Ruby", "Dart", "C#"],
       correctAnswer: "Java",
     },
-  ];
+];
+
+AWS.config.update({
+    region: "ap-southeast-1",
+    accessKeyId: "AKIA6GJUZIGUTCJCTGKO",
+    secretAccessKey: "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",
+});
+
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 export default function CharadesScreen({navigation}) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -29,14 +38,40 @@ export default function CharadesScreen({navigation}) {
         setSelectedAnswer(answer);
 
         if (answer === quizData[currentQuestion].correctAnswer) {
-        setScore(score + 1);
+            setScore(score + 1);
         }
 
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < quizData.length) {
           setCurrentQuestion(nextQuestion);
         } else {
-          navigation.navigate("GameStatistics");
+            const item = {
+                id: "id",
+                point: score.toString(),
+              };
+        
+              fetch("https://ftqnr2uye8.execute-api.ap-southeast-1.amazonaws.com/points", {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(item),
+              })
+                .then((response) => {
+                  if (response.ok) {
+                    return response.json();
+                  } else {
+                    throw new Error("Request failed with status code " + response.status);
+                  }
+                })
+                .then((data) => {
+                  console.log(data);
+                  
+                })
+                  .catch((error) => {
+                  console.error(error);
+            });
+            navigation.navigate("GameStatistics");
         }
     };
     return (
