@@ -89,7 +89,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "95%",
+    width: "100%",
     margin: "auto",
     marginBottom: 20,
     left: 10,

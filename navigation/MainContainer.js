@@ -136,7 +136,7 @@ export default function MainContainer({ handleAuthentication }) {
             />
             <Stack.Screen
                 name="GameIntro"
-                component={TopDownRPG}
+                component={GameIntroScreen}
                 options={{
                     headerTitle: "Game Of The Day",
                     headerBackTitle: "Back",
