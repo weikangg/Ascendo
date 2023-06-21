@@ -333,7 +333,7 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
         component={CapsuleScreen}
         options={{
           ...headerOptions,
-          headerTitle: "Games",
+          headerTitle: "Capsule",
           headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       />
