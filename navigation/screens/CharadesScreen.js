@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Python from '../../assets/python.png'
 
