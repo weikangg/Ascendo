@@ -49,7 +49,7 @@ const styles = {
     alignItems: 'center',
   },
   inputContainer: {
-    borderRadius: 30,
+    borderRadius: 15,
     borderColor: "#BFC0C1",
     borderWidth:1,
     width: "90%",
