@@ -83,80 +83,78 @@ export default function MainContainer({ handleAuthentication }) {
 
   if (isLoading) {
     return (
-        <Stack.Navigator>
-            <Stack.Screen name="TabNavigator" options={{ headerShown: false }}>
-                {() => (
-                    <TabNavigatorScreen
-                        handleAuthentication={handleAuthentication}
-                    />
-                )}
-            </Stack.Screen>
-            <Stack.Screen
-                name="Profile"
-                component={ProfileScreen}
-                options={{
-                    headerTitle: "Profile",
-                    headerBackTitle: "Back",
-                }}
-            />
-            <Stack.Screen
-                name="ProfileDetails"
-                component={ProfileDetailsScreen}
-                options={{
-                    headerTitle: "Edit Profile",
-                    headerBackTitle: "Back",
-                }}
-            />
-            <Stack.Screen
-                name="FollowerList"
-                component={FollowerScreen}
-                options={{
-                    headerTitle: "Followers",
-                    headerBackTitle: "Back",
-                }}
-            />
-            <Stack.Screen
-                name="FollowingList"
-                component={FollowingScreen}
-                options={{
-                    headerTitle: "Following",
-                    headerBackTitle: "Back",
-                }}
-            />
-            <Stack.Screen
-                name="GameIntro"
-                component={GameIntroScreen}
-                options={{
-                    headerTitle: "Game Of The Day",
-                    headerBackTitle: "Back",
-                }}
-            />
-            <Stack.Screen
-                name="Charades"
-                component={CharadesScreen}
-                options={{
-                    headerTitle: "Charades",
-                    headerBackTitle: "Back",
-                }}
-            />
-            <Stack.Screen
-                name="GameStatistics"
-                component={GameStatisticsScreen}
-                options={{
-                    headerTitle: "Game Statistics",
-                    headerBackTitle: "Back",
-                }}
-            />
-            <Stack.Screen
-                name="RewardDetail"
-                component={RewardsDetailScreen}
-                options={({ navigation }) => ({
-                    headerTitle: "Reward Detail",
-                    headerBackTitle: "Back",
-                    headerRight: () => <ProfileIcon navigation={navigation} />,
-                })}
-            />
-        </Stack.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name="TabNavigator" options={{ headerShown: false }}>
+          {() => (
+            <TabNavigatorScreen handleAuthentication={handleAuthentication} />
+          )}
+        </Stack.Screen>
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{
+            headerTitle: "Profile",
+            headerBackTitle: "Back",
+          }}
+        />
+        <Stack.Screen
+          name="ProfileDetails"
+          component={ProfileDetailsScreen}
+          options={{
+            headerTitle: "Edit Profile",
+            headerBackTitle: "Back",
+          }}
+        />
+        <Stack.Screen
+          name="FollowerList"
+          component={FollowerScreen}
+          options={{
+            headerTitle: "Followers",
+            headerBackTitle: "Back",
+          }}
+        />
+        <Stack.Screen
+          name="FollowingList"
+          component={FollowingScreen}
+          options={{
+            headerTitle: "Following",
+            headerBackTitle: "Back",
+          }}
+        />
+        <Stack.Screen
+          name="GameIntro"
+          component={GameIntroScreen}
+          options={{
+            headerTitle: "Game Of The Day",
+            headerBackTitle: "Back",
+          }}
+        />
+        <Stack.Screen
+          name="Charades"
+          component={CharadesScreen}
+          options={{
+            headerTitle: "Charades",
+            headerBackTitle: "Back",
+          }}
+        />
+        <Stack.Screen
+          name="GameStatistics"
+          component={GameStatisticsScreen}
+          options={{
+            headerTitle: "Game Statistics",
+            headerBackTitle: "Back",
+          }}
+        />
+        <Stack.Screen
+          name="RewardDetail"
+          component={RewardsDetailScreen}
+          options={({ navigation }) => ({
+            headerTitle: "Reward Detail",
+            headerBackTitle: "Back",
+            headerRight: () => <ProfileIcon navigation={navigation} />,
+          })}
+        />
+      </Stack.Navigator>
     );
   }
 
@@ -325,7 +323,12 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
           headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       >
-        {() => <ProfileScreen handleAuthentication={handleAuthentication} />}
+        {() => (
+          <ProfileScreen
+            handleAuthentication={handleAuthentication}
+            navigation={navigation}
+          />
+        )}
       </Tab.Screen>
     </Tab.Navigator>
   );
