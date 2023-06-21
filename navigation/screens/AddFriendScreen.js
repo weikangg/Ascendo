@@ -90,7 +90,7 @@ const AddFriendScreen = ({ navigation }) => {
           onChangeText={setSearchQuery}
           placeholder="Search friends..."
         />
-        <Button title="Search" onPress={handleSearch} color = "#469FD1" fontWeight = "bold"/>
+        <Text style = {styles.searchButton} title="Search" onPress={handleSearch}>Search</Text>
       </View>
       <FlatList
         data={searchResults}
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   searchBarContainer: {
-    borderRadius: 30,
+    borderRadius: 15,
     borderColor: "#BFC0C1",
     borderWidth:1,
     width: "95%",
@@ -124,6 +124,12 @@ const styles = StyleSheet.create({
     height: 40,
     marginRight: 8,
     paddingHorizontal: 10,
+  },
+  searchButton:{
+    fontWeight:"bold",
+    fontSize:18,
+    color: "#469FD1",
+    marginRight:10,
   },
   friendList: {
     flexGrow: 1,
