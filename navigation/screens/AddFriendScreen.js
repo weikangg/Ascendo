@@ -11,8 +11,6 @@ import {
 } from "react-native";
 
 const AddFriendScreen = ({ navigation }) => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
   const results = [
     {
       id: 1,
@@ -30,9 +28,12 @@ const AddFriendScreen = ({ navigation }) => {
       imageSource: require("../../assets/player2.png"),
     },
   ];
+  
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState(results);
+  
+
   const handleSearch = () => {
-    // Perform search logic here
-    // Replace the following with your own search implementation
     const results = [
       {
         id: 1,
@@ -50,7 +51,16 @@ const AddFriendScreen = ({ navigation }) => {
         imageSource: require("../../assets/player2.png"),
       },
     ];
-    setSearchResults(results);
+    console.log("Search query:", searchQuery);
+
+    const filteredResults = results.filter((item) => {
+      console.log("Item name:", item.name);
+      console.log("Item name type:", typeof item.name);
+      return item.name.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+
+    console.log("Filtered results:", filteredResults);
+    setSearchResults(filteredResults);
   };
 
   const handleAddFriend = (friend) => {
@@ -85,7 +95,7 @@ const AddFriendScreen = ({ navigation }) => {
         <Button title="Search" onPress={handleSearch} />
       </View>
       <FlatList
-        data={results}
+        data={searchResults}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderFriendItem}
         contentContainerStyle={styles.friendList}
