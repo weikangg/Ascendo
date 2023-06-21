@@ -15,47 +15,47 @@ const AddFriendScreen = ({ navigation }) => {
     {
       id: 1,
       name: "John Doe",
+      role:"Software Engineer",
       imageSource: require("../../assets/player1.png"),
     },
     {
       id: 2,
       name: "Jane Smith",
+      role:"DevOps Engineer",
       imageSource: require("../../assets/player2.png"),
     },
     {
       id: 3,
       name: "Alex Johnson",
+      role:"UI/UX Designer",
+      imageSource: require("../../assets/player2.png"),
+    },
+    {
+      id: 4,
+      name: "John Doe",
+      role:"Software Engineer",
+      imageSource: require("../../assets/player1.png"),
+    },
+    {
+      id: 5,
+      name: "Jane Smith",
+      role:"DevOps Engineer",
+      imageSource: require("../../assets/player2.png"),
+    },
+    {
+      id: 6,
+      name: "Alex Johnson",
+      role:"UI/UX Designer",
       imageSource: require("../../assets/player2.png"),
     },
   ];
-  
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState(results);
   
 
   const handleSearch = () => {
-    const results = [
-      {
-        id: 1,
-        name: "John Doe",
-        imageSource: require("../../assets/player1.png"),
-      },
-      {
-        id: 2,
-        name: "Jane Smith",
-        imageSource: require("../../assets/player2.png"),
-      },
-      {
-        id: 3,
-        name: "Alex Johnson",
-        imageSource: require("../../assets/player2.png"),
-      },
-    ];
-    console.log("Search query:", searchQuery);
-
     const filteredResults = results.filter((item) => {
-      console.log("Item name:", item.name);
-      console.log("Item name type:", typeof item.name);
       return item.name.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
@@ -64,9 +64,6 @@ const AddFriendScreen = ({ navigation }) => {
   };
 
   const handleAddFriend = (friend) => {
-    // Perform add friend logic here
-    console.log("Added friend:", friend);
-    // Add your own implementation to add the friend to your list
     navigation.navigate("Games", { friend });
   };
 
@@ -78,8 +75,9 @@ const AddFriendScreen = ({ navigation }) => {
       <Image source={item.imageSource} style={styles.friendImage} />
       <View style={styles.friendInfo}>
         <Text style={styles.friendName}>{item.name}</Text>
-        <Text style={styles.addButtonLabel}>Add Friend</Text>
+        <Text style={styles.friendRole}>{item.role}</Text>
       </View>
+      <Text style={styles.addButtonLabel}>Add Friend</Text>
     </TouchableOpacity>
   );
 
@@ -92,7 +90,7 @@ const AddFriendScreen = ({ navigation }) => {
           onChangeText={setSearchQuery}
           placeholder="Search friends..."
         />
-        <Button title="Search" onPress={handleSearch} />
+        <Button title="Search" onPress={handleSearch} color = "#469FD1" fontWeight = "bold"/>
       </View>
       <FlatList
         data={searchResults}
@@ -110,15 +108,20 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   searchBarContainer: {
-    flexDirection: "row",
+    borderRadius: 30,
+    borderColor: "#BFC0C1",
+    borderWidth:1,
+    width: "95%",
+    flexDirection:"row",
+    justifyContent: "center",
     alignItems: "center",
-    marginBottom: 16,
+    height: 40,
+    marginBottom:15,
+    alignSelf:"center",
   },
   searchInput: {
     flex: 1,
     height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
     marginRight: 8,
     paddingHorizontal: 10,
   },
@@ -131,6 +134,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: "gray",
+    width:"95%",
+    alignSelf:"center",
   },
   friendImage: {
     width: 50,
@@ -144,10 +149,11 @@ const styles = StyleSheet.create({
   },
   friendName: {
     fontSize: 16,
+    fontWeight:"bold",
   },
   addButtonLabel: {
-    color: "blue",
-    fontSize: 16,
+    color: "#0386D0",
+    fontSize: 15,
   },
 });
 
