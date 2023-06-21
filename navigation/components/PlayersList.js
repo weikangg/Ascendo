@@ -5,9 +5,8 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  Dimensions,
-  TouchableOpacity,
 } from "react-native";
+
 const PlayersList = ({ players }) => {
   const renderPlayerCard = ({ item }) => {
     return (
@@ -15,7 +14,6 @@ const PlayersList = ({ players }) => {
         <Image source={item.imageSource} style={styles.image} />
         <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.level}>{item.level}</Text>
       </View>
     );
   };
@@ -40,8 +38,8 @@ const styles = StyleSheet.create({
   playerCard: {
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 20,
-    backgroundColor: "#E8EDF1",
+    borderRadius: 14,
+    backgroundColor: "#e0e0e0",
     width: 300,
     padding: 20,
     marginBottom: 16,

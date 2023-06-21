@@ -23,15 +23,15 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const PlayersList = () => {
   const players = [
     {
-      id: 1,
+      id: 4,
       imageSource: player1,
-      name: "Niggatron",
+      name: "Kane Tan",
       title: "Scrum Master",
       level: "Senior",
       points: 3,
     },
     {
-      id: 2,
+      id: 5,
       imageSource: player2,
       name: "Emily Tyler",
       title: "Software Engineer",
@@ -47,7 +47,7 @@ const PlayersList = () => {
       points: 2,
     },
     {
-      id: 4,
+      id: 6,
       imageSource: player2,
       name: "Testing",
       title: "Software Engineer",
