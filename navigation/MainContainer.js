@@ -25,6 +25,7 @@ import GameStatisticsScreen from "./screens/GameStatisticsScreen";
 import FollowerScreen from "./screens/FollowerScreen";
 import FollowingScreen from "./screens/FollowingScreen";
 import ProfileDetailsScreen from "./screens/ProfileDetails";
+import TopDownRPG from "./screens/TopDownRPG";
 
 const homeName = "Home";
 const gamesName = "Games";
@@ -135,7 +136,7 @@ export default function MainContainer({ handleAuthentication }) {
             />
             <Stack.Screen
                 name="GameIntro"
-                component={GameIntroScreen}
+                component={TopDownRPG}
                 options={{
                     headerTitle: "Game Of The Day",
                     headerBackTitle: "Back",
