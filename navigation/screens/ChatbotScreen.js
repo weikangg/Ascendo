@@ -6,6 +6,8 @@ import {
   Button,
   StyleSheet,
   Text,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { Configuration, OpenAIApi } from "openai";
 
@@ -55,7 +57,6 @@ const ChatbotScreen = () => {
     </View>
   );
 
-  //   placeholder for chatgpt
   return (
     <View style={styles.container}>
       <FlatList
@@ -64,7 +65,11 @@ const ChatbotScreen = () => {
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.messageList}
       />
-      <View style={styles.inputContainer}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.inputContainer}
+        keyboardVerticalOffset={100} // This will offset the input by 50px from the bottom of the screen
+      >
         <TextInput
           style={styles.input}
           value={inputText}
@@ -73,7 +78,7 @@ const ChatbotScreen = () => {
           onSubmitEditing={sendMessage}
         />
         <Button title="Send" onPress={sendMessage} />
-      </View>
+      </KeyboardAvoidingView>
     </View>
   );
 };
@@ -107,6 +112,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
+    marginBottom: 8,
   },
   input: {
     flex: 1,
@@ -115,7 +121,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
-    width: "100%",
   },
 });
 
