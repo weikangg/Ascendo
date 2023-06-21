@@ -1,5 +1,6 @@
 import player1 from "../assets/player1.png";
 import player2 from "../assets/player2.png";
+import player5 from "../assets/player5.jpg";
 
 export const users = [
   {

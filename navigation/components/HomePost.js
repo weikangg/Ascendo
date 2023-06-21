@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import Player1 from "../../assets/player1.png";
+import Player3 from "../../assets/player3.jpg";
+import Player4 from "../../assets/player4.jpg";
 import Kopitiam from "../../assets/kopitiam.jpeg";
 
 const Posts = ({ name, profile, photo, onPress }) => {
@@ -49,7 +51,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
     },
     {
       id: 2,
-      imageSource: Player1,
+      imageSource: Player3,
       name: "Steven Lim",
       timestamp: "2 mins ago",
       description:
@@ -58,8 +60,8 @@ const Posts = ({ name, profile, photo, onPress }) => {
     },
     {
       id: 3,
-      imageSource: Player1,
-      name: "Kurt Tay",
+      imageSource: Player4,
+      name: "Jane Tay",
       timestamp: "10 mins ago",
       description:
         "Check out this amazing new store at our kopitiam downstairs!!",
@@ -124,16 +126,16 @@ const Posts = ({ name, profile, photo, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:10,
+    marginTop: 10,
     width: "98%",
     margin: "auto",
     marginBottom: 20,
-    left:15,
+    left: 15,
     elevation: 4, // for Android
     shadowColor: "#000", // for iOS
     shadowOffset: {
-        width: 1,
-        height: 4,
+      width: 1,
+      height: 4,
     },
     shadowOpacity: 0.3,
     shadowRadius: 4,
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    marginLeft:25,
+    marginLeft: 25,
   },
   profileContainer: {
     width: "20%",

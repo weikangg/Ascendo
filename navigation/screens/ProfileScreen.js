@@ -69,12 +69,12 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
     {
       id: "1",
       postTitle: "Post 1",
-      postImage: require("../../assets/rewards_page/ascendo_logo.png"),
+      postImage: require("../../assets/kopitiam.jpeg"),
     },
     {
       id: "2",
       postTitle: "Post 2",
-      postImage: require("../../assets/rewards_page/ascendo_logo.png"),
+      postImage: require("../../assets/shopping_mall.jpg"),
     },
   ];
 
