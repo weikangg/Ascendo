@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -6,13 +6,18 @@ import {
   Button,
   TouchableOpacity,
   FlatList,
+  StyleSheet,
+  ActivityIndicator,
 } from "react-native";
+import { Auth } from "aws-amplify";
 
 const ProfilePage = ({ navigation, handleAuthentication }) => {
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState({});
   const userProfile = {
     image: require("../../assets/rewards_page/ascendo_logo.png"),
-    username: "john.doe",
-    name: "John Doe",
+    username: "weikangg",
+    name: "Chong Wei Kang",
     friendCount: 100,
     followerCount: 500,
     followingCount: 200,
@@ -21,7 +26,14 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
     currentlyWearing: "Cool Hat",
     totalExperiencePoints: 5000,
   };
-
+  // Get the authenticated user
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await Auth.currentAuthenticatedUser();
+      setUser(user);
+    };
+    getUser();
+  }, []);
   const progress =
     (userProfile.experiencePoints / userProfile.totalExperiencePoints) * 100;
 
@@ -40,8 +52,16 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
     navigation.navigate("FollowingList");
   };
 
-  const handleLogout = () => {
-    handleAuthentication(false);
+  const handleLogout = async () => {
+    setLoading(true);
+    try {
+      await Auth.signOut();
+      handleAuthentication(false);
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    } finally {
+      setLoading(false);
+    }
   };
   const postsData = [
     {
@@ -75,8 +95,10 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
           <>
             <Image source={userProfile.image} style={styles.profileImage} />
             <View style={styles.nameContainer}>
-              <Text style={styles.username}>{userProfile.username}</Text>
-              <Text style={styles.name}>@{userProfile.name}</Text>
+              <Text style={styles.username}>
+                {userProfile.name}
+              </Text>
+              <Text style={styles.name}>@{userProfile.username}</Text>
             </View>
             <View style={styles.statsContainer}>
               <TouchableOpacity
@@ -144,11 +166,18 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
         )}
         keyExtractor={() => "profile-key"} // Provide a unique key for the FlatList item
       />
+
+      {loading && (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#0000ff" />
+          <Text>Loading...</Text>
+        </View>
+      )}
     </View>
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: "#fff",
@@ -263,6 +292,6 @@ const styles = {
     width: "100%",
     alignItems: "center",
   },
-};
+});
 
 export default ProfilePage;
