@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
     Modal,
     Alert,
+    ActivityIndicator,
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -28,6 +29,7 @@ export default function Authen({ handleAuthentication }) {
     const [password, setPassword] = useState(""); // Track the password input
     const [modalVisible, setModalVisible] = useState(false);
     const [confirmationCode, setConfirmationCode] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleDateCancel = () => {
         setShowDatePicker(false);
@@ -59,6 +61,7 @@ export default function Authen({ handleAuthentication }) {
     };
 
     const handleLogin = async () => {
+        setLoading(true);
         try {
             await Auth.signIn(email, password);
             handleAuthentication(true);
@@ -68,10 +71,13 @@ export default function Authen({ handleAuthentication }) {
                 "Invalid Login",
                 "Please check your email and password."
             );
+        } finally {
+            setLoading(false); // Hide loading screen
         }
     };
 
     const handleRegister = async () => {
+        setLoading(true); // Show loading screen
         try {
             await Auth.signUp({
                 username: email,
@@ -87,14 +93,19 @@ export default function Authen({ handleAuthentication }) {
                 "Registration Error",
                 error.message || "An error occurred during registration."
             );
+        } finally {
+            setLoading(false); // Hide loading screen
         }
     };
 
     async function confirmSignUp() {
+        setLoading(true);
         try {
             await Auth.confirmSignUp(email, confirmationCode);
         } catch (error) {
             console.log("error confirming sign up", error);
+        } finally {
+            setLoading(false); // Hide loading screen
         }
     }
 
@@ -398,6 +409,12 @@ export default function Authen({ handleAuthentication }) {
                     </View>
                 </View>
             </Modal>
+            {loading && (
+                <View style={styles.loadingContainer}>
+                    <ActivityIndicator size="large" color="#0000ff" />
+                    <Text>Loading...</Text>
+                </View>
+            )}
         </>
     );
 }
@@ -525,5 +542,11 @@ const styles = StyleSheet.create({
     submitButtonText: {
         color: "white",
         fontSize: 16,
+    },
+    loadingContainer: {
+        ...StyleSheet.absoluteFill,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
 });
