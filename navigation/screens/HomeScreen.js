@@ -70,7 +70,7 @@ const styles = {
     borderRadius: 15,
     borderColor: "#BFC0C1",
     borderWidth: 1,
-    width: "90%",
+    width: "85%",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

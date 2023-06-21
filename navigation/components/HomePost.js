@@ -42,7 +42,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
       id: 1,
       imageSource: Player1,
       name: "John Doe",
-      timestamp: "2 mins ago",
+      timestamp: "1 mins ago",
       description:
         "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,
@@ -56,6 +56,15 @@ const Posts = ({ name, profile, photo, onPress }) => {
         "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,
     },
+    {
+      id: 3,
+      imageSource: Player1,
+      name: "Kurt Tay",
+      timestamp: "10 mins ago",
+      description:
+        "Check out this amazing new store at our kopitiam downstairs!!",
+      descImage: Kopitiam,
+    },
   ];
 
   const isPostLiked = (postId) => likes.includes(postId);
@@ -65,17 +74,17 @@ const Posts = ({ name, profile, photo, onPress }) => {
 
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <View style={styles.profileContainer}>
-            <Image source={item.imageSource} style={styles.profile} />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.timestamp}>{item.timestamp}</Text>
-          </View>
-          <Entypo name="sound-mix" color="#044244" size={20} />
-        </View>
         <View style={styles.imageContainer}>
+          <View style={styles.header}>
+            <View style={styles.profileContainer}>
+              <Image source={item.imageSource} style={styles.profile} />
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.name}>{item.name}</Text>
+              <Text style={styles.timestamp}>{item.timestamp}</Text>
+            </View>
+            <Entypo name="sound-mix" color="#044244" size={20} />
+          </View>
           <Text style={styles.description}>{item.description}</Text>
           <ImageBackground
             source={item.descImage}
@@ -115,14 +124,24 @@ const Posts = ({ name, profile, photo, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    marginTop:10,
+    width: "98%",
     margin: "auto",
     marginBottom: 20,
-    left: 10,
+    left:15,
+    elevation: 4, // for Android
+    shadowColor: "#000", // for iOS
+    shadowOffset: {
+        width: 1,
+        height: 4,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
+    marginLeft:25,
   },
   profileContainer: {
     width: "20%",
