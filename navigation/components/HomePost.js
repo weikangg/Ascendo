@@ -32,7 +32,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
     {
       id: 1,
       imageSource: Player1,
-      name: "Kane Tan",
+      name: "Niggatron",
       timestamp: "2 mins ago",
       description: "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,
@@ -40,7 +40,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
     {
       id: 2,
       imageSource: Player1,
-      name: "Kane Tan",
+      name: "Gayass",
       timestamp: "2 mins ago",
       description: "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingTop: 20,
     backgroundColor:"white",
-    borderRadius: 15,
+    borderRadius: 30,
     marginLeft: -10,
   },
   image: {
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     marginBottom:15,
   },
   imageBackground: {
-    borderRadius: 15,
+    borderRadius: 30,
     borderColor: "#BFC0C1",
     borderWidth:1,
   },

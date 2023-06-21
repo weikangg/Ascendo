@@ -68,7 +68,7 @@ export default function CharadesScreen({navigation}) {
       setCurrentQuestion(nextQuestion);
     } else {
       const item = {
-        id: "Kane Tan",
+        id: "Niggatron",
         point: temp, // Use the original score value here, not the updatedScore
       };
   
