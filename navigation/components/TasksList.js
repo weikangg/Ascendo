@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -8,12 +8,41 @@ import {
   TouchableOpacity,
   Animated,
   Image,
+  Linking,
 } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, Feather } from "@expo/vector-icons";
+import Picture from "../../assets/rewards_page/ascendo_logo.png";
 
 const TasksList = ({ navigation }) => {
   const [completedTasks, setCompletedTasks] = useState([]);
   const [expandedTaskId, setExpandedTaskId] = useState(null);
+  const [tasks, setTasks] = useState(null);
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch(
+          "https://iwbybrwtpe.execute-api.ap-southeast-1.amazonaws.com/tasks"
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setTasks(data);
+        } else {
+          throw new Error("Request failed with status code " + response.status);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+
+  const addToCalendar = () => {
+    // Logic to open the user's calendar app
+    Linking.openURL("calshow:");
+  };
 
   const toggleTaskCompletion = (taskId) => {
     if (completedTasks.includes(taskId)) {
@@ -31,58 +60,6 @@ const TasksList = ({ navigation }) => {
     }
   };
 
-  // Dummy task data for testing
-  const tasks = [
-    {
-      id: 1,
-      title: "Task 1",
-      duration: "3h 30min",
-      document: "Main Website",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu...",
-      person: "Technical Lead, Chong Wei Kang",
-      priority: "High Priority",
-      image: require("../../assets/rewards_page/ascendo_logo.png"),
-    },
-    {
-      id: 2,
-      title: "Task 2",
-      duration: "2h 30min",
-      document: "Main Website",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu...",
-      person: "Software Engineer, John Doe",
-      priority: "Medium Priority",
-      image: require("../../assets/rewards_page/ascendo_logo.png"),
-    },
-    {
-      id: 3,
-      title: "Task 3",
-      duration: "8h 30min",
-      document: "Main Website",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu...",
-      person: "UI/UX Engineer, Soqoro",
-      priority: "Lowest Priority",
-      image: require("../../assets/rewards_page/ascendo_logo.png"),
-    },
-    {
-      id: 4,
-      title: "Task 4",
-      duration: "1h 30min",
-      document: "Contact Us",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu...",
-      person: "Frontend Engineer, Tan Kane",
-      priority: "Lowest Priority",
-      image: require("../../assets/rewards_page/ascendo_logo.png"),
-    },
-  ];
-
-  const addToCalendar = () => {
-    // Logic to open the user's calendar app
-  };
-
   const TaskItem = ({ item }) => {
     const isExpanded = item.id === expandedTaskId;
 
@@ -93,10 +70,7 @@ const TasksList = ({ navigation }) => {
           completedTasks.includes(item.id) && styles.completedTaskContainer,
         ]}
       >
-        <TouchableOpacity
-          onPress={() => toggleTaskExpansion(item.id)}
-          activeOpacity={0.8}
-        >
+        <TouchableOpacity onPress={() => toggleTaskExpansion(item.id)}>
           <View style={styles.taskHeader}>
             <Text
               style={[
@@ -123,40 +97,43 @@ const TasksList = ({ navigation }) => {
               />
             </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-        {isExpanded && (
-          <Animated.View style={styles.expandedContent}>
-            <View style={styles.row}>
-              <FontAwesome name="user" style={styles.additionalInfoIcon} />
-              <Text style={styles.additionalInfoText}>{item.person}</Text>
-            </View>
-            <View style={styles.row}>
-              <FontAwesome name="flag" style={styles.additionalInfoIcon} />
-              <View style={styles.priorityContainer}>
-                <Text style={styles.priorityText}>{item.priority}</Text>
+
+          {isExpanded && (
+            <Animated.View style={styles.expandedContent}>
+              <View style={styles.row}>
+                <FontAwesome name="user" style={styles.additionalInfoIcon} />
+                <Text style={styles.additionalInfoText}>{item.person}</Text>
               </View>
+              <View style={styles.row}>
+                <FontAwesome name="flag" style={styles.additionalInfoIcon} />
+                <View style={styles.priorityContainer}>
+                  <Text style={styles.priorityText}>{item.priority}</Text>
+                </View>
+              </View>
+              <Image source={Picture} style={styles.image} />
+            </Animated.View>
+          )}
+          <View style={styles.row}>
+            <FontAwesome name="clock-o" style={styles.icon} />
+            <Text style={styles.duration}>{item.duration}</Text>
+            <View style={styles.documentContainer}>
+              <FontAwesome name="file-text-o" style={styles.documentIcon} />
+              <Text style={styles.documentInfo}>{item.document}</Text>
             </View>
-            <Image source={item.image} style={styles.image} />
-          </Animated.View>
-        )}
-        <View style={styles.row}>
-          <FontAwesome name="clock-o" style={styles.icon} />
-          <Text style={styles.duration}>{item.duration}</Text>
-          <View style={styles.documentContainer}>
-            <FontAwesome name="file-text-o" style={styles.documentIcon} />
-            <Text style={styles.documentInfo}>{item.document}</Text>
           </View>
-        </View>
-        <Text style={styles.details}>{item.details}</Text>
-        <View style={styles.calendarContainer}>
-          <FontAwesome name="calendar" style={styles.calendarIcon} />
-          <TouchableOpacity
-            onPress={addToCalendar}
-            style={styles.addToCalendarButton}
-          >
-            <Text style={styles.addToCalendarButtonText}>Add to Calendar</Text>
-          </TouchableOpacity>
-        </View>
+          <Text style={styles.details}>{item.details}</Text>
+          <View style={styles.calendarContainer}>
+            <FontAwesome name="calendar" style={styles.calendarIcon} />
+            <TouchableOpacity
+              onPress={addToCalendar}
+              style={styles.addToCalendarButton}
+            >
+              <Text style={styles.addToCalendarButtonText}>
+                Add to Calendar
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   };

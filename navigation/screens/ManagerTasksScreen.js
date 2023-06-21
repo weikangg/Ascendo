@@ -1,87 +1,73 @@
-// Temporarily storing employee's task screen now
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import TasksList from "../components/TasksList";
-import HistoryTasksScreen from "./HistoryTasksScreen";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
+import { FontAwesome, Feather } from "@expo/vector-icons";
+import ManagerTasksList from "../components/ManagerTasksList";
+import AddTask from "../components/AddTask";
 
-export default function TasksScreen({ navigation }) {
-  const [selectedTab, setSelectedTab] = useState("current");
-  const navigateToHistoryTasks = () => {
-    // Logic to navigate to the history tasks page
-    console.log("Navigating to History Tasks page");
-    navigation.navigate(<HistoryTasksScreen></HistoryTasksScreen>);
+const ManagerTasksScreen = ({ navigation }) => {
+  const [isAddTaskVisible, setIsAddTaskVisible] = useState(false);
+
+  const toggleAddTask = () => {
+    setIsAddTaskVisible((prev) => !prev);
+  };
+
+  const handleFilterPress = () => {
+    // Logic for filter button press
+    console.log("Filter button pressed");
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Tasks</Text>
         <TouchableOpacity
-          style={[
-            styles.tabButton,
-            selectedTab === "current" && styles.selectedTabButton,
-          ]}
-          onPress={() => setSelectedTab("current")}
+          onPress={handleFilterPress}
+          style={styles.filterButton}
         >
-          <Text
-            style={[
-              styles.tabButtonText,
-              selectedTab === "current" && styles.selectedTabButtonText,
-            ]}
-          >
-            Current Tasks
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.tabButton,
-            selectedTab === "history" && styles.selectedTabButton,
-          ]}
-          onPress={() => setSelectedTab("history")}
-        >
-          <Text
-            style={[
-              styles.tabButtonText,
-              selectedTab === "history" && styles.selectedTabButtonText,
-            ]}
-          >
-            History
-          </Text>
+          <FontAwesome name="filter" style={styles.filterIcon} />
         </TouchableOpacity>
       </View>
-      {selectedTab === "current" ? <TasksList /> : <HistoryTasksScreen />}
+      <ScrollView>
+        <ManagerTasksList />
+      </ScrollView>
+      {isAddTaskVisible && <AddTask onClose={toggleAddTask} />}
+      <TouchableOpacity style={styles.fab} onPress={toggleAddTask}>
+        <Feather name="plus" style={styles.fabIcon} />
+      </TouchableOpacity>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     padding: 16,
   },
-  headerContainer: {
+  header: {
     flexDirection: "row",
-    justifyContent: "center",
-    marginBottom: 16,
-    width: "100%",
-  },
-  tabButton: {
-    flex: 1,
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: 8,
-    borderBottomWidth: 2,
-    borderColor: "transparent",
+    marginBottom: 16,
   },
-  selectedTabButton: {
-    borderColor: "#469FD1",
-  },
-  tabButtonText: {
-    fontSize: 16,
+  title: {
+    fontSize: 24,
     fontWeight: "bold",
   },
-  selectedTabButtonText: {
-    fontWeight: "bold",
+  filterButton: {
+    padding: 8,
+    borderRadius: 4,
+    backgroundColor: "#e0e0e0",
+  },
+  filterIcon: {
+    fontSize: 24,
+    color: "black",
   },
 });
+
+export default ManagerTasksScreen;

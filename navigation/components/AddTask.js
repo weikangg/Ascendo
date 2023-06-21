@@ -20,6 +20,7 @@ const AddTask = ({ visible, onClose }) => {
 
   const handleSaveTask = () => {
     // Perform the saving logic here
+    console.log(taskName);
     console.log("Submit pressed");
   };
   return (

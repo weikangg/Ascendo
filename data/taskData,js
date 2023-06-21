@@ -1,0 +1,47 @@
+// Dummy task data for testing
+// const tasks = [
+//   {
+//     id: 1,
+//     title: "Task 1",
+//     duration: "3h 30min",
+//     document: "Main Website",
+//     details:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu...",
+//     person: "Technical Lead, Chong Wei Kang",
+//     priority: "High Priority",
+//     image: require("../../assets/rewards_page/ascendo_logo.png"),
+//   },
+//   {
+//     id: 2,
+//     title: "Task 2",
+//     duration: "2h 30min",
+//     document: "Main Website",
+//     details:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu...",
+//     person: "Software Engineer, John Doe",
+//     priority: "Medium Priority",
+//     image: require("../../assets/rewards_page/ascendo_logo.png"),
+//   },
+//   {
+//     id: 3,
+//     title: "Task 3",
+//     duration: "8h 30min",
+//     document: "Main Website",
+//     details:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu...",
+//     person: "UI/UX Engineer, Soqoro",
+//     priority: "Lowest Priority",
+//     image: require("../../assets/rewards_page/ascendo_logo.png"),
+//   },
+//   {
+//     id: 4,
+//     title: "Task 4",
+//     duration: "1h 30min",
+//     document: "Contact Us",
+//     details:
+//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu...",
+//     person: "Frontend Engineer, Tan Kane",
+//     priority: "Lowest Priority",
+//     image: require("../../assets/rewards_page/ascendo_logo.png"),
+//   },
+// ];
