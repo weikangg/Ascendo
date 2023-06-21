@@ -10,7 +10,7 @@ import {
   Image,
   Linking,
   RefreshControl,
-  ActivityIndicator
+  ActivityIndicator,
 } from "react-native";
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import Picture from "../../assets/rewards_page/ascendo_logo.png";
@@ -228,7 +228,7 @@ const TasksList = ({ navigation }) => {
         rightOpenValue={-80} // Width of the delete button
         disableRightSwipe={true} // Disable right swipe on list items
       />
-            {loading && (
+      {loading && (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#469FD1" />
           <Text>Loading...</Text>
