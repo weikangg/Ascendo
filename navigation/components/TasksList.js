@@ -9,6 +9,7 @@ import {
   Animated,
   Image,
   Linking,
+  RefreshControl,
 } from "react-native";
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import Picture from "../../assets/rewards_page/ascendo_logo.png";
@@ -17,27 +18,31 @@ const TasksList = ({ navigation }) => {
   const [completedTasks, setCompletedTasks] = useState([]);
   const [expandedTaskId, setExpandedTaskId] = useState(null);
   const [tasks, setTasks] = useState(null);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const response = await fetch(
-          "https://iwbybrwtpe.execute-api.ap-southeast-1.amazonaws.com/tasks"
-        );
-
-        if (response.ok) {
-          const data = await response.json();
-          setTasks(data);
-        } else {
-          throw new Error("Request failed with status code " + response.status);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     fetchTasks();
   }, []);
+
+  const fetchTasks = async () => {
+    try {
+      setRefreshing(true);
+      const response = await fetch(
+        "https://iwbybrwtpe.execute-api.ap-southeast-1.amazonaws.com/tasks"
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setTasks(data);
+      } else {
+        throw new Error("Request failed with status code " + response.status);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setRefreshing(false);
+    }
+  };
 
   const addToCalendar = () => {
     // Logic to open the user's calendar app
@@ -145,6 +150,13 @@ const TasksList = ({ navigation }) => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <TaskItem item={item} />}
         contentContainerStyle={styles.contentContainer}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={fetchTasks}
+            colors={["#469FD1"]}
+          />
+        }
       />
     </View>
   );
