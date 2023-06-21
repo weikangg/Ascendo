@@ -8,7 +8,6 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-
 const PlayersList = ({ players }) => {
   const renderPlayerCard = ({ item }) => {
     return (

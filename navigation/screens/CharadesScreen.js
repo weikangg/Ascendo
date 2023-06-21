@@ -27,11 +27,11 @@ const quizData = [
       correctAnswer: "Java",
     },
     {
-        id: 4,
-        question: "4. Guess the programming language",
-        image: Python,
-        options: ["Java", "Python", "C++", "JavaScript"],
-        correctAnswer: "Python",
+      id: 4,
+      question: "4. Guess the programming language",
+      image: Python,
+      options: ["Java", "Python", "C++", "JavaScript"],
+      correctAnswer: "Python",
     },
 ];
 
@@ -42,13 +42,13 @@ AWS.config.update({
 });
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
+let temp = 0;
 
 export default function CharadesScreen({navigation}) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  let temp = 0;
-
+  
   useEffect(() => {
     console.log("Current score:", score);
   }, [score]);
