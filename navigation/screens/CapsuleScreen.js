@@ -7,6 +7,7 @@ import {
     Image,
     StyleSheet,
 } from "react-native";
+import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 
 const CapsuleScreen = () => {
     const [isModalVisible, setIsModalVisible] = React.useState(false);
@@ -18,7 +19,7 @@ const CapsuleScreen = () => {
         if (isModalVisible) {
             timeout = setTimeout(() => {
                 setShowImage(false);
-            }, 2000); // Display the image for 2 seconds before switching
+            }, 2300); // Display the image for 3 seconds before switching
         }
 
         return () => clearTimeout(timeout);
@@ -34,7 +35,33 @@ const CapsuleScreen = () => {
     };
 
     return (
-        <View style={styles.background}>
+        <View style={[styles.background]}>
+            <View
+                style={{
+                    alignItems: "center",
+                    borderWidth: 2,
+                    borderRadius: 10,
+                }}
+            >
+                <Text style={{ fontSize: 30, margin: 10 }}>
+                    <Ionicons name="logo-octocat" size={24} color="black" /> Pet
+                    Capsule Station 101{" "}
+                    <Ionicons name="logo-octocat" size={24} color="black" />
+                </Text>
+                <Text style={{ fontSize: 15, margin: 10 }}>
+                    Ever dreamed of owning special and exotic companions?
+                </Text>
+                <Text style={{ fontSize: 15, margin: 10 }}>
+                    Simply press the button to dispense a pet
+                </Text>
+                <Text style={{ fontSize: 15, margin: 10 }}>
+                    Pets rank from common,uncommon,rare and legendary
+                </Text>
+                <Text style={{ fontSize: 15, margin: 10 }}>
+                    Coin cost: 1{"  "}
+                    <FontAwesome5 name="coins" size={24} color="black" />
+                </Text>
+            </View>
             <Image
                 source={require("../.././assets/gacha/VendingMachine2.png")}
                 style={styles.imageBackground}
@@ -44,7 +71,7 @@ const CapsuleScreen = () => {
                 onPress={handleDispenseButton}
                 style={styles.vendingButton}
             >
-                <Text style={styles.buttonFont}>.</Text>
+                <Text style={styles.buttonFont}>{"     "}</Text>
             </TouchableOpacity>
             <View>
                 <Modal
@@ -140,16 +167,15 @@ const CapsuleScreen = () => {
 const styles = StyleSheet.create({
     background: {
         height: "100%",
-        backgroundColor: "dimgray",
+        backgroundColor: "white",
     },
     imageBackground: {
         width: "100%",
         marginTop: 31,
-        alignSelf: "flex-start",
     },
     vendingButton: {
-        marginTop: 320, // Adjust the value as needed
-        marginLeft: 345,
+        marginTop: 530, // Adjust the value as needed
+        marginLeft: 325,
         position: "absolute",
     },
     buttonFont: {
