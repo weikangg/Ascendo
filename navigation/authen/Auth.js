@@ -14,10 +14,9 @@ import Checkbox from "expo-checkbox";
 import Icon from "react-native-vector-icons/FontAwesome";
 import DatePicker from "react-native-modern-datepicker";
 import { Feather } from "react-native-vector-icons";
-import { useNavigation } from "@react-navigation/native"; // Import the useNavigation hook
-import { withAuthenticator, useAuthenticator } from '@aws-amplify/ui-react-native';
+import { Auth } from "aws-amplify";
 
-export default function Auth({ handleAuthentication }) {
+export default function Authen({ handleAuthentication }) {
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [selectedDate, setSelectedDate] = useState("");
     const [showAccountTypeModal, setShowAccountTypeModal] = useState(false);
@@ -27,8 +26,8 @@ export default function Auth({ handleAuthentication }) {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState(""); // Track the email input
     const [password, setPassword] = useState(""); // Track the password input
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const navigation = useNavigation(); // Initialize the useNavigation hook
+    const [modalVisible, setModalVisible] = useState(true);
+    const [confirmationCode, setConfirmationCode] = useState("");
 
     const handleDateCancel = () => {
         setShowDatePicker(false);
@@ -43,6 +42,10 @@ export default function Auth({ handleAuthentication }) {
         setShowAccountTypeModal(false);
     };
 
+    const handleRegisterConfirmationCode = () => {
+        setModalVisible(false);
+        confirmSignUp();
+    };
     const handleSwitchToRegister = () => {
         setIsRegisterPage(true);
     };
@@ -55,12 +58,12 @@ export default function Auth({ handleAuthentication }) {
         setShowPassword(!showPassword);
     };
 
-    const handleLogin = () => {
-        // Perform login authentication
-        if (email === "hello@gmail.com" && password === "hello") {
-            setIsLoggedIn(true);
-            handleAuthentication(true); // Pass the authentication result to the parent component
-        } else {
+    const handleLogin = async () => {
+        try {
+            await Auth.signIn(email, password);
+            handleAuthentication(true);
+        } catch (error) {
+            console.log("login login error", error);
             Alert.alert(
                 "Invalid Login",
                 "Please check your email and password."
@@ -68,16 +71,33 @@ export default function Auth({ handleAuthentication }) {
         }
     };
 
-    const userSelector = (context) => [context.user]
-
-    const SignOutButton = () => {
-    const { user, signOut } = useAuthenticator(userSelector);
-    return (
-        <Pressable onPress={signOut} style={styles.buttonContainer}>
-        <Text style={styles.buttonText}>Hello, {user.username}! Click here to sign out!</Text>
-        </Pressable>
-    )
+    const handleRegister = async () => {
+        try {
+            await Auth.signUp({
+                username: email,
+                password: password,
+                attributes: {
+                    email: email,
+                },
+            });
+            setModalVisible(true);
+            // Optionally, you can automatically sign in the user after successful registration
+        } catch (error) {
+            Alert.alert(
+                "Registration Error",
+                error.message || "An error occurred during registration."
+            );
+        }
     };
+
+    async function confirmSignUp() {
+        try {
+            await Auth.confirmSignUp(email, confirmationCode);
+        } catch (error) {
+            console.log("error confirming sign up", error);
+        }
+    }
+
     return (
         <>
             <View style={styles.container}>
@@ -129,12 +149,14 @@ export default function Auth({ handleAuthentication }) {
                             <TextInput
                                 style={styles.input}
                                 placeholder="Email Address"
+                                onChangeText={(text) => setEmail(text)}
                             />
                         </View>
                         <View style={styles.row}>
                             <TextInput
                                 style={styles.input}
                                 placeholder="Password"
+                                onChangeText={(text) => setPassword(text)}
                             />
                         </View>
                         <View style={styles.row}>
@@ -214,7 +236,10 @@ export default function Auth({ handleAuthentication }) {
                         </View>
 
                         <View style={styles.row}>
-                            <Pressable style={styles.button}>
+                            <Pressable
+                                style={styles.button}
+                                onPress={handleRegister}
+                            >
                                 <Text style={styles.buttonText}>Register</Text>
                             </Pressable>
                         </View>
@@ -340,6 +365,35 @@ export default function Auth({ handleAuthentication }) {
                     </View>
                 </View>
             </Modal>
+
+            <Modal
+                visible={modalVisible}
+                transparent={true}
+                animationType="fade"
+                onRequestClose={() => setModalVisible(false)}
+            >
+                <View style={styles.modalContainer}>
+                    <View style={styles.modalContent}>
+                        <Text style={styles.modalTitle}>
+                            Enter Confirmation Code
+                        </Text>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Confirmation Code"
+                            keyboardType="numeric"
+                            onChangeText={(text) => setConfirmationCode(text)}
+                        />
+                        <TouchableOpacity
+                            style={styles.submitButton}
+                            onPress={() =>
+                                handleRegisterConfirmationCode(false)
+                            }
+                        >
+                            <Text style={styles.submitButtonText}>Submit</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
         </>
     );
 }
@@ -414,6 +468,9 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         padding: 20,
         borderRadius: 10,
+        width: "80%",
+        height: "15%",
+        alignItems: "center",
     },
     modalOption: {
         paddingVertical: 10,
@@ -452,5 +509,17 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
+    },
+    submitButton: {
+        backgroundColor: "#4CAF50",
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        width: "100%",
+        alignItems: "center",
+    },
+    submitButtonText: {
+        color: "white",
+        fontSize: 16,
     },
 });
