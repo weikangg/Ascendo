@@ -1,31 +1,39 @@
-import { withAuthenticator, useAuthenticator } from '@aws-amplify/ui-react-native';
+import {
+  withAuthenticator,
+  useAuthenticator,
+} from "@aws-amplify/ui-react-native";
 import { Pressable, Text, StyleSheet } from "react-native";
 
 // retrieves only the current value of 'user' from 'useAuthenticator'
-const userSelector = (context) => [context.user]
+const userSelector = (context) => [context.user];
 
 const SignOutButton = () => {
   const { user, signOut } = useAuthenticator(userSelector);
   return (
     <Pressable onPress={signOut} style={styles.buttonContainer}>
-      <Text style={styles.buttonText}>Hello, {user.username}! Click here to sign out!</Text>
+      <Text style={styles.buttonText}>◀ Sign Out</Text>
     </Pressable>
-  )
+  );
 };
 
 const styles = StyleSheet.create({
-    buttonContainer: {
-      backgroundColor: "#0386D0",
-      padding: 10,
-      borderRadius: 5,
-      alignItems: "center",
-      marginTop: 10,
-    },
-    buttonText: {
-      color: "white",
-      fontSize: 16,
-      fontWeight: "bold",
-    },
-  });
-  
-  export default SignOutButton;
+  buttonContainer: {
+    position: "absolute",
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+    marginTop: -10,
+    marginLeft: -40,
+    top: 0,
+    left: 0,
+    zIndex: 9,
+  },
+  buttonText: {
+    color: "black",
+    fontSize: 12,
+    fontWeight: "bold",
+  },
+});
+
+export default SignOutButton;
