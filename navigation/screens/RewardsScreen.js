@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     ScrollView,
     View,
@@ -28,7 +28,25 @@ export default function RewardsScreen({ navigation }) {
         // Here you can call your function to filter the rewards
     };
 
-    const rewards = [
+    const [rewards, setRewards] = useState([]);
+
+    useEffect(() => {
+        const fetchRewards = async () => {
+            try {
+                const response = await fetch(
+                    "https://rzzs2s5y74.execute-api.ap-southeast-1.amazonaws.com/rewards"
+                );
+                const data = await response.json();
+                setRewards(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchRewards();
+    }, []);
+    console.log(rewards);
+    const rewardsTemp = [
         {
             image: require("../../assets/rewards_page/paid-time-off-reward.png"), // Replace with actual image
             points: 200,
