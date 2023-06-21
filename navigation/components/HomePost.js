@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   FlatList,
+  Share,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import Player1 from "../../assets/player1.png"
@@ -17,6 +18,14 @@ const Posts = ({ name, profile, photo, onPress }) => {
 
   const handleLike = () => {
     setLiked(!liked);
+  };
+
+  const handleShare = () => {
+    Share.share({
+      message: "Check out this awesome post!",
+      url: "https://example.com/post/123",
+      title: "Post Title",
+    });
   };
 
   const posts = [
@@ -59,7 +68,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
             imageStyle={styles.imageBackground}
           />
           <View style={styles.iconContainer}>
-            <TouchableOpacity onPress={onPress} style={styles.iconButton}>
+            <TouchableOpacity onPress={handleShare} style={styles.iconButton}>
               <Text marginRight={10}>Share</Text>
               <Entypo name="forward" color="#044244" size={20} />
             </TouchableOpacity>
@@ -146,19 +155,20 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    marginLeft:25,
+    marginRight:25,
   },
   iconButton: {
     flexDirection:"row",
     marginBottom: 20,
     padding: 5,
     backgroundColor: "#e8e8e8",
-    marginLeft: 10,
-    marginRight: 20,
+    alignSelf:"center",
     width: 130,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
+    borderRadius: 8,
   },
 });
 
