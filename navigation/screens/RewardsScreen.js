@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState, useEffect} from "react";
 import {
     ScrollView,
     View,
@@ -45,7 +45,6 @@ export default function RewardsScreen({ navigation }) {
 
         fetchRewards();
     }, []);
-    console.log(rewards);
 
     const renderHeader = () => (
         <View style={styles.headerContainer}>
@@ -166,6 +165,7 @@ const styles = StyleSheet.create({
     qrCodeImage: {
         width: "100%",
         height: "100%",
+
     },
     qrCodeText: {
         fontFamily: "System",
