@@ -34,6 +34,7 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
     };
     getUser();
   }, []);
+
   const progress =
     (userProfile.experiencePoints / userProfile.totalExperiencePoints) * 100;
 

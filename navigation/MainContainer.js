@@ -76,7 +76,7 @@ const ProfileIcon = ({ handleAuthentication }) => {
 
 export default function MainContainer({ handleAuthentication }) {
   const [isLoading, setIsLoading] = React.useState(true);
-
+  const navigation = useNavigation();
   React.useEffect(() => {
     // Simulating an asynchronous task
     setTimeout(() => {
@@ -170,12 +170,18 @@ export default function MainContainer({ handleAuthentication }) {
       </Stack.Screen>
       <Stack.Screen
         name="Profile"
-        component={ProfileScreen}
         options={{
           headerTitle: "Profile",
           headerBackTitle: "Back",
         }}
-      />
+      >
+        {() => (
+          <ProfileScreen
+            handleAuthentication={handleAuthentication}
+            navigation={navigation}
+          />
+        )}
+      </Stack.Screen>
       <Stack.Screen
         name="ProfileDetails"
         component={ProfileDetailsScreen}
@@ -268,6 +274,8 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
             iconName = focused ? "card" : "card-outline";
           } else if (rn === tasksName) {
             iconName = focused ? "book" : "book-outline";
+          } else if (rn === capsuleName) {
+            iconName = focused ? "cube" : "cube-outline";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
