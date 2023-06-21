@@ -23,11 +23,11 @@ function App() {
         <StatusBar style="auto" />
         {!isAuthenticated ? (
           <Auth handleAuthentication={handleAuthentication} />
-        ) : (
-          <MainContainer handleAuthentication={handleAuthentication} />
-        )}
-        <SignOutButton />
+          ) : (
+            <MainContainer handleAuthentication={handleAuthentication} />
+            )}
       </NavigationContainer>
+      <SignOutButton />
     </>
   );
 }
