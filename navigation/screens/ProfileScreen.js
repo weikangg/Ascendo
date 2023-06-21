@@ -14,6 +14,7 @@ import { Auth } from "aws-amplify";
 const ProfilePage = ({ navigation, handleAuthentication }) => {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState({});
+
     const userProfile = {
         image: require("../../assets/rewards_page/ascendo_logo.png"),
         username: "weikangg",
@@ -95,10 +96,27 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
                 data={[0]} // Dummy data to make the FlatList render a single item
                 renderItem={() => (
                     <>
-                        <Image
-                            source={require("../.././assets/fatJohnDoe.gif")}
-                            style={styles.profileImage}
-                        />
+                        <View style={styles.gifContainer}>
+                            <Image
+                                source={require("../.././assets/fatJohnDoe.gif")}
+                                style={[styles.profileImage]}
+                            />
+                            <Image
+                                source={require("../.././assets/gacha/pets/snowCat.gif")}
+                                style={[
+                                    styles.profileImage,
+                                    {
+                                        width: 100,
+                                        height: 100,
+                                        marginVertical: 110,
+                                        margin: 1,
+                                        position: "absolute",
+                                    },
+                                ]}
+                                resizeMode="contain"
+                            />
+                        </View>
+
                         <View style={styles.nameContainer}>
                             <Text style={styles.username}>
                                 {userProfile.name}
@@ -322,6 +340,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    gifContainer: {
+        flexDirection: "row",
+        marginBottom: 20,
     },
 });
 
