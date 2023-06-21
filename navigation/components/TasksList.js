@@ -35,7 +35,8 @@ const TasksList = ({ navigation }) => {
 
       if (response.ok) {
         const data = await response.json();
-        setTasks(data);
+        const sortedTasks = data.sort((a, b) => b.id - a.id); // Sort tasks by ID in descending order
+        setTasks(sortedTasks);
       } else {
         throw new Error("Request failed with status code " + response.status);
       }
