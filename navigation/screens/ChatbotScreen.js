@@ -32,6 +32,7 @@ const ChatbotScreen = () => {
         model: "text-davinci-003",
         prompt: inputText,
         temperature: 0.6,
+        max_tokens: 1000,
       });
 
       const chatbotMessage = {
