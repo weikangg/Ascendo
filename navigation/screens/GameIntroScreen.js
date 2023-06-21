@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize:45,
+        fontWeight:"bold",
     },
     image: {
         width: 400, 
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#0386D0',
       width: 300,
       padding: 14,
-      borderRadius: 5,
+      borderRadius: 10,
       alignItems: "center",
       marginBottom: 8,
       borderColor:"white",
