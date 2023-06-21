@@ -28,6 +28,7 @@ import ProfileDetailsScreen from "./screens/ProfileDetails";
 import TopDownRPG from "./screens/TopDownRPG";
 import AddFriendScreen from "./screens/AddFriendScreen";
 import ChatBotScreen from "./screens/ChatbotScreen";
+import CapsuleScreen from "./screens/CapsuleScreen";
 
 const homeName = "Home";
 const gamesName = "Games";
@@ -35,6 +36,7 @@ const rewardsName = "Rewards";
 const tasksName = "Tasks";
 const profileName = "ChatBot";
 const addFriend = "AddFriend";
+const capsuleName = "Capsule";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -312,6 +314,15 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
       <Tab.Screen
         name={gamesName}
         component={GamesScreen}
+        options={{
+          ...headerOptions,
+          headerTitle: "Games",
+          headerRight: () => <ProfileIcon navigation={navigation} />,
+        }}
+      />
+      <Tab.Screen
+        name={capsuleName}
+        component={CapsuleScreen}
         options={{
           ...headerOptions,
           headerTitle: "Games",
