@@ -5,8 +5,6 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  Dimensions,
-  TouchableOpacity,
 } from "react-native";
 const PlayersList = ({ players }) => {
   const renderPlayerCard = ({ item }) => {
@@ -15,7 +13,6 @@ const PlayersList = ({ players }) => {
         <Image source={item.imageSource} style={styles.image} />
         <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.level}>{item.level}</Text>
       </View>
     );
   };
