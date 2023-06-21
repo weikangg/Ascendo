@@ -10,6 +10,8 @@ import {
   Image,
 } from "react-native";
 
+import { users } from "../../data/userData"; // Import the 'users' array
+
 const AddFriendScreen = ({ navigation }) => {
   const results = [
     {
@@ -28,10 +30,9 @@ const AddFriendScreen = ({ navigation }) => {
       imageSource: require("../../assets/player2.png"),
     },
   ];
-  
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState(results);
-  
 
   const handleSearch = () => {
     const results = [
@@ -66,6 +67,11 @@ const AddFriendScreen = ({ navigation }) => {
   const handleAddFriend = (friend) => {
     // Perform add friend logic here
     console.log("Added friend:", friend);
+    // Add the friend to the 'users' array
+    const updatedUsers = [...users, friend];
+
+    // Replace the 'users' array with the updated array
+    users.splice(0, users.length, ...updatedUsers);
     // Add your own implementation to add the friend to your list
     navigation.navigate("Games", { friend });
   };

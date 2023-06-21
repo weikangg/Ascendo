@@ -8,36 +8,8 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
-import player1 from "../../assets/player1.png";
-import player2 from "../../assets/player2.png";
 
-const PlayersList = () => {
-  const players = [
-    {
-      id: 1,
-      imageSource: player1,
-      name: "Randy Delgado",
-      title: "Scrum Master",
-      level: "Senior",
-    },
-    {
-      id: 2,
-      imageSource: player2,
-      name: "Emily Tyler",
-      title: "Software Engineer",
-      level: "Middle",
-    },
-    {
-      id: 3,
-      imageSource: player2,
-      name: "Testing",
-      title: "Software Engineer",
-      level: "Middle",
-    },
-  ];
-
-
+const PlayersList = ({ players }) => {
   const renderPlayerCard = ({ item }) => {
     return (
       <View style={styles.playerCard}>
