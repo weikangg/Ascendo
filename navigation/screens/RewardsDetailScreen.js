@@ -56,7 +56,7 @@ export default function RewardDetailScreen({ navigation }) {
         style={styles.container}
         contentContainerStyle={styles.contentContainer}
       >
-        <Image style={styles.image} source={image} resizeMode="contain" />
+        <Image style={styles.image} source={{uri:image}} resizeMode="contain" />
         <Text style={styles.message}>Redeem {featureText}!</Text>
         <View style={styles.descriptionContainer}>
           <Text
