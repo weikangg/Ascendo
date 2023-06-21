@@ -149,7 +149,7 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
                 style={styles.button}
                 onPress={() => navigation.navigate("ProfileDetails")}
               >
-                <Text style={styles.button_text}>Customize Avatar</Text>
+                <Text style={styles.button_text}>Edit Profile</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.buttonContainer}>
