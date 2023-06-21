@@ -10,8 +10,8 @@ import {
   Share,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import Player1 from "../../assets/player1.png"
-import Kopitiam from "../../assets/kopitiam.jpeg"
+import Player1 from "../../assets/player1.png";
+import Kopitiam from "../../assets/kopitiam.jpeg";
 
 const Posts = ({ name, profile, photo, onPress }) => {
   const [liked, setLiked] = useState(false);
@@ -32,17 +32,19 @@ const Posts = ({ name, profile, photo, onPress }) => {
     {
       id: 1,
       imageSource: Player1,
-      name: "Niggatron",
+      name: "John Doe",
       timestamp: "2 mins ago",
-      description: "Check out this amazing new store at our kopitiam downstairs!!",
+      description:
+        "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,
     },
     {
       id: 2,
       imageSource: Player1,
-      name: "Gayass",
+      name: "Steven Lim",
       timestamp: "2 mins ago",
-      description: "Check out this amazing new store at our kopitiam downstairs!!",
+      description:
+        "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,
     },
   ];
@@ -95,7 +97,6 @@ const Posts = ({ name, profile, photo, onPress }) => {
   );
 };
 
-
 const styles = StyleSheet.create({
   container: {
     width: "100%",
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     width: "20%",
-    marginBottom:10,
+    marginBottom: 10,
   },
   profile: {
     width: 45,
@@ -130,41 +131,41 @@ const styles = StyleSheet.create({
     color: "#9ca1a2",
   },
   description: {
-    marginLeft:20,
-    marginBottom:15,
+    marginLeft: 20,
+    marginBottom: 15,
   },
   imageContainer: {
     flexDirection: "col",
     width: "100%",
     paddingTop: 20,
-    backgroundColor:"white",
+    backgroundColor: "white",
     borderRadius: 30,
     marginLeft: -10,
   },
   image: {
     width: "95%",
     height: 160,
-    marginLeft:15,
-    marginBottom:15,
+    marginLeft: 15,
+    marginBottom: 15,
   },
   imageBackground: {
     borderRadius: 30,
     borderColor: "#BFC0C1",
-    borderWidth:1,
+    borderWidth: 1,
   },
   iconContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    marginLeft:25,
-    marginRight:25,
+    marginLeft: 25,
+    marginRight: 25,
   },
   iconButton: {
-    flexDirection:"row",
+    flexDirection: "row",
     marginBottom: 20,
     padding: 5,
     backgroundColor: "#e8e8e8",
-    alignSelf:"center",
+    alignSelf: "center",
     width: 130,
     alignItems: "center",
     justifyContent: "center",
