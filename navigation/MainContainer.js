@@ -27,6 +27,7 @@ import FollowingScreen from "./screens/FollowingScreen";
 import ProfileDetailsScreen from "./screens/ProfileDetails";
 import TopDownRPG from "./screens/TopDownRPG";
 import AddFriendScreen from "./screens/AddFriendScreen";
+import ChatBotScreen from "./screens/ChatbotScreen";
 
 const homeName = "Home";
 const gamesName = "Games";
@@ -316,20 +317,20 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
         }}
       />
       <Tab.Screen
-        name={profileName}
+        name={"ChatBot"}
+        component={ChatBotScreen}
         options={{
           ...headerOptions,
-          headerTitle: "Profile",
+          headerTitle: "ChatBot",
           headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
-      >
-        {() => (
-          <ProfileScreen
-            handleAuthentication={handleAuthentication}
-            navigation={navigation}
-          />
-        )}
-      </Tab.Screen>
+      />
+      {() => (
+        <ProfileScreen
+          handleAuthentication={handleAuthentication}
+          navigation={navigation}
+        />
+      )}
     </Tab.Navigator>
   );
 };
