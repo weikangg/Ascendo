@@ -33,7 +33,7 @@ const homeName = "Home";
 const gamesName = "Games";
 const rewardsName = "Rewards";
 const tasksName = "Tasks";
-const profileName = "Profile";
+const profileName = "ChatBot";
 const addFriend = "AddFriend";
 
 const Tab = createBottomTabNavigator();
@@ -257,7 +257,9 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
           if (rn === homeName) {
             iconName = focused ? "home" : "home-outline";
           } else if (rn === profileName) {
-            iconName = focused ? "people" : "people-outline";
+            iconName = focused
+              ? "chatbox-ellipses"
+              : "chatbox-ellipses-outline";
           } else if (rn === gamesName) {
             iconName = focused ? "game-controller" : "game-controller-outline";
           } else if (rn === rewardsName) {

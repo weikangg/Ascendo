@@ -68,7 +68,7 @@ const ChatbotScreen = () => {
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.inputContainer}
-        keyboardVerticalOffset={100} // This will offset the input by 50px from the bottom of the screen
+        keyboardVerticalOffset={120} // This will offset the input by 50px from the bottom of the screen
       >
         <TextInput
           style={styles.input}
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 8,
+    marginBottom: 0,
   },
   input: {
     flex: 1,
