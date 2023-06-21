@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Python from "../../assets/python.jpeg";
 import Java from "../../assets/java.jpeg";
+import Heap from "../../assets/heap.png";
+import Print from "../../assets/print.png";
 import AWS from "aws-sdk";
 
 const quizData = [
@@ -21,17 +23,17 @@ const quizData = [
   },
   {
     id: 3,
-    question: "3. Guess the programming language",
-    image: Java,
-    options: ["Java", "Ruby", "Dart", "C#"],
-    correctAnswer: "Java",
+    question: "3. Time complexity of Heap Sort?",
+    image: Heap,
+    options: ["O(nlgn)", "O(n^2)", "O(n)", "O(2^n)"],
+    correctAnswer: "O(nlgn)",
   },
   {
     id: 4,
-    question: "4. Guess the programming language",
-    image: Python,
-    options: ["Java", "Python", "C++", "JavaScript"],
-    correctAnswer: "Python",
+    question: "4. What is the print function for Java",
+    image: Print,
+    options: ["print()", "System.out.println()", "printf()", "cout << endl"],
+    correctAnswer: "System.out.println()",
   },
 ];
 
@@ -153,15 +155,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   header: {
-    marginTop: 40,
+    marginTop: 100,
     fontSize: 21,
     color: "#469FD1",
     fontWeight: "bold",
+    alignSelf:"center",
   },
   image: {
     width: 380,
-    height: 420,
+    height: 300,
     resizeMode: "contain",
+    marginTop:20,
+    marginBottom:-130,
   },
   buttonContainer: {
     flex: 1,
