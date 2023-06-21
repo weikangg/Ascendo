@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     View,
     Text,
@@ -10,10 +10,16 @@ import {
 
 const CapsuleScreen = () => {
     const [isModalVisible, setIsModalVisible] = React.useState(false);
-    const petIndex = Math.floor(Math.random() * 4);
+    const [petIndex, setpetIndex] = React.useState(-1);
+    //const petIndex = Math.floor(Math.random() * 4);
 
     const handleDispenseButton = () => {
         setIsModalVisible(true);
+        if (petIndex === 3) {
+            setpetIndex(0);
+        } else {
+            setpetIndex(petIndex + 1);
+        }
     };
 
     return (
@@ -38,7 +44,7 @@ const CapsuleScreen = () => {
                 >
                     <View style={styles.modalContainer}>
                         <View style={styles.modalContent}>
-                            {petIndex === 0 && (
+                            {petIndex === 2 && (
                                 <>
                                     <Image
                                         //source={require("../.././assets/gacha/pets/andrew-tate.gif")}
@@ -52,7 +58,7 @@ const CapsuleScreen = () => {
                                     </Text>
                                 </>
                             )}
-                            {petIndex === 1 && (
+                            {petIndex === 3 && (
                                 <>
                                     <Image
                                         //source={require("../.././assets/gacha/pets/andrew-tate.gif")}
@@ -66,7 +72,7 @@ const CapsuleScreen = () => {
                                     </Text>
                                 </>
                             )}
-                            {petIndex === 2 && (
+                            {petIndex === 0 && (
                                 <>
                                     <Image
                                         //source={require("../.././assets/gacha/pets/andrew-tate.gif")}
@@ -80,7 +86,7 @@ const CapsuleScreen = () => {
                                     </Text>
                                 </>
                             )}
-                            {petIndex === 3 && (
+                            {petIndex === 1 && (
                                 <>
                                     <Image
                                         source={require("../.././assets/gacha/pets/andrew-tate.gif")}
