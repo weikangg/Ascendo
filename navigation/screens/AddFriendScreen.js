@@ -17,37 +17,37 @@ const AddFriendScreen = ({ navigation }) => {
     {
       id: 1,
       name: "John Doe",
-      role: "Software Engineer",
+      title: "Software Engineer",
       imageSource: require("../../assets/player1.png"),
     },
     {
       id: 2,
       name: "Jane Smith",
-      role: "DevOps Engineer",
+      title: "DevOps Engineer",
       imageSource: require("../../assets/player2.png"),
     },
     {
       id: 3,
       name: "Alex Johnson",
-      role: "UI/UX Designer",
+      title: "UI/UX Designer",
       imageSource: require("../../assets/player2.png"),
     },
     {
       id: 4,
       name: "John Doe",
-      role: "Software Engineer",
+      title: "Software Engineer",
       imageSource: require("../../assets/player1.png"),
     },
     {
       id: 5,
       name: "Jane Smith",
-      role: "DevOps Engineer",
+      title: "DevOps Engineer",
       imageSource: require("../../assets/player2.png"),
     },
     {
       id: 6,
       name: "Alex Johnson",
-      role: "UI/UX Designer",
+      title: "UI/UX Designer",
       imageSource: require("../../assets/player2.png"),
     },
   ];
@@ -84,7 +84,7 @@ const AddFriendScreen = ({ navigation }) => {
       <Image source={item.imageSource} style={styles.friendImage} />
       <View style={styles.friendInfo}>
         <Text style={styles.friendName}>{item.name}</Text>
-        <Text style={styles.friendRole}>{item.role}</Text>
+        <Text style={styles.friendRole}>{item.title}</Text>
       </View>
       <Text style={styles.addButtonLabel}>Add Friend</Text>
     </TouchableOpacity>
