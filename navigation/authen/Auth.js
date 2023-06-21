@@ -26,7 +26,7 @@ export default function Authen({ handleAuthentication }) {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState(""); // Track the email input
     const [password, setPassword] = useState(""); // Track the password input
-    const [modalVisible, setModalVisible] = useState(true);
+    const [modalVisible, setModalVisible] = useState(false);
     const [confirmationCode, setConfirmationCode] = useState("");
 
     const handleDateCancel = () => {
@@ -102,9 +102,13 @@ export default function Authen({ handleAuthentication }) {
         <>
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={styles.header}>{isRegisterPage? "Register" : "Login"}</Text>
+                    <Text style={styles.header}>
+                        {isRegisterPage ? "Register" : "Login"}
+                    </Text>
                     <Text>
-                        {isRegisterPage?  "By registering you are agreeing to our Term and privacy policy." : "Welcome to our login page."}
+                        {isRegisterPage
+                            ? "By registering you are agreeing to our Term and privacy policy."
+                            : "Welcome to our login page."}
                     </Text>
                     <View style={styles.headerRow}>
                         <Pressable onPress={handleSwitchToLogin}>
