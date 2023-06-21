@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   playerCard: {
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 20,
-    backgroundColor: "#E8EDF1",
+    borderRadius: 14,
+    backgroundColor: "#e0e0e0",
     width: 300,
     padding: 20,
     marginBottom: 16,
