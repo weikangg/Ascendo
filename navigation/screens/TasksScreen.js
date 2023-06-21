@@ -4,6 +4,7 @@ import TasksList from "../components/TasksList";
 import HistoryTasksScreen from "./HistoryTasksScreen";
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import AddTask from "../components/AddTask";
+import HistoryTasksList from "../components/HistoryTasksList";
 
 export default function TasksScreen({ navigation }) {
   const [selectedTab, setSelectedTab] = useState("current");
@@ -53,7 +54,7 @@ export default function TasksScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
       </View>
-      {selectedTab === "current" ? <TasksList /> : <HistoryTasksScreen />}
+      {selectedTab === "current" ? <TasksList /> : <HistoryTasksList />}
       {isAddTaskVisible && <AddTask onClose={toggleAddTask} />}
       <TouchableOpacity style={styles.fab} onPress={toggleAddTask}>
         <Feather name="plus" style={styles.fabIcon} />

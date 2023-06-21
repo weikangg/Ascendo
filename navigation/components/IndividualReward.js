@@ -8,27 +8,26 @@ export default function IndividualReward({ reward, navigation }) {
       style={styles.container} // Add this line
       onPress={() =>
         navigation.navigate("RewardDetail", {
-          image: reward.image,
-          featureText: reward.features[0].text,
-          pointsRequired: reward.points
+          image: reward.imageURL,
+          featureText: reward.name,
+          pointsRequired: reward.points,
         })
       }
     >
       <Image
         style={styles.rewardImage}
-        source={reward.image}
+        source={{ uri: reward.imageURL }}
         resizeMode="contain"
       />
       <View style={styles.pointsBadge}>
         <Text style={styles.pointsText}>{reward.points}</Text>
       </View>
       <View style={styles.separator} />
-      {reward.features.map((feature, index) => (
-        <View key={index} style={styles.rewardInfo}>
-          <Icon name={feature.icon} size={10} color="#000" />
-          <Text style={styles.featureText}>{feature.text}</Text>
-        </View>
-      ))}
+      <View style={styles.rewardInfo}>
+        <Icon name={reward.icon_name} size={10} color="#000" />
+        <Text style={styles.featureText}>{reward.name}</Text>
+      </View>
+
       <View style={styles.terms}>
         <Icon name="file-alt" size={10} color="#000" />
         <Text style={styles.termsText}>Terms & Conditions apply</Text>

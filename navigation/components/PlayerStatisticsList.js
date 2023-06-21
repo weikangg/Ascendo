@@ -8,8 +8,8 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import player1 from '../../assets/player1.png';
-import player2 from '../../assets/player2.png';
+import player1 from "../../assets/player1.png";
+import player2 from "../../assets/player2.png";
 import AWS from "aws-sdk";
 
 AWS.config.update({
@@ -25,7 +25,7 @@ const PlayersList = () => {
     {
       id: 1,
       imageSource: player1,
-      name: "Niggatron",
+      name: "John Doe",
       title: "Scrum Master",
       level: "Senior",
       points: 3,
@@ -33,7 +33,7 @@ const PlayersList = () => {
     {
       id: 2,
       imageSource: player2,
-      name: "Emily Tyler",
+      name: "Emily Tan",
       title: "Software Engineer",
       level: "Middle",
       points: 1,
@@ -41,7 +41,7 @@ const PlayersList = () => {
     {
       id: 3,
       imageSource: player2,
-      name: "Testing",
+      name: "Jane Lim",
       title: "Software Engineer",
       level: "Middle",
       points: 2,
@@ -49,7 +49,7 @@ const PlayersList = () => {
     {
       id: 4,
       imageSource: player2,
-      name: "Testing",
+      name: "John Lim",
       title: "Software Engineer",
       level: "Middle",
       points: 2,
@@ -60,13 +60,13 @@ const PlayersList = () => {
     return (
       <View style={styles.playerCard}>
         <View style={styles.playerCard2}>
-            <Image source={item.imageSource} style={styles.image} />
-            <Text style={styles.name}>{item.name}</Text>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.level}>{item.level}</Text>
+          <Image source={item.imageSource} style={styles.image} />
+          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.level}>{item.level}</Text>
         </View>
         <View style={styles.playerCard2}>
-            <Text style={styles.points}> + {item.points}</Text>
+          <Text style={styles.points}> + {item.points}</Text>
         </View>
       </View>
     );
@@ -85,32 +85,32 @@ const PlayersList = () => {
 };
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     marginBottom: 20,
-    height:600,
+    height: 600,
   },
   playerCard: {
-    alignItems:'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 20,
-    backgroundColor: '#e0e0e0',
+    backgroundColor: "#e0e0e0",
     width: 300,
     padding: 20,
     marginBottom: 16,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   playerCard2: {
-    alignItems:'center',
+    alignItems: "center",
     flex: 0.5,
     // borderColor: 'black',
     // borderWidth:2,
-  },    
+  },
   image: {
     marginBottom: 16,
-  },    
+  },
   title: {
-    fontSize:16,
-    marginBottom:4,
+    fontSize: 16,
+    marginBottom: 4,
   },
   name: {
     fontSize: 20,
@@ -128,8 +128,8 @@ const styles = StyleSheet.create({
   },
   points: {
     fontSize: 40,
-    fontWeight:'bold',
-  }
+    fontWeight: "bold",
+  },
 });
 
 export default PlayersList;

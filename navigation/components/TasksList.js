@@ -292,6 +292,31 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     borderRadius: 8,
   },
+  rowBack: {
+    alignItems: "center",
+    backgroundColor: "#ff0000",
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    paddingRight: 15,
+    borderRadius: 8,
+    padding: 20,
+    marginBottom: 16,
+    marginLeft: 15,
+    width: "95%",
+  },
+  deleteButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: 80,
+    borderRadius: 8,
+    padding: 20,
+    marginBottom: 16,
+  },
+  deleteIcon: {
+    color: "#ffffff",
+    fontSize: 24,
+  },
 });
 
 export default TasksList;
