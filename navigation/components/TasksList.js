@@ -13,8 +13,6 @@ import {
 } from "react-native";
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import Picture from "../../assets/rewards_page/ascendo_logo.png";
-import johnPic from "../../assets/john.jpg";
-import { SwipeListView } from "react-native-swipe-list-view";
 
 const TasksList = ({ navigation }) => {
   const [completedTasks, setCompletedTasks] = useState([]);
@@ -35,8 +33,7 @@ const TasksList = ({ navigation }) => {
 
       if (response.ok) {
         const data = await response.json();
-        const sortedTasks = data.sort((a, b) => b.id - a.id); // Sort tasks by ID in descending order
-        setTasks(sortedTasks);
+        setTasks(data);
       } else {
         throw new Error("Request failed with status code " + response.status);
       }
@@ -68,27 +65,7 @@ const TasksList = ({ navigation }) => {
     }
   };
 
-  const deleteTask = async (taskId) => {
-    try {
-      // Send a DELETE request to your API to delete the task with the specified ID
-      await fetch(
-        `https://iwbybrwtpe.execute-api.ap-southeast-1.amazonaws.com/tasks/${taskId}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      // Update the tasks state by removing the deleted task
-      setTasks(tasks.filter((task) => task.id !== taskId));
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const renderTaskItem = ({ item }) => {
+  const TaskItem = ({ item }) => {
     const isExpanded = item.id === expandedTaskId;
 
     return (
@@ -108,7 +85,7 @@ const TasksList = ({ navigation }) => {
             >
               {item.title}
             </Text>
-            {/* <TouchableOpacity
+            <TouchableOpacity
               onPress={() => toggleTaskCompletion(item.id)}
               style={[
                 styles.toggleButton,
@@ -123,7 +100,7 @@ const TasksList = ({ navigation }) => {
                 }
                 style={styles.toggleIcon}
               />
-            </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
 
           {isExpanded && (
@@ -138,7 +115,7 @@ const TasksList = ({ navigation }) => {
                   <Text style={styles.priorityText}>{item.priority}</Text>
                 </View>
               </View>
-              <Image source={johnPic} style={styles.image} />
+              <Image source={Picture} style={styles.image} />
             </Animated.View>
           )}
           <View style={styles.row}>
@@ -166,23 +143,12 @@ const TasksList = ({ navigation }) => {
     );
   };
 
-  const renderSwipeableItem = ({ item }) => (
-    <View style={styles.rowBack}>
-      <TouchableOpacity
-        style={styles.deleteButton}
-        onPress={() => deleteTask(item.id)}
-      >
-        <FontAwesome name="trash" style={styles.deleteIcon} />
-      </TouchableOpacity>
-    </View>
-  );
-
   return (
     <View style={styles.container}>
-      <SwipeListView
+      <FlatList
         data={tasks}
         keyExtractor={(item) => item.id.toString()}
-        renderItem={renderTaskItem}
+        renderItem={({ item }) => <TaskItem item={item} />}
         contentContainerStyle={styles.contentContainer}
         refreshControl={
           <RefreshControl
@@ -191,9 +157,6 @@ const TasksList = ({ navigation }) => {
             colors={["#469FD1"]}
           />
         }
-        renderHiddenItem={renderSwipeableItem}
-        rightOpenValue={-80} // Width of the delete button
-        disableRightSwipe={true} // Disable right swipe on list items
       />
     </View>
   );
@@ -353,7 +316,6 @@ const styles = StyleSheet.create({
   deleteIcon: {
     color: "#ffffff",
     fontSize: 24,
-    marginLeft: 20,
   },
 });
 
