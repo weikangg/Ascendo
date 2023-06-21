@@ -15,7 +15,6 @@ const PlayersList = ({ players }) => {
         <Image source={item.imageSource} style={styles.image} />
         <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.title}>{item.title}</Text>
-        {/* <Text style={styles.level}>{item.level}</Text> */}
       </View>
     );
   };
@@ -35,9 +34,12 @@ const PlayersList = ({ players }) => {
 const styles = StyleSheet.create({
   container: {
     height: 500,
-    marginBottom: 16,
+    marginBottom: 20,
+    width:310,
+    marginLeft:8,
   },
   playerCard: {
+    marginTop:10,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 20,
@@ -45,6 +47,13 @@ const styles = StyleSheet.create({
     width: 300,
     padding: 20,
     marginBottom: 16,
+    shadowColor: "#000", // for iOS
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
   },
   image: {
     marginBottom: 16,
