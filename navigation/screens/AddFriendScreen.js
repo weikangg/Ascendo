@@ -57,7 +57,7 @@ const AddFriendScreen = ({ navigation }) => {
     // Perform add friend logic here
     console.log("Added friend:", friend);
     // Add your own implementation to add the friend to your list
-    navigation.navigate("Games");
+    navigation.navigate("Games", { friend });
   };
 
   const renderFriendItem = ({ item }) => (
