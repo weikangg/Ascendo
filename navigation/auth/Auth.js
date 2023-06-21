@@ -82,10 +82,9 @@ export default function Auth({ handleAuthentication }) {
         <>
             <View style={styles.container}>
                 <View style={styles.top}>
-                    <Text style={styles.header}>Register</Text>
+                    <Text style={styles.header}>{isRegisterPage? "Register" : "Login"}</Text>
                     <Text>
-                        By registering you are agreeing to our Term and privacy
-                        policy
+                        {isRegisterPage?  "By registering you are agreeing to our Term and privacy policy." : "Welcome to our login page."}
                     </Text>
                     <View style={styles.headerRow}>
                         <Pressable onPress={handleSwitchToLogin}>
