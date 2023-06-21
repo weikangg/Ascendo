@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
     },  
     row: {
         flexDirection: 'row',
@@ -108,10 +107,12 @@ const styles = StyleSheet.create({
     },
     button: {
       backgroundColor: '#0386D0',
-      width: '45%',
+      width: '48.5%',
       padding: 14,
-      borderRadius: 20,
+      borderRadius: 5,
       alignItems: "center",
+      borderColor:"white",
+      borderWidth:2,
     },
     buttonText: {
         color:"white",
