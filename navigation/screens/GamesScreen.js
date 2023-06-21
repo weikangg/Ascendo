@@ -2,18 +2,14 @@ import * as React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import PlayersList from "../components/PlayersList";
 
+import { users } from "../../data/userData"; // Import the 'users' array
 export default function GamesScreen({ navigation }) {
-  const [players, setPlayers] = React.useState([]);
-
-  const addPlayer = (playerName) => {
-    const newPlayers = [...players, playerName];
-    setPlayers(newPlayers);
-  };
+  const players = users;
 
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <PlayersList players={players} onAddPlayer={addPlayer} />
+        <PlayersList players={players} />
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}

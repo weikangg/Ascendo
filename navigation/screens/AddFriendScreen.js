@@ -10,49 +10,50 @@ import {
   Image,
 } from "react-native";
 
+import { users } from "../../data/userData"; // Import the 'users' array
+
 const AddFriendScreen = ({ navigation }) => {
   const results = [
     {
       id: 1,
       name: "John Doe",
-      role:"Software Engineer",
+      role: "Software Engineer",
       imageSource: require("../../assets/player1.png"),
     },
     {
       id: 2,
       name: "Jane Smith",
-      role:"DevOps Engineer",
+      role: "DevOps Engineer",
       imageSource: require("../../assets/player2.png"),
     },
     {
       id: 3,
       name: "Alex Johnson",
-      role:"UI/UX Designer",
+      role: "UI/UX Designer",
       imageSource: require("../../assets/player2.png"),
     },
     {
       id: 4,
       name: "John Doe",
-      role:"Software Engineer",
+      role: "Software Engineer",
       imageSource: require("../../assets/player1.png"),
     },
     {
       id: 5,
       name: "Jane Smith",
-      role:"DevOps Engineer",
+      role: "DevOps Engineer",
       imageSource: require("../../assets/player2.png"),
     },
     {
       id: 6,
       name: "Alex Johnson",
-      role:"UI/UX Designer",
+      role: "UI/UX Designer",
       imageSource: require("../../assets/player2.png"),
     },
   ];
 
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState(results);
-  
 
   const handleSearch = () => {
     const filteredResults = results.filter((item) => {
@@ -64,6 +65,14 @@ const AddFriendScreen = ({ navigation }) => {
   };
 
   const handleAddFriend = (friend) => {
+    // Perform add friend logic here
+    console.log("Added friend:", friend);
+    // Add the friend to the 'users' array
+    const updatedUsers = [...users, friend];
+
+    // Replace the 'users' array with the updated array
+    users.splice(0, users.length, ...updatedUsers);
+    // Add your own implementation to add the friend to your list
     navigation.navigate("Games", { friend });
   };
 
@@ -90,7 +99,9 @@ const AddFriendScreen = ({ navigation }) => {
           onChangeText={setSearchQuery}
           placeholder="Search friends..."
         />
-        <Text style = {styles.searchButton} title="Search" onPress={handleSearch}>Search</Text>
+        <Text style={styles.searchButton} title="Search" onPress={handleSearch}>
+          Search
+        </Text>
       </View>
       <FlatList
         data={searchResults}
@@ -110,14 +121,14 @@ const styles = StyleSheet.create({
   searchBarContainer: {
     borderRadius: 15,
     borderColor: "#BFC0C1",
-    borderWidth:1,
+    borderWidth: 1,
     width: "95%",
-    flexDirection:"row",
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     height: 40,
-    marginBottom:15,
-    alignSelf:"center",
+    marginBottom: 15,
+    alignSelf: "center",
   },
   searchInput: {
     flex: 1,
@@ -125,11 +136,11 @@ const styles = StyleSheet.create({
     marginRight: 8,
     paddingHorizontal: 10,
   },
-  searchButton:{
-    fontWeight:"bold",
-    fontSize:18,
+  searchButton: {
+    fontWeight: "bold",
+    fontSize: 18,
     color: "#469FD1",
-    marginRight:10,
+    marginRight: 10,
   },
   friendList: {
     flexGrow: 1,
@@ -140,8 +151,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: "gray",
-    width:"95%",
-    alignSelf:"center",
+    width: "95%",
+    alignSelf: "center",
   },
   friendImage: {
     width: 50,
@@ -155,7 +166,7 @@ const styles = StyleSheet.create({
   },
   friendName: {
     fontSize: 16,
-    fontWeight:"bold",
+    fontWeight: "bold",
   },
   addButtonLabel: {
     color: "#0386D0",
