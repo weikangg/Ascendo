@@ -10,7 +10,6 @@ import {
     ActivityIndicator,
 } from "react-native";
 import { Auth } from "aws-amplify";
-import { Auth } from "aws-amplify";
 
 const ProfilePage = ({ navigation, handleAuthentication }) => {
     const [loading, setLoading] = useState(false);

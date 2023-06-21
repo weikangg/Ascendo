@@ -22,12 +22,14 @@ import TopDownRPG from "./screens/TopDownRPG";
 import AddFriendScreen from "./screens/AddFriendScreen";
 import ChatBotScreen from "./screens/ChatbotScreen";
 import ProfileDetails from "./screens/ProfileDetails";
+import CapsuleScreen from "./screens/CapsuleScreen";
 
 const homeName = "Home";
 const gamesName = "Games";
 const rewardsName = "Rewards";
 const tasksName = "Tasks";
 const profileName = "ChatBot";
+const capsuleName = "Capsule";
 const addFriend = "AddFriend";
 
 const Tab = createBottomTabNavigator();
@@ -146,6 +148,14 @@ export default function MainContainer({ handleAuthentication }) {
                     }}
                 />
                 <Stack.Screen
+                    name="CapsuleStation"
+                    component={CapsuleScreen}
+                    options={{
+                        headerTitle: "Capsule Station",
+                        headerBackTitle: "Back",
+                    }}
+                />
+                <Stack.Screen
                     name="RewardDetail"
                     component={RewardsDetailScreen}
                     options={({ navigation }) => ({
@@ -234,6 +244,14 @@ export default function MainContainer({ handleAuthentication }) {
                 }}
             />
             <Stack.Screen
+                name="CapsuleStation"
+                component={CapsuleScreen}
+                options={{
+                    headerTitle: "Capsule Station",
+                    headerBackTitle: "Back",
+                }}
+            />
+            <Stack.Screen
                 name="RewardDetail"
                 component={RewardsDetailScreen}
                 options={({ navigation }) => ({
@@ -269,6 +287,8 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
                         iconName = focused ? "card" : "card-outline";
                     } else if (rn === tasksName) {
                         iconName = focused ? "book" : "book-outline";
+                    } else if (rn === capsuleName) {
+                        iconName = focused ? "logo-octocat" : "cube-outline";
                     }
                     return (
                         <Ionicons name={iconName} size={size} color={color} />
@@ -320,6 +340,15 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
                 options={{
                     ...headerOptions,
                     headerTitle: "Games",
+                    headerRight: () => <ProfileIcon navigation={navigation} />,
+                }}
+            />
+            <Tab.Screen
+                name={capsuleName}
+                component={CapsuleScreen}
+                options={{
+                    ...headerOptions,
+                    headerTitle: "Capsule Station",
                     headerRight: () => <ProfileIcon navigation={navigation} />,
                 }}
             />
