@@ -13,10 +13,10 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 const ProfileDetails = () => {
-  const [name, setName] = useState("John Doe");
-  const [username, setUsername] = useState("johndoe");
+  const [name, setName] = useState("Chong Wei Kang");
+  const [username, setUsername] = useState("weikangg");
   const [imageUri, setImageUri] = useState(
-    require("../../assets/rewards_page/ascendo_logo.png")
+    require("../.././assets/fatJohnDoe.gif")
   );
   const [isModalVisible, setIsModalVisible] = useState(false);
   const navigation = useNavigation();
