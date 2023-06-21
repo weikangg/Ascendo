@@ -25,8 +25,9 @@ const CapsuleScreen = () => {
     return (
         <View style={styles.background}>
             <Image
-                source={require("../.././assets/gacha/VendingMachine.png")}
+                source={require("../.././assets/gacha/VendingMachine2.png")}
                 style={styles.imageBackground}
+                resizeMode="contain"
             />
             <View>
                 <TouchableOpacity
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     },
     imageBackground: {
         //resizeMode: "contain",
-        height: "60%",
+        height: "100%",
         width: "100%",
         alignSelf: "flex-start",
     },
