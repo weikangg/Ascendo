@@ -2,44 +2,81 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Python from '../../assets/python.png'
 
+const quizData = [
+    {
+      id: 1,
+      question: "Guess the programming language",
+      image: Python,
+      options: ["Java", "Python", "C++", "JavaScript"],
+      correctAnswer: "Python",
+    },
+    {
+      id: 2,
+      question: "Guess the Gay language",
+      image: Python,
+      options: ["Java", "Python", "C++", "JavaScript"],
+      correctAnswer: "Python",
+    },
+  ];
+
 export default function CharadesScreen({navigation}) {
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [score, setScore] = useState(0);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+    const handleAnswer = (answer) => {
+        setSelectedAnswer(answer);
+
+        if (answer === quizData[currentQuestion].correctAnswer) {
+        setScore(score + 1);
+        }
+
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < quizData.length) {
+        setCurrentQuestion(nextQuestion);
+        } else {
+        navigation.navigate("ResultScreen", { score });
+        }
+    };
     return (
         <View style={styles.container}>
-            <Text style = {styles.header}>Guess the Programming Language</Text>
-            <Image 
-                style = {styles.image}
-                source = {Python}>
-            </Image>
-            <View style={styles.buttonContainer}>
-                <View style={styles.row}>
-                    <TouchableOpacity 
-                        style={[styles.button, { backgroundColor: '#D02803' }]}
-                        onPress={() => navigation.navigate("GameStatistics")}>
-                        <Text style={styles.buttonText}>Java</Text>
-                    </TouchableOpacity>
-                    <View style={styles.spacing}></View>
-                    <TouchableOpacity 
-                        style={[styles.button, { backgroundColor: '#03D030' }]}
-                        onPress={() => navigation.navigate("GameStatistics")}>
-                        <Text style={styles.buttonText}>Python</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.row}>
-                <TouchableOpacity 
-                    style={[styles.button, { backgroundColor: '#CCD003' }]}
-                    onPress={() => navigation.navigate("GameStatistics")}>
-                        <Text style={styles.buttonText}>C++</Text>
-                    </TouchableOpacity>
-                    <View style={styles.spacing}></View>
-                    <TouchableOpacity 
-                        style={[styles.button, { backgroundColor: '#1A8BCB' }]}
-                        onPress={() => navigation.navigate("GameStatistics")}>
-                        <Text style={styles.buttonText}>Javascript</Text>
-                    </TouchableOpacity>
-                </View>
+          <Text style={styles.header}>{quizData[currentQuestion].question}</Text>
+          <Image style={styles.image} source={Python} />
+    
+          <View style={styles.buttonContainer}>
+            <View style={styles.row}>
+              {quizData[currentQuestion].options.slice(0, 2).map((option, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={[
+                    styles.button,
+                    selectedAnswer === option && { backgroundColor: "#0386D0" },
+                  ]}
+                  onPress={() => handleAnswer(option)}
+                  disabled={selectedAnswer !== null}
+                >
+                  <Text style={styles.buttonText}>{option}</Text>
+                </TouchableOpacity>
+              ))}
             </View>
+            <View style={styles.row}>
+              {quizData[currentQuestion].options.slice(2, 4).map((option, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={[
+                    styles.button,
+                    selectedAnswer === option && { backgroundColor: "#0386D0" },
+                  ]}
+                  onPress={() => handleAnswer(option)}
+                  disabled={selectedAnswer !== null}
+                >
+                  <Text style={styles.buttonText}>{option}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
         </View>
-    )
+      );
 }
 
 const styles = StyleSheet.create({
@@ -67,6 +104,7 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         marginBottom: 10,
+        justifyContent:'space-between',
     },
     button: {
       backgroundColor: '#0386D0',
@@ -74,7 +112,6 @@ const styles = StyleSheet.create({
       padding: 14,
       borderRadius: 20,
       alignItems: "center",
-      marginBottom: 8,
     },
     buttonText: {
         color:"white",
