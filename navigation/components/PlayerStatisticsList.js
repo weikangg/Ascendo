@@ -10,14 +10,22 @@ import {
 } from "react-native";
 import player1 from '../../assets/player1.png';
 import player2 from '../../assets/player2.png';
+import AWS from "aws-sdk";
 
+AWS.config.update({
+  region: "ap-southeast-1",
+  accessKeyId: "AKIA6GJUZIGUTCJCTGKO",
+  secretAccessKey: "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",
+});
+
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 const PlayersList = () => {
   const players = [
     {
       id: 1,
       imageSource: player1,
-      name: "Randy Delgado",
+      name: "Niggatron",
       title: "Scrum Master",
       level: "Senior",
       points: 3,

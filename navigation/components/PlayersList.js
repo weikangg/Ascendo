@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Image,
@@ -9,9 +9,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import player1 from '../../assets/player1.png';
-import player2 from '../../assets/player2.png';
-
+import player1 from "../../assets/player1.png";
+import player2 from "../../assets/player2.png";
 
 const PlayersList = () => {
   const players = [
@@ -38,6 +37,7 @@ const PlayersList = () => {
     },
   ];
 
+
   const renderPlayerCard = ({ item }) => {
     return (
       <View style={styles.playerCard}>
@@ -62,25 +62,25 @@ const PlayersList = () => {
 };
 
 const styles = StyleSheet.create({
-  container:{
-    height:500,
+  container: {
+    height: 500,
     marginBottom: 16,
   },
   playerCard: {
-    alignItems:'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 20,
-    backgroundColor: '#E8EDF1',
+    backgroundColor: "#E8EDF1",
     width: 300,
     padding: 20,
     marginBottom: 16,
   },
   image: {
     marginBottom: 16,
-  },    
+  },
   title: {
-    fontSize:16,
-    marginBottom:4,
+    fontSize: 16,
+    marginBottom: 4,
   },
   name: {
     fontSize: 20,
