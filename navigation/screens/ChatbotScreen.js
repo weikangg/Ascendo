@@ -20,6 +20,18 @@ const openai = new OpenAIApi(configuration);
 const ChatbotScreen = () => {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState("");
+  const GPT35TurboMessage = [
+    { role: "system", content: `You are a weak developer.` },
+    {
+      role: "user",
+      content: "Which npm package is best of openai api development?",
+    },
+    {
+      role: "assistant",
+      content: "The 'openai' Node.js library.",
+    },
+    { role: "user", content: "?" },
+  ];
 
   const sendMessage = async () => {
     if (inputText.trim() === "") return;
@@ -29,11 +41,12 @@ const ChatbotScreen = () => {
 
     try {
       const response = await openai.createCompletion({
-        model: "text-davinci-003",
+        model: "gpt-3.5-turbo",
         prompt: inputText,
-        temperature: 0.6,
+        temperature: 0.1,
+        max_tokens: 160,
       });
-
+      console.log(response);
       const chatbotMessage = {
         id: Date.now() + 1,
         text: response.data.choices[0].text.trim(),
