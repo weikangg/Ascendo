@@ -23,14 +23,20 @@ export default function Authen({ handleAuthentication }) {
     const [showAccountTypeModal, setShowAccountTypeModal] = useState(false);
     const [selectedAccountType, setSelectedAccountType] = useState("");
     const [isRegisterPage, setIsRegisterPage] = useState(false);
+    const [userName, setUserName] = useState(""); // Track the username input
     const [rememberPassword, setRememberPassword] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState(""); // Track the email input
+    const [firstName, setFirstName] = useState(""); // Track the first name input
+    const [lastName, setLastName] = useState(""); // Track the last name input
     const [password, setPassword] = useState(""); // Track the password input
     const [modalVisible, setModalVisible] = useState(false);
     const [confirmationCode, setConfirmationCode] = useState("");
     const [loading, setLoading] = useState(false);
 
+    /**
+     * The function `handleDateCancel` sets the state of `showDatePicker` to false.
+     */
     const handleDateCancel = () => {
         setShowDatePicker(false);
     };
@@ -63,8 +69,9 @@ export default function Authen({ handleAuthentication }) {
     const handleLogin = async () => {
         setLoading(true);
         try {
-            await Auth.signIn(email, password);
+            const user = await Auth.signIn(userName, password);
             handleAuthentication(true);
+            console.log(user);
         } catch (error) {
             console.log("login login error", error);
             Alert.alert(
@@ -80,10 +87,12 @@ export default function Authen({ handleAuthentication }) {
         setLoading(true); // Show loading screen
         try {
             await Auth.signUp({
-                username: email,
+                username: userName,
                 password: password,
                 attributes: {
                     email: email,
+                    given_name: firstName,
+                    family_name: lastName,
                 },
             });
             setModalVisible(true);
@@ -117,7 +126,7 @@ export default function Authen({ handleAuthentication }) {
     async function confirmSignUp() {
         setLoading(true);
         try {
-            await Auth.confirmSignUp(email, confirmationCode);
+            await Auth.confirmSignUp(userName, confirmationCode);
         } catch (error) {
             console.log("error confirming sign up", error);
         } finally {
@@ -169,11 +178,13 @@ export default function Authen({ handleAuthentication }) {
                             <TextInput
                                 style={styles.input}
                                 placeholder="First Name"
+                                onChangeText={(text) => setFirstName(text)}
                             />
                             <View style={styles.gap} />
                             <TextInput
                                 style={styles.input}
                                 placeholder="Last Name"
+                                onChangeText={(text) => setLastName(text)}
                             />
                         </View>
                         <View style={styles.row}>
@@ -186,14 +197,15 @@ export default function Authen({ handleAuthentication }) {
                         <View style={styles.row}>
                             <TextInput
                                 style={styles.input}
-                                placeholder="Password"
-                                onChangeText={(text) => setPassword(text)}
+                                placeholder="Username"
+                                onChangeText={(text) => setUserName(text)}
                             />
                         </View>
                         <View style={styles.row}>
                             <TextInput
                                 style={styles.input}
-                                placeholder="Re-enter Password"
+                                placeholder="Password"
+                                onChangeText={(text) => setPassword(text)}
                             />
                         </View>
                         <View style={styles.row}>
@@ -281,9 +293,10 @@ export default function Authen({ handleAuthentication }) {
                         <View style={styles.row}>
                             <TextInput
                                 style={styles.input}
-                                placeholder="Email Address"
-                                value={email}
-                                onChangeText={(text) => setEmail(text)}
+                                placeholder="Username"
+                                value={userName}
+                                onChangeText={(text) => setUserName(text)}
+                                autoCapitalize="none"
                             />
                         </View>
                         <View

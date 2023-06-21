@@ -46,48 +46,6 @@ export default function RewardsScreen({ navigation }) {
         fetchRewards();
     }, []);
     console.log(rewards);
-    const rewardsTemp = [
-        {
-            image: require("../../assets/rewards_page/paid-time-off-reward.png"), // Replace with actual image
-            points: 200,
-            features: [
-                {
-                    icon: "clock", // Replace with actua  l icon
-                    text: "13:00 - 17:30 Time Off",
-                },
-            ],
-        },
-        {
-            image: require("../../assets/rewards_page/fitness-first-reward.png"), // Replace with actual image
-            points: 400,
-            features: [
-                {
-                    icon: "clock", // Replace with actual icon
-                    text: "1 month subscription",
-                },
-            ],
-        },
-        {
-            image: require("../../assets/rewards_page/udemy-reward.png"), // Replace with actual image
-            points: 800,
-            features: [
-                {
-                    icon: "book", // Replace with actual icon
-                    text: "2 free courses",
-                },
-            ],
-        },
-        {
-            image: require("../../assets/rewards_page/grab-food-credit-reward.png"), // Replace with actual image
-            points: 1500,
-            features: [
-                {
-                    icon: "dollar-sign", // Replace with actual icon
-                    text: "$150 GrabFood credits",
-                },
-            ],
-        },
-    ];
 
     const renderHeader = () => (
         <View style={styles.headerContainer}>

@@ -62,7 +62,8 @@ export default function HomeScreen({ navigation }) {
         });
 
         console.log(JSON.stringify(result.assets[0]));
-        /*if (!result.canceled) {
+
+        if (!result.canceled) {
             setImage(result.assets[0]);
 
             const imageKey = `image-${Date.now()}.jpg`;
@@ -74,7 +75,7 @@ export default function HomeScreen({ navigation }) {
                 console.log("Error uploading image to S3:", error);
                 // Handle upload error
             }
-        }*/
+        }
     };
 
     return (
