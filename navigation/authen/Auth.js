@@ -263,9 +263,9 @@ export default function Authen({ handleAuthentication }) {
             <View style={styles.row}>
               <TextInput
                 style={styles.input}
-                placeholder="Email Address"
-                value={email}
-                onChangeText={(text) => setEmail(text)}
+                placeholder="Username"
+                value={userName}
+                onChangeText={(text) => setUserName(text)}
               />
             </View>
             <View

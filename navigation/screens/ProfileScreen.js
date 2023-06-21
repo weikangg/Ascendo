@@ -95,9 +95,7 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
           <>
             <Image source={userProfile.image} style={styles.profileImage} />
             <View style={styles.nameContainer}>
-              <Text style={styles.username}>
-                {userProfile.name}
-              </Text>
+              <Text style={styles.username}>{userProfile.name}</Text>
               <Text style={styles.name}>@{userProfile.username}</Text>
             </View>
             <View style={styles.statsContainer}>
@@ -291,6 +289,12 @@ const styles = StyleSheet.create({
     left: 10,
     width: "100%",
     alignItems: "center",
+  },
+  loadingContainer: {
+    ...StyleSheet.absoluteFill,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
 });
 
