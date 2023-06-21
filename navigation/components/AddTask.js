@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,22 +7,77 @@ import {
   Modal,
   TextInput,
   ScrollView,
+  Alert,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
 const AddTask = ({ visible, onClose }) => {
-  const [taskName, setTaskName] = React.useState("");
-  const [estimate, setEstimate] = React.useState("");
-  const [deadline, setDeadline] = React.useState("");
+  const [title, setTitle] = React.useState("");
+  const [duration, setDuration] = React.useState("");
+  const [document, setDocument] = React.useState("");
   const [priority, setPriority] = React.useState("Low");
-  const [assignee, setAssignee] = React.useState("User 1");
-  const [description, setDescription] = React.useState("");
+  const [person, setPerson] = React.useState("User 1");
+  const [details, setDetails] = React.useState("");
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleSaveTask = () => {
-    // Perform the saving logic here
-    console.log(taskName);
-    console.log("Submit pressed");
+    // Fetch the latest task ID from the API
+    fetch("https://iwbybrwtpe.execute-api.ap-southeast-1.amazonaws.com/tasks", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Find the maximum ID among existing tasks
+        const maxId = data.reduce((max, task) => Math.max(max, task.id), 0);
+
+        // Generate a new ID by incrementing the maximum ID
+        const newId = maxId + 1;
+
+        const task = {
+          id: newId.toString(),
+          title,
+          duration,
+          document,
+          details,
+          person,
+          priority,
+        };
+
+        // Save the task to the API
+        fetch(
+          "https://iwbybrwtpe.execute-api.ap-southeast-1.amazonaws.com/tasks",
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(task),
+          }
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            console.log("Task saved successfully:", result);
+            setTimeout(() => {
+              onClose();
+            }, 1000);
+          })
+          .catch((error) => {
+            console.error("Error saving task:", error);
+          });
+
+        console.log(newId);
+        console.log("Submit pressed");
+      })
+      .catch((error) => {
+        console.error("Error fetching tasks:", error);
+      });
+    setShowSuccessMessage(true);
   };
+
+  const closeSuccessMessage = () => {
+    setShowSuccessMessage(false);
+  };
+
   return (
     <Modal visible={visible} animationType="slide" transparent>
       <View style={styles.outercontainer}>
@@ -36,25 +91,42 @@ const AddTask = ({ visible, onClose }) => {
             <Text style={styles.label}>Task Name</Text>
             <TextInput
               style={styles.input}
-              value={taskName}
-              onChangeText={setTaskName}
+              value={title}
+              onChangeText={setTitle}
               placeholder="Enter task name"
             />
 
-            <Text style={styles.label}>Estimate</Text>
+            <Text style={styles.label}>Duration</Text>
             <TextInput
               style={styles.input}
-              value={estimate}
-              onChangeText={setEstimate}
+              value={duration}
+              onChangeText={setDuration}
               placeholder="Enter estimate"
             />
 
-            <Text style={styles.label}>Deadline</Text>
+            <Text style={styles.label}>Document</Text>
             <TextInput
               style={styles.input}
-              value={deadline}
-              onChangeText={setDeadline}
+              value={document}
+              onChangeText={setDocument}
               placeholder="Enter deadline"
+            />
+
+            <Text style={styles.label}>Details</Text>
+            <TextInput
+              style={styles.descriptionInput}
+              value={details}
+              onChangeText={setDetails}
+              placeholder="Enter task description"
+              multiline
+            />
+
+            <Text style={styles.label}>Person</Text>
+            <TextInput
+              style={styles.input}
+              value={person}
+              onChangeText={setPerson}
+              placeholder="Enter assignee"
             />
 
             <Text style={styles.label}>Priority</Text>
@@ -65,23 +137,6 @@ const AddTask = ({ visible, onClose }) => {
               placeholder="Enter priority"
             />
 
-            <Text style={styles.label}>Assignee</Text>
-            <TextInput
-              style={styles.input}
-              value={assignee}
-              onChangeText={setAssignee}
-              placeholder="Enter assignee"
-            />
-
-            <Text style={styles.label}>Description</Text>
-            <TextInput
-              style={styles.descriptionInput}
-              value={description}
-              onChangeText={setDescription}
-              placeholder="Enter task description"
-              multiline
-            />
-
             <TouchableOpacity
               style={styles.submitButton}
               onPress={handleSaveTask}
@@ -90,6 +145,22 @@ const AddTask = ({ visible, onClose }) => {
             </TouchableOpacity>
           </ScrollView>
         </View>
+        {showSuccessMessage && (
+          <View style={styles.successMessageContainer}>
+            <Text style={styles.successMessageText}>
+              Task added successfully!
+            </Text>
+            <TouchableOpacity
+              style={styles.closeSuccessMessageButton}
+              onPress={closeSuccessMessage}
+            >
+              <FontAwesome
+                name="times"
+                style={styles.closeSuccessMessageIcon}
+              />
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     </Modal>
   );
@@ -154,6 +225,36 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  successMessageContainer: {
+    position: "absolute",
+    width: "85%",
+    top: 100,
+    left: 30,
+    right: 0,
+    height: 50,
+    backgroundColor: "#b5dbb2",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 8,
+  },
+  successMessageText: {
+    color: "black",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  closeSuccessMessageButton: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    height: 50,
+    width: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  closeSuccessMessageIcon: {
+    fontSize: 16,
+    color: "black",
   },
 });
 
