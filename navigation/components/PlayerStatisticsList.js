@@ -25,7 +25,7 @@ const PlayersList = () => {
     {
       id: 4,
       imageSource: player1,
-      name: "Niggatron",
+      name: "Kane Tan",
       title: "Scrum Master",
       level: "Senior",
       points: 3,

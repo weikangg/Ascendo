@@ -23,7 +23,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
     {
       id: 1,
       imageSource: Player1,
-      name: "Niggatron",
+      name: "Kane Tan",
       timestamp: "2 mins ago",
       description: "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,
@@ -31,7 +31,7 @@ const Posts = ({ name, profile, photo, onPress }) => {
     {
       id: 2,
       imageSource: Player1,
-      name: "Gayass",
+      name: "Kane Tan",
       timestamp: "2 mins ago",
       description: "Check out this amazing new store at our kopitiam downstairs!!",
       descImage: Kopitiam,

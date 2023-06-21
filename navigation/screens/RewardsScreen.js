@@ -55,7 +55,7 @@ export default function RewardsScreen({ navigation }) {
                     source={require("../../assets/rewards_page/ascendo_logo.png")}
                 />
                 <TouchableOpacity
-                    style={styles.qrCode}
+                    style={styles.qirongCode}
                     // onPress={() => navigation.navigate("YourQRScreenRoute")}
                     onPress={() => console.log("Pressed QR Code;")}
                 >
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         left: 15,
         top: 19,
     },
-    qrCode: {
+    qirongCode: {
         position: "absolute",
         width: 107,
         height: 110,
@@ -166,8 +166,6 @@ const styles = StyleSheet.create({
     qrCodeImage: {
         width: "100%",
         height: "100%",
-        borderWidth: 1,
-        borderColor: "#000000",
     },
     qrCodeText: {
         fontFamily: "System",
