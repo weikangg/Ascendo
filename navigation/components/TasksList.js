@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import Picture from "../../assets/rewards_page/ascendo_logo.png";
+import johnPic from "../../assets/john.jpg";
 import { SwipeListView } from "react-native-swipe-list-view";
 
 const TasksList = ({ navigation }) => {
@@ -106,7 +107,7 @@ const TasksList = ({ navigation }) => {
             >
               {item.title}
             </Text>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={() => toggleTaskCompletion(item.id)}
               style={[
                 styles.toggleButton,
@@ -121,7 +122,7 @@ const TasksList = ({ navigation }) => {
                 }
                 style={styles.toggleIcon}
               />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
 
           {isExpanded && (
@@ -136,7 +137,7 @@ const TasksList = ({ navigation }) => {
                   <Text style={styles.priorityText}>{item.priority}</Text>
                 </View>
               </View>
-              <Image source={Picture} style={styles.image} />
+              <Image source={johnPic} style={styles.image} />
             </Animated.View>
           )}
           <View style={styles.row}>
