@@ -149,7 +149,7 @@ const TasksList = ({ navigation }) => {
                 name={
                   completedTasks.includes(item.id)
                     ? "check-circle"
-                    : "circle-thin"
+                    : "check-circle-o"
                 }
                 style={styles.toggleIcon}
               />
@@ -240,12 +240,19 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   taskContainer: {
-    backgroundColor: "#e0e0e0",
+    backgroundColor: "#FFFFFF",
     borderRadius: 8,
     padding: 20,
     marginBottom: 16,
     width: "100%", // Take up full width within content container
     maxWidth: 400, // Set maximum width to prevent it from being too wide
+    shadowColor: "#000", // for iOS
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 1,
   },
   completedTaskContainer: {
     opacity: 1,
@@ -270,7 +277,7 @@ const styles = StyleSheet.create({
     height: 30,
     borderRadius: 15,
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "transparent",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -279,7 +286,7 @@ const styles = StyleSheet.create({
     borderColor: "green",
   },
   toggleIcon: {
-    fontSize: 20,
+    fontSize: 30,
     color: "black",
   },
   row: {
