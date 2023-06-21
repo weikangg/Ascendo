@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
+  ScrollView,
+  TouchableWithoutFeedback,
 } from "react-native";
 import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 
@@ -35,37 +37,55 @@ const CapsuleScreen = () => {
   };
 
   return (
-    <View style={[styles.background]}>
-      <View
-        style={{
-          alignItems: "center",
-          borderWidth: 2,
-          borderRadius: 10,
-        }}
-      >
-        <Text style={{ fontSize: 30, margin: 10 }}>
-          <Ionicons name="logo-octocat" size={24} color="black" /> Pet Capsule
-          Station 101 <Ionicons name="logo-octocat" size={24} color="black" />
-        </Text>
-        <Text style={{ fontSize: 15, margin: 10 }}>
-          Ever dreamed of owning special and exotic companions?
-        </Text>
-        <Text style={{ fontSize: 15, margin: 10 }}>
-          Simply press the button to dispense a pet.
-        </Text>
-        <Text style={{ fontSize: 15, margin: 10 }}>
-          Pets rank from common,uncommon,rare and legendary.
-        </Text>
-        <Text style={{ fontSize: 15, margin: 10 }}>
-          Points cost: 1000{"  "}
-          <FontAwesome5 name="coins" size={24} color="black" />
-        </Text>
+    <View
+      style={[
+        styles.background,
+        { alignItems: "center", justifyContent: "center" },
+      ]}
+    >
+      <View style={{ paddingTop: 50 }}>
+        <View
+          style={{
+            width: "95%",
+            alignItems: "center",
+            borderWidth: 2,
+            borderRadius: 10,
+          }}
+        >
+          <Text style={{ fontSize: 24, marginTop: 10 }}>
+            <Ionicons name="logo-octocat" size={24} color="black" /> Pet Capsule
+            Station 101 <Ionicons name="logo-octocat" size={24} color="black" />
+          </Text>
+          <Text style={{ fontSize: 15, margin: 10 }}>
+            Ever dreamed of owning special and exotic companions? Simply press
+            the button to dispense a pet. Pets rank from common to uncommon,rare
+            and legendary.
+          </Text>
+          <Text style={{ fontSize: 15, marginTop: 0, marginBottom: 10 }}>
+            Points cost: 1000{"  "}
+            <FontAwesome5 name="coins" size={24} color="black" />
+          </Text>
+        </View>
       </View>
+
       <Image
         source={require("../.././assets/gacha/VendingMachine2.png")}
         style={styles.imageBackground}
         resizeMode="contain"
       />
+      <TouchableOpacity
+        onPress={handleDispenseButton}
+        style={styles.vendingButton}
+      >
+        <Text style={styles.buttonFont}>{"     "}</Text>
+      </TouchableOpacity>
+      <TouchableWithoutFeedback onPress={handleDispenseButton}>
+        <Image
+          source={require("../.././assets/gacha/dispense.jpg")}
+          style={styles.dispenseImage}
+          resizeMode="contain"
+        />
+      </TouchableWithoutFeedback>
       <TouchableOpacity
         onPress={handleDispenseButton}
         style={styles.vendingButton}
@@ -168,11 +188,11 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     width: "100%",
-    marginTop: 31,
+    marginTop: -80,
   },
   vendingButton: {
-    marginTop: 530, // Adjust the value as needed
-    marginLeft: 325,
+    top: 385,
+    left: 318,
     position: "absolute",
   },
   buttonFont: {
@@ -219,6 +239,10 @@ const styles = StyleSheet.create({
   },
   commonPet: {
     color: "black",
+  },
+  dispenseImage: {
+    marginTop: -80,
+    width: "50%", // Adjust the size as needed
   },
 });
 export default CapsuleScreen;

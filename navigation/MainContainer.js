@@ -342,7 +342,7 @@ const TabNavigatorScreen = ({ handleAuthentication }) => {
         component={ChatBotScreen}
         options={{
           ...headerOptions,
-          headerTitle: "ChatBot",
+          headerTitle: "Snow Cat",
           headerRight: () => <ProfileIcon navigation={navigation} />,
         }}
       />

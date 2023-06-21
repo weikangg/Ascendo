@@ -189,7 +189,7 @@ const ProfilePage = ({ navigation, handleAuthentication }) => {
 
       {loading && (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size="large" color="#4690f1" />
           <Text>Loading...</Text>
         </View>
       )}

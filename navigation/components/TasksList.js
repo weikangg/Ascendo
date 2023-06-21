@@ -10,6 +10,7 @@ import {
   Image,
   Linking,
   RefreshControl,
+  ActivityIndicator
 } from "react-native";
 import { FontAwesome, Feather } from "@expo/vector-icons";
 import Picture from "../../assets/rewards_page/ascendo_logo.png";
@@ -21,9 +22,11 @@ const TasksList = ({ navigation }) => {
   const [expandedTaskId, setExpandedTaskId] = useState(null);
   const [tasks, setTasks] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [loading, setLoading] = useState(true); // Add this
 
   useEffect(() => {
     fetchTasks();
+    setLoading(false);
   }, []);
 
   const fetchTasks = async () => {
@@ -225,6 +228,12 @@ const TasksList = ({ navigation }) => {
         rightOpenValue={-80} // Width of the delete button
         disableRightSwipe={true} // Disable right swipe on list items
       />
+            {loading && (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#469FD1" />
+          <Text>Loading...</Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -392,6 +401,12 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 24,
     marginLeft: 20,
+  },
+  loadingContainer: {
+    ...StyleSheet.absoluteFill,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
 });
 
