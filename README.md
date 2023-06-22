@@ -1,6 +1,19 @@
 <h1 align="center"> :office: Ascendo</h1>
 
-Ascendo is a two-pronged mobile application deployed in companies to revolutionize employee experience and enhance work efficiency through gamification, addressing the problem faced by organizations: low levels of meaningful connections among colleagues leading to inadequate fulfillment in the workplace.
+Ascendo is a two-pronged, innovative mobile application aimed at enhancing employee experience and increasing work efficiency through the means of gamification. This application is especially designed to foster meaningful connections among colleagues, even in a remote work setting, thereby leading to increased satisfaction and fulfillment in the workplace. The premise behind Ascendo is simple yet powerful - Encourage employees to complete their tasks and foster interaction with their team members through engaging and fun-filled team games, thereby enriching their day-to-day experience at work.
+
+By using Ascendo, organizations can address the pressing issue of social isolation in remote work settings and create a work environment that is not just productive, but also enjoyable, fulfilling, and meaningful. With Ascendo, we aim to revolutionize the employee experience and establish a vibrant work culture that truly motivates and engages employees.
+
+
+<h2 align = "center"> :moneybag:	Value Proposition </h2>
+
+1. <strong>Enhancing Social Interaction: </strong>
+
+Addressing the prevailing issue of low levels of meaningful connections that contribute to social isolation, Ascendo incorporates the fun element of team games into the work routine. These short and engaging games can be played once a day, before lunchtime, serving as a breather from work and an opportunity for team members to interact and bond. By setting a specific time and limit to the gaming duration, we ensure that these activities offer a refreshing break without becoming a distraction.
+
+2. <strong> Boosting Workplace Fulfillment: </strong>
+
+Ascendo also addresses the lack of fulfillment in the workplace through a unique avatar and pet system. Employees earn experience points and rewards by completing tasks and participating in team games. These points can be redeemed for exclusive rewards or spent on our distinctive gacha machine to adopt a virtual pet. The high cost associated with obtaining a pet from the gacha machine is deliberate, promoting a balanced engagement where users are encouraged to complete more tasks or participate in team games without fostering an addictive gaming behavior. This system provides a tangible sense of achievement and adds a layer of personalization and fun to the daily work routine.
 
 <h2 align = "center"> :open_book: Table Of Contents </h2>
 
