@@ -101,7 +101,7 @@ Run npx expo start in the terminal.
 | Profile                                                                                                                            | Name             | School                                 | Responsibilities
 | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------------------------------------- | ------------------------------ |
 | <a href='https://github.com/weikangg' title='weikangg'> <img src='https://github.com/weikangg.png' height='50' width='50'/></a>       | Wei Kang           | Nanyang Technological University (NTU) | Frontend, Backend |
-| <a href='https://github.com/kanetan4' title='kane'> <img src='https://github.com/kane.png' height='50' width='50'/></a>       | Kane Tan           | Nanyang Technological University (NTU) | Frontend, Backend |
+| <a href='https://github.com/kanetan4' title='kanetan4'> <img src='https://github.com/kanetan4.png' height='50' width='50'/></a>       | Kane Tan           | Nanyang Technological University (NTU) | Frontend, Backend |
 | <a href='https://github.com/yuandjom' title='john'> <img src='https://github.com/yuandjom.png' height='50' width='50'/></a>       | John Lim           | Nanyang Technological University (NTU) | Frontend, Backend |
 | <a href='https://github.com/kanetan4' title='kane'> <img src='https://github.com/kane.png' height='50' width='50'/></a>       | Kane Tan           | Nanyang Technological University (NTU) | Frontend, Backend |
 | <a href='https://github.com/kanetan4' title='kane'> <img src='https://github.com/kane.png' height='50' width='50'/></a>       | Kane Tan           | Nanyang Technological University (NTU) | Frontend, Backend |
