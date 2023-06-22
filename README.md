@@ -77,26 +77,26 @@ npx expo start
 
 - **Tasks:** Managers can add and assign tasks to employees while employees can check off the tasks that they have completed and even check the history of their tasks. <br/><br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/b8c2a01e-bcdd-4812-9d62-2ce43d892d21" alt="Tasks" width="200" " />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/b8c2a01e-bcdd-4812-9d62-2ce43d892d21" alt="Tasks" width="200" />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/c87e6d5a-1d43-449f-95ea-1915933da016" alt="TasksAdd" width="200" style="margin-left:20px; />
 </div>
 
 - **Games:** Users can play games with their team members to earn points and rewards before lunch time daily! Different games will be implemented for different departments within the organisation. Future improvements include an RPG game / 3D world for users to move their avatars and pets around to interact with other team members and complete certain quests together to earn the relevant points, thus improving team cohesion and fosters interaction.  <br/><br/>
 
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/0dbc607f-456d-40b5-8a2f-c5044a029837" alt="GameLobby" width="200" " />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/0dbc607f-456d-40b5-8a2f-c5044a029837" alt="GameLobby" width="200" />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/c1007244-e5bb-4497-b188-921da34988ff" alt="GameCharades" width="200" style="margin-left:20px; />
 </div>
       
 - **Gacha Capsule**: Users can spend the points they earn through completing tasks and winning team games on our gacha capsule to stand a chance at earning the legendary pet, the Snow Cat. Further improvements include evolving the pets and making the pets grow as they are fed. Pet food can be bought through a shop.<br/><br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/6db5fe5a-5025-4837-9f54-17bd873f7c1e" alt="Gacha " width="200" " />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/6db5fe5a-5025-4837-9f54-17bd873f7c1e" alt="Gacha " width="200"  />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/d9a7aa7c-aa14-4f2c-81d7-22ff34ceea04" alt="GachaPrize" width="200" style="margin-left:20px; />
 </div>
 
 - **Rewards**: Users can also spend the points they earn on redeeming real-life rewards if they desire.<br/><br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/f04bcaa5-f605-4d4a-9c96-dbdeb4ba5695" alt="Rewards " width="200" " />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/f04bcaa5-f605-4d4a-9c96-dbdeb4ba5695" alt="Rewards " width="200"  />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/e582bb64-9b95-41e8-b6b9-7d53098b5d8e" alt="RewardsItem" width="200" style="margin-left:20px; />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/7f1054c9-96ef-4544-a461-ff10af6220d2" alt="RewardsItemRedeem" width="200" style="margin-left:20px; />
 </div>
