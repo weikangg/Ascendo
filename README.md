@@ -63,6 +63,17 @@ npx expo start
 
 <h2 align="center" id = "key-features"> :old_key:	Key Features</h2>
 
+- **Register/Login:** Users can register for an account, receive a confirmation code to confirm sign-up and login with necessary authentication.
+- 
+<table>
+  <tr>
+    <td align="center"><img src="https://github.com/weikangg/Ascendo/assets/95838788/131ea3fb-77a0-4903-a38c-06626b522459" alt="Register" style="width:200px;"></td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td> <!-- This adds some space between the images -->
+    <td align="center"><img src="https://github.com/weikangg/Ascendo/assets/95838788/bf7f2b91-4318-499b-9e16-c764dff7dc98" alt="Login" style="width:200px;"></td>
+  </tr>
+</table>
+
+
 - **Rewards:** Users can redeem valuable discounts and vouchers with their points! <br/><br/>
 ![rewards](https://github.com/weikangg/Ascendo/assets/95838788/cba1f51a-897c-4092-bd62-2a35248cd145)
 
