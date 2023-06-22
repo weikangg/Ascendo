@@ -13,7 +13,7 @@ import {
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "Fill in API Key Here",
 });
 
 const openai = new OpenAIApi(configuration);
