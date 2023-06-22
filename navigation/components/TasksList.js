@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     paddingRight: 15,
     marginBottom: 16,
-    marginLeft: 35,
+    marginLeft: 30,
     width: "90%",
     maxWidth: 400,
     borderRadius: 8,
