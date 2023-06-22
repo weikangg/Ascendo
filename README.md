@@ -138,7 +138,7 @@ Run npx expo start in the terminal.
 
 <h2 align="center" id = "contributors"> :family_man_man_boy_boy: Contributors:</h2>
 
-\t| Profile                                                                                                                            | Name             | School                                 | Responsibilities
+| Profile                                                                                                                            | Name             | School                                 | Responsibilities
 | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------------------------------------- | ------------------------------ |
 | <a href='https://github.com/weikangg' title='weikangg'> <img src='https://github.com/weikangg.png' height='50' width='50'/></a>       | Wei Kang           | Nanyang Technological University (NTU) | Frontend, Backend |
 | <a href='https://github.com/kanetan4' title='kanetan4'> <img src='https://github.com/kanetan4.png' height='50' width='50'/></a>       | Kane Tan           | Nanyang Technological University (NTU) | Frontend, Backend |
