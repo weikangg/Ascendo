@@ -65,50 +65,50 @@ npx expo start
 
 - **Register/Login:** Users can register for an account, receive a confirmation code to confirm sign-up and login with necessary authentication. This was implemented using AWS Cognito for authentication. <br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/131ea3fb-77a0-4903-a38c-06626b522459" alt="Register" width="200" />
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/a022e1f2-90c1-4f02-ac11-7d1b663c9ba3" alt="RegisterConfirm" width="200" style="margin-left:20px;"/>
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/bf7f2b91-4318-499b-9e16-c764dff7dc98" alt="Login" width="200" style="margin-left:20px;" />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/74bcf124-dda1-4b74-b1ca-dc52a4235cbe" alt="Register" width="200" />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/8daa425c-26ef-4d6a-85ae-f7f9600ef951" alt="RegisterConfirm" width="200" style="margin-left:20px;"/>
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/1f0c6744-6fa4-4804-b461-57059555f59d" alt="Login" width="200" style="margin-left:20px;" />
 </div>
 
 - **Community:** Users can connect with people within or outside their department! They can also upload posts or images of their pets to share achievements and connect with others. <br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/0d644c7c-1fef-4a8b-ac48-abaf9471ac20" alt="HomeCommunity" width="200" />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/fa91f4c0-98cf-4229-9ecb-c6eea5c85f3d" alt="HomeCommunity" width="200" />
 </div>
 
 - **Tasks:** Managers can add and assign tasks to employees while employees can check off the tasks that they have completed and even check the history of their tasks. <br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/b8c2a01e-bcdd-4812-9d62-2ce43d892d21" alt="Tasks" width="200" />
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/c87e6d5a-1d43-449f-95ea-1915933da016" alt="TasksAdd" width="200" style="margin-left:20px"; />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/be8bbc85-3fcd-4d60-9467-fa6a6c656be6" alt="Tasks" width="200" />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/54b92c3e-8405-4b75-8329-9b1232824dea" alt="TasksAdd" width="200" style="margin-left:20px"; />
 </div>
 
 - **Games:** Users can play games with their team members to earn points and rewards before lunch time daily! Different games will be implemented for different departments within the organisation. Future improvements include an RPG game / 3D world for users to move their avatars and pets around to interact with other team members and complete certain quests together to earn the relevant points, thus improving team cohesion and fosters interaction.  <br/>
 
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/0dbc607f-456d-40b5-8a2f-c5044a029837" alt="GameLobby" width="200" />
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/c1007244-e5bb-4497-b188-921da34988ff" alt="GameCharades" width="200" style="margin-left:20px"; />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/e8a9b14e-5b11-4836-a56c-49e440caf2d2" alt="GameLobby" width="200" />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/6be63b52-56db-4d97-abf8-f0f79f7fcde3" alt="GameCharades" width="200" style="margin-left:20px"; />
 </div>
-      
+
 - **Gacha Capsule**: Users can spend the points they earn through completing tasks and winning team games on our gacha capsule to stand a chance at earning the legendary pet, the Snow Cat. Further improvements include evolving the pets and making the pets grow as they are fed. Pet food can be bought through a shop.<br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/6db5fe5a-5025-4837-9f54-17bd873f7c1e" alt="Gacha " width="200"  />
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/d9a7aa7c-aa14-4f2c-81d7-22ff34ceea04" alt="GachaPrize" width="200" style="margin-left:20px"; />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/0c9ac14b-dddf-4058-a8df-429c5f63c56e" alt="Gacha " width="200"  />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/e0f94627-57da-47a1-9a6e-54afec976271" alt="GachaPrize" width="200" style="margin-left:20px"; />
 </div>
 
 - **Rewards**: Users can also spend the points they earn on redeeming real-life rewards if they desire.<br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/f04bcaa5-f605-4d4a-9c96-dbdeb4ba5695" alt="Rewards " width="200"  />
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/e582bb64-9b95-41e8-b6b9-7d53098b5d8e" alt="RewardsItem" width="200" style="margin-left:20px"; />
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/7f1054c9-96ef-4544-a461-ff10af6220d2" alt="RewardsItemRedeem" width="200" style="margin-left:20px"; />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/7eb42353-4f5f-494b-97c3-ba6472ea2af6" alt="Rewards " width="200"  />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/accb519c-5948-4b07-acde-1feb9e8f4a1f" alt="RewardsItem" width="200" style="margin-left:20px"; />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/d1c54be4-663e-481c-9920-2067fb7bfec5" alt="RewardsItemRedeem" width="200" style="margin-left:20px"; />
 </div>
 
 - **Chatbot**: The pet which the user acquires from the gacha machine acts as the chatbot for users to interact with it to answer questions, help employees plan their time as well as HR solutions for them (when they face problems but do not feel like they can turn to anyone). It can also be used to do some day-to-day admin tasks such as coming up with emails for the user to apply for leave.<br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/72c5a932-4969-403f-a5d8-3819c814e0ff" alt="ChatBot" width="200" />
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/231427e6-0a92-4991-93bf-ed37ff8a6d99" alt="ChatBot" width="200" />
 </div>
 
 - **User Profile**: Users will have their own avatar and pet, which they can gain experience points through completing tasks and winning team games as well to increase their levels on Ascendo. This is to allow users to gain a sense of satisfaction and to see some progress as they complete the tasks which will make it seem less mundane.<br/><br/>
 <div align="center">
-    <img src="https://github.com/weikangg/Ascendo/assets/95838788/bba2a32e-b02d-46ad-8659-e10a1fc16b44" alt="Profile" width="200"/>
+    <img src="https://github.com/weikangg/Ascendo/assets/95838788/0975fe96-9ead-4c9b-a69b-b2fa546dca91" alt="Profile" width="200"/>
 </div>
 
 <h2 align="center" id = "faq" > :question: FAQ</h2>
