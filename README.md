@@ -63,7 +63,7 @@ npx expo start
 
 <h2 align="center" id = "key-features"> :old_key:	Key Features</h2>
 
-- **Register/Login:** Users can register for an account, receive a confirmation code to confirm sign-up and login with necessary authentication. This was implemented using AWS Cognito for authentication.
+- **Register/Login:** Users can register for an account, receive a confirmation code to confirm sign-up and login with necessary authentication. This was implemented using AWS Cognito for authentication. <br/><br/>
 <div align="center">
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/131ea3fb-77a0-4903-a38c-06626b522459" alt="Register" width="200" />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/a022e1f2-90c1-4f02-ac11-7d1b663c9ba3" alt="RegisterConfirm" width="200" style="margin-left:20px;"/>
@@ -75,7 +75,7 @@ npx expo start
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/0d644c7c-1fef-4a8b-ac48-abaf9471ac20" alt="HomeCommunity" width="200" />
 </div>
 
-- **Tasks:** Managers can add and assign tasks to employees while employees can check off the tasks that they have completed and even check the history of their tasks.
+- **Tasks:** Managers can add and assign tasks to employees while employees can check off the tasks that they have completed and even check the history of their tasks. <br/><br/>
 <div align="center">
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/b8c2a01e-bcdd-4812-9d62-2ce43d892d21" alt="Tasks" width="200" " />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/c87e6d5a-1d43-449f-95ea-1915933da016" alt="TasksAdd" width="200" style="margin-left:20px; />
