@@ -32,7 +32,10 @@ Ascendo also addresses the lack of fulfillment in the workplace through a unique
   + https://code.visualstudio.com/
 * Node
   + https://nodejs.org/en/
-
+* AWS Services
+  + Create & Sign in to AWS Account.
+  + Set-up CRUD Functionality using AWS Amplify, API Gateway, Lambda, DynamoDB. (https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-dynamo-db.html)
+    
 > Prerequsite API Keys Required
 * OpenAI API 
   + https://platform.openai.com/account/api-keys <br/>
@@ -40,16 +43,19 @@ Ascendo also addresses the lack of fulfillment in the workplace through a unique
     b. Go to https://platform.openai.com/account/billing/overview to set up paid account if no free credits.<br/>
     c. Click create new secret key. <br/>
     d. Paste secret key into .env file.  <br/>
-
 * Clone this project
 
 <h2 align="center" id = "setup"> :hammer_and_wrench:	Setup</h2>
 
 >Setup
 
-Please follow carefully during the setup process. 
-
-
+1. Open terminal in VS Code / Command Line.
+2. cd to Ascendo folder.
+3. Run the following commands:
+```
+npm i
+npx expo start
+```
 
 <h2 align="center" id = "key-features"> :old_key:	Key Features</h2>
 
