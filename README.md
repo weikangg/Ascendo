@@ -28,34 +28,18 @@ Ascendo also addresses the lack of fulfillment in the workplace through a unique
 
 #### Internet Connectivity Required
 > Prerequsite software
-* Operating System: Windows 10/11, macOS Catalina above
 * Visual Studio Code
   + https://code.visualstudio.com/
 * Node
   + https://nodejs.org/en/
 
 > Prerequsite API Keys Required
-* URA API 
-  + https://www.ura.gov.sg/maps/api/#introduction <br/>
-    a. Register for an account. Fill in NA for Company Name, and put in arbitrary URL (e.g. https://www.google.com) <br/>
-    b. Go to your email and open the confirmation email titled 'URA Data Request - Approved'. <br/>
-    c. Click on the link and the button to generate access key. <br/>
-    d. Go back to your email and open the email titled 'URA Data Request - Access key'.  <br/>
-    e. You should see your URA API key there which is required for PropertyIQ. **Do not lose this key!** <br/>
-* Google Maps API
-  + https://www.youtube.com/watch?v=OGTG1l7yin4 (Step-by-step tutorial on how to acquire API Key) <br/>
-    a. Go to https://console.cloud.google.com. <br/>
-    b. Create a new Project. Name it however you want. <br/>
-    c. Open the sidebar, click **API & Services**, then click on **Library**. <br/>
-    d. Search for or click on **Maps Javascript API**. <br/>
-    e. Enable it. <br/>
-    f. Open the sidebar again, click **API & Services**, then click on **Credentials**. <br/>
-    g. Click on Create Credentials, then click on API Key. <br/>
-    h. And you're done, that's the API key required for our Google Maps Services for PropertyIQ. **Do not lose this key!** <br/>
-    
->Prerequsite (Others)
-* Gmail App Password
-  + https://myaccount.google.com/ <br/>
+* OpenAI API 
+  + https://platform.openai.com/account/api-keys <br/>
+    a. Register for an OpenAI account. <br/>
+    b. Go to https://platform.openai.com/account/billing/overview to set up paid account if no free credits.<br/>
+    c. Click create new secret key. <br/>
+    d. Paste secret key into .env file.  <br/>
 
 * Clone this project
 
