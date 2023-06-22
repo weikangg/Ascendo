@@ -82,30 +82,31 @@ npx expo start
 </div>
 
 - **Games:** Users can play games with their team members to earn points and rewards before lunch time daily! Different games will be implemented for different departments within the organisation. Future improvements include an RPG game / 3D world for users to move their avatars and pets around to interact with other team members and complete certain quests together to earn the relevant points, thus improving team cohesion and fosters interaction.  <br/><br/>
+
 <div align="center">
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/0dbc607f-456d-40b5-8a2f-c5044a029837" alt="GameLobby" width="200" " />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/c1007244-e5bb-4497-b188-921da34988ff" alt="GameCharades" width="200" style="margin-left:20px; />
 </div>
       
-- **Gacha Capsule**: Users can spend the points they earn through completing tasks and winning team games on our gacha capsule to stand a chance at earning the legendary pet, the Snow Cat. Further improvements include evolving the pets and making the pets grow as they are fed. Pet food can be bought through a shop.
+- **Gacha Capsule**: Users can spend the points they earn through completing tasks and winning team games on our gacha capsule to stand a chance at earning the legendary pet, the Snow Cat. Further improvements include evolving the pets and making the pets grow as they are fed. Pet food can be bought through a shop.<br/><br/>
 <div align="center">
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/6db5fe5a-5025-4837-9f54-17bd873f7c1e" alt="Gacha " width="200" " />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/d9a7aa7c-aa14-4f2c-81d7-22ff34ceea04" alt="GachaPrize" width="200" style="margin-left:20px; />
 </div>
 
-- **Rewards**: Users can also spend the points they earn on redeeming real-life rewards if they desire.
+- **Rewards**: Users can also spend the points they earn on redeeming real-life rewards if they desire.<br/><br/>
 <div align="center">
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/f04bcaa5-f605-4d4a-9c96-dbdeb4ba5695" alt="Rewards " width="200" " />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/e582bb64-9b95-41e8-b6b9-7d53098b5d8e" alt="RewardsItem" width="200" style="margin-left:20px; />
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/7f1054c9-96ef-4544-a461-ff10af6220d2" alt="RewardsItemRedeem" width="200" style="margin-left:20px; />
 </div>
 
-- **Chatbot**: The pet which the user acquires from the gacha machine acts as the chatbot for users to interact with it to answer questions, help employees plan their time as well as HR solutions for them (when they face problems but do not feel like they can turn to anyone). It can also be used to do some day-to-day admin tasks such as coming up with emails for the user to apply for leave.
+- **Chatbot**: The pet which the user acquires from the gacha machine acts as the chatbot for users to interact with it to answer questions, help employees plan their time as well as HR solutions for them (when they face problems but do not feel like they can turn to anyone). It can also be used to do some day-to-day admin tasks such as coming up with emails for the user to apply for leave.<br/><br/>
 <div align="center">
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/72c5a932-4969-403f-a5d8-3819c814e0ff" alt="ChatBot" width="200" " />
 </div>
 
-- **User Profile**: Users will have their own avatar and pet, which they can gain experience points through completing tasks and winning team games as well to increase their levels on Ascendo. This is to allow users to gain a sense of satisfaction and to see some progress as they complete the tasks which will make it seem less mundane.
+- **User Profile**: Users will have their own avatar and pet, which they can gain experience points through completing tasks and winning team games as well to increase their levels on Ascendo. This is to allow users to gain a sense of satisfaction and to see some progress as they complete the tasks which will make it seem less mundane.<br/><br/>
 <div align="center">
     <img src="https://github.com/weikangg/Ascendo/assets/95838788/bba2a32e-b02d-46ad-8659-e10a1fc16b44" alt="Profile" width="200" " />
 </div>
