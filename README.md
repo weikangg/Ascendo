@@ -1,5 +1,7 @@
 <h1 align="center"> :office: Ascendo</h1>
 
+![Logo](https://github.com/weikangg/Ascendo/assets/95838788/20c20659-a018-41c9-8bbe-1304c16e31af)
+
 Ascendo is a two-pronged, innovative mobile application aimed at enhancing employee experience and increasing work efficiency through the means of gamification. This application is especially designed to foster meaningful connections among colleagues, even in a remote work setting, thereby leading to increased satisfaction and fulfillment in the workplace. The premise behind Ascendo is simple yet powerful - Encourage employees to complete their tasks and foster interaction with their team members through engaging and fun-filled team games, thereby enriching their day-to-day experience at work.
 
 By using Ascendo, organizations can address the pressing issue of social isolation in remote work settings and create a work environment that is not just productive, but also enjoyable, fulfilling, and meaningful. With Ascendo, we aim to revolutionize the employee experience and establish a vibrant work culture that truly motivates and engages employees.
