@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingTop: 20,
     backgroundColor: "white",
-    borderRadius: 30,
+    borderRadius: 15,
     marginLeft: -10,
   },
   image: {
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   imageBackground: {
-    borderRadius: 30,
+    borderRadius: 15,
     borderColor: "#BFC0C1",
     borderWidth: 1,
   },
